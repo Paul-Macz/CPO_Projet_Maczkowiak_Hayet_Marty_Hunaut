@@ -4,17 +4,36 @@
  */
 package projet_labyrinthe;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import javax.swing.JButton;
+
 /**
  *
  * @author lukha
  */
 public class Interface extends javax.swing.JFrame {
+    Toolkit toolkit = Toolkit.getDefaultToolkit();
+    Dimension ScreenDim = toolkit.getScreenSize();
 
+    Partie Session;
+    int CaseSize=128; 
     /**
      * Creates new form FenetreDeJeu
      */
     public Interface() {
         initComponents();
+        Session = new Partie();
+        
+        Labyrinth.setPreferredSize(new Dimension(CaseSize*7,CaseSize*7));
+        
+        for (int i=0;i<7;i++){
+            for (int j=0;j<7;j++){
+                JButton Case = new JButton(i+" "+j);
+                Case.setPreferredSize(new Dimension(CaseSize,CaseSize));
+                Labyrinth.add(Case);
+            }
+        }
     }
 
     /**
@@ -26,17 +45,28 @@ public class Interface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Labyrinth = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        Labyrinth.setBackground(new java.awt.Color(102, 102, 102));
+        Labyrinth.setLayout(new java.awt.GridLayout(7, 7));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addComponent(Labyrinth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(840, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(Labyrinth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(441, Short.MAX_VALUE))
         );
 
         pack();
@@ -79,5 +109,6 @@ public class Interface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Labyrinth;
     // End of variables declaration//GEN-END:variables
 }

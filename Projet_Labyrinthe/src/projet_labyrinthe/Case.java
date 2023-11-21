@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class Case {
     int orientation;
-    boolean North, South, East, West; 
+    boolean Haut, Bas, Gauche, Droite; 
     ArrayList<Peon> Players;
     String object;
 
@@ -23,17 +23,17 @@ public class Case {
      */
     public Case() {
         this.orientation = 0;
-        this.North = false;
-        this.South = false;
-        this.East = false;
-        this.West = false;
+        this.Haut = false;
+        this.Bas = false;
+        this.Gauche = false;
+        this.Droite = false;
         this.Players = null;
         this.object = "";
     }
     
     /**
      * Change l'orientation de la case dans le sens trigonométrique
-     * Par implication, change fais tourner les murs ouverts (North,South,East,West)
+ Par implication, change fais tourner les murs ouverts (Haut,Bas,Gauche,Droite)
      * @param angle Détermine la nouvel orientation de la case, si angle n'est pas un
      * multiple de 90 degrés, la méthode ne fait rien.
      */
@@ -49,28 +49,28 @@ public class Case {
             
             switch (direction) {
                 case 1:
-                    temp=North;
-                    North=East;
-                    East=South;
-                    South=West;
-                    West=temp;
+                    temp=Haut;
+                    Haut=Gauche;
+                    Gauche=Bas;
+                    Bas=Droite;
+                    Droite=temp;
                     orientation=90;
                     break;
                 case 2:
-                    temp=North;
-                    North=South;
-                    South=North;
-                    temp2=East;
-                    East=West;
-                    West=temp2;
+                    temp=Haut;
+                    Haut=Bas;
+                    Bas=Haut;
+                    temp2=Gauche;
+                    Gauche=Droite;
+                    Droite=temp2;
                     orientation=180;
                     break;
                 case 3:
-                    temp=North;
-                    North=West;
-                    West=South;
-                    South=East;
-                    East=temp;
+                    temp=Haut;
+                    Haut=Droite;
+                    Droite=Bas;
+                    Bas=Gauche;
+                    Gauche=temp;
                     orientation=270;
                     break;
                 default:
