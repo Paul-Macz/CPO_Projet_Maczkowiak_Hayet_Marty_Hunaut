@@ -4,9 +4,11 @@
  */
 package projet_labyrinthe;
 
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 
 /**
  *
@@ -16,6 +18,7 @@ public class Interface extends javax.swing.JFrame {
     Toolkit toolkit = Toolkit.getDefaultToolkit();
     Dimension ScreenDim = toolkit.getScreenSize();
 
+
     Partie Session;
     int CaseSize=128; 
     /**
@@ -24,13 +27,17 @@ public class Interface extends javax.swing.JFrame {
     public Interface() {
         initComponents();
         Session = new Partie();
+        setSize(ScreenDim.width, ScreenDim.height);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setLayout(null);
+        Labyrinth.setBounds(ScreenDim.width/2, (ScreenDim.height)/10, (ScreenDim.height)*7/10, (ScreenDim.height)*7/10);
+        Pane_Info.setBounds(0, 0, (ScreenDim.width)/3, ScreenDim.height);
         
-        Labyrinth.setPreferredSize(new Dimension(CaseSize*7,CaseSize*7));
         
         for (int i=0;i<7;i++){
             for (int j=0;j<7;j++){
                 JButton Case = new JButton(i+" "+j);
-                Case.setPreferredSize(new Dimension(CaseSize,CaseSize));
+                Case.setPreferredSize(new Dimension(ScreenDim.height/10,ScreenDim.height/10));
                 Labyrinth.add(Case);
             }
         }
@@ -46,28 +53,63 @@ public class Interface extends javax.swing.JFrame {
     private void initComponents() {
 
         Labyrinth = new javax.swing.JPanel();
+        Pane_Info = new javax.swing.JPanel();
+        Top1 = new javax.swing.JButton();
+        Top2 = new javax.swing.JButton();
+        Top3 = new javax.swing.JButton();
+        Right1 = new javax.swing.JButton();
+        Right2 = new javax.swing.JButton();
+        Right3 = new javax.swing.JButton();
+        Bottom3 = new javax.swing.JButton();
+        Bottom2 = new javax.swing.JButton();
+        Bottom1 = new javax.swing.JButton();
+        Left3 = new javax.swing.JButton();
+        Left2 = new javax.swing.JButton();
+        Left1 = new javax.swing.JButton();
+        Validate = new javax.swing.JButton();
+        Rotate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Labyrinth.setBackground(new java.awt.Color(102, 102, 102));
         Labyrinth.setLayout(new java.awt.GridLayout(7, 7));
+        getContentPane().add(Labyrinth, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 180, 190));
+        Labyrinth.getAccessibleContext().setAccessibleName("");
+        Labyrinth.getAccessibleContext().setAccessibleDescription("");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(Labyrinth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(840, Short.MAX_VALUE))
+        Pane_Info.setBackground(new java.awt.Color(0, 102, 51));
+
+        javax.swing.GroupLayout Pane_InfoLayout = new javax.swing.GroupLayout(Pane_Info);
+        Pane_Info.setLayout(Pane_InfoLayout);
+        Pane_InfoLayout.setHorizontalGroup(
+            Pane_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 260, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(Labyrinth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(441, Short.MAX_VALUE))
+        Pane_InfoLayout.setVerticalGroup(
+            Pane_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 480, Short.MAX_VALUE)
         );
+
+        getContentPane().add(Pane_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(Top1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, 20, 10));
+        getContentPane().add(Top2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, 30, 10));
+        getContentPane().add(Top3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, 30, 10));
+        getContentPane().add(Right1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, -1, -1));
+        getContentPane().add(Right2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 220, -1, -1));
+        getContentPane().add(Right3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 280, -1, -1));
+        getContentPane().add(Bottom3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 350, -1, -1));
+        getContentPane().add(Bottom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, -1, -1));
+        getContentPane().add(Bottom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, -1, -1));
+        getContentPane().add(Left3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, -1, -1));
+        getContentPane().add(Left2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, -1, -1));
+        getContentPane().add(Left1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, -1, -1));
+
+        Validate.setText("Valider");
+        getContentPane().add(Validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, -1, -1));
+
+        Rotate.setText("Tourner");
+        getContentPane().add(Rotate, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 440, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -109,6 +151,21 @@ public class Interface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Bottom1;
+    private javax.swing.JButton Bottom2;
+    private javax.swing.JButton Bottom3;
     private javax.swing.JPanel Labyrinth;
+    private javax.swing.JButton Left1;
+    private javax.swing.JButton Left2;
+    private javax.swing.JButton Left3;
+    private javax.swing.JPanel Pane_Info;
+    private javax.swing.JButton Right1;
+    private javax.swing.JButton Right2;
+    private javax.swing.JButton Right3;
+    private javax.swing.JButton Rotate;
+    private javax.swing.JButton Top1;
+    private javax.swing.JButton Top2;
+    private javax.swing.JButton Top3;
+    private javax.swing.JButton Validate;
     // End of variables declaration//GEN-END:variables
 }
