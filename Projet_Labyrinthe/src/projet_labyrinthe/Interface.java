@@ -67,18 +67,7 @@ public class Interface extends javax.swing.JFrame {
         Labyrinth.getAccessibleContext().setAccessibleDescription("");
 
         Pane_Info.setBackground(new java.awt.Color(0, 102, 51));
-
-        javax.swing.GroupLayout Pane_InfoLayout = new javax.swing.GroupLayout(Pane_Info);
-        Pane_Info.setLayout(Pane_InfoLayout);
-        Pane_InfoLayout.setHorizontalGroup(
-            Pane_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 260, Short.MAX_VALUE)
-        );
-        Pane_InfoLayout.setVerticalGroup(
-            Pane_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
-        );
-
+        Pane_Info.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(Pane_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Top1.addActionListener(new java.awt.event.ActionListener() {
@@ -202,6 +191,13 @@ public class Interface extends javax.swing.JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLayout(null);
         Labyrinth.setBounds(ScreenDim.width/2, (ScreenDim.height)/10, (ScreenDim.height)*7/10, (ScreenDim.height)*7/10);
+        for (int i=0;i<7;i++){
+            for (int j=0;j<7;j++){
+                JButton Case = new JButton(i+" "+j);
+                Case.setPreferredSize(new Dimension(ScreenDim.height/10,ScreenDim.height/10));
+                Labyrinth.add(Case);
+            }
+        }
         Pane_Info.setBounds(0, 0, (ScreenDim.width)/3, ScreenDim.height);
         Top1.setBounds((ScreenDim.width)/2+ScreenDim.height/10, 0, ScreenDim.height/10, ScreenDim.height/10);
         Top2.setBounds((ScreenDim.width)/2+(ScreenDim.height)*3/10, 0, ScreenDim.height/10, ScreenDim.height/10);
@@ -218,13 +214,7 @@ public class Interface extends javax.swing.JFrame {
         Validate.setBounds((ScreenDim.width)*7/20, (ScreenDim.height)*7/9, (ScreenDim.height)*3/40, (ScreenDim.height)*3/40);
         Rotate.setBounds((ScreenDim.width)*8/20, (ScreenDim.height)*7/9, (ScreenDim.height)*3/40, (ScreenDim.height)*3/40);
         btn_Help.setBounds((ScreenDim.width)*7/20, (ScreenDim.height)/30, (ScreenDim.height)*3/40, (ScreenDim.height)*3/40);
-        for (int i=0;i<7;i++){
-            for (int j=0;j<7;j++){
-                JButton Case = new JButton(i+" "+j);
-                Case.setPreferredSize(new Dimension(ScreenDim.height/10,ScreenDim.height/10));
-                Labyrinth.add(Case);
-            }
-        }
+        
     }
     
     private void btn_HelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_HelpActionPerformed
