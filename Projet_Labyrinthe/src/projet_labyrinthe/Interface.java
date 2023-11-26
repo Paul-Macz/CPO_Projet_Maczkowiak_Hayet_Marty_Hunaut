@@ -7,6 +7,7 @@ package projet_labyrinthe;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
@@ -15,16 +16,45 @@ import javax.swing.JFrame;
  * @author lukha
  */
 public class Interface extends javax.swing.JFrame {
+
     Toolkit toolkit = Toolkit.getDefaultToolkit();
     Dimension ScreenDim = toolkit.getScreenSize();
 
-
+    String action = "";
     Partie Session;
-    int CaseSize=128; 
+
+    CaseGraphique Top1 = new CaseGraphique(new Case());
+    CaseGraphique Top2 = new CaseGraphique(new Case());
+    CaseGraphique Top3 = new CaseGraphique(new Case());
+    CaseGraphique Bottom1 = new CaseGraphique(new Case());
+    CaseGraphique Bottom2 = new CaseGraphique(new Case());
+    CaseGraphique Bottom3 = new CaseGraphique(new Case());
+    CaseGraphique Left1 = new CaseGraphique(new Case());
+    CaseGraphique Left2 = new CaseGraphique(new Case());
+    CaseGraphique Left3 = new CaseGraphique(new Case());
+    CaseGraphique Right1 = new CaseGraphique(new Case());
+    CaseGraphique Right2 = new CaseGraphique(new Case());
+    CaseGraphique Right3 = new CaseGraphique(new Case());
+    CaseGraphique[] Actions = new CaseGraphique[12];
+
+    int CaseSize = 128;
+
     /**
      * Creates new form FenetreDeJeu
      */
     public Interface() {
+        Actions[0] = Top1;
+        Actions[1] = Top2;
+        Actions[2] = Top3;
+        Actions[3] = Bottom1;
+        Actions[4] = Bottom2;
+        Actions[5] = Bottom3;
+        Actions[6] = Left1;
+        Actions[7] = Left2;
+        Actions[8] = Left3;
+        Actions[9] = Right1;
+        Actions[10] = Right2;
+        Actions[11] = Right3;
         initComponents();
         Session = new Partie();
         PlaceComponents();
@@ -41,18 +71,6 @@ public class Interface extends javax.swing.JFrame {
 
         Labyrinth = new javax.swing.JPanel();
         Pane_Info = new javax.swing.JPanel();
-        Top1 = new javax.swing.JButton();
-        Top2 = new javax.swing.JButton();
-        Top3 = new javax.swing.JButton();
-        Right1 = new javax.swing.JButton();
-        Right2 = new javax.swing.JButton();
-        Right3 = new javax.swing.JButton();
-        Bottom3 = new javax.swing.JButton();
-        Bottom2 = new javax.swing.JButton();
-        Bottom1 = new javax.swing.JButton();
-        Left3 = new javax.swing.JButton();
-        Left2 = new javax.swing.JButton();
-        Left1 = new javax.swing.JButton();
         Validate = new javax.swing.JButton();
         Rotate = new javax.swing.JButton();
         btn_Help = new javax.swing.JButton();
@@ -69,90 +87,6 @@ public class Interface extends javax.swing.JFrame {
         Pane_Info.setBackground(new java.awt.Color(0, 102, 51));
         Pane_Info.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(Pane_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        Top1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Top1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Top1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, 20, 10));
-
-        Top2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Top2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Top2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, 30, 10));
-
-        Top3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Top3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Top3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, 30, 10));
-
-        Right1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Right1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Right1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, -1, -1));
-
-        Right2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Right2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Right2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 220, -1, -1));
-
-        Right3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Right3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Right3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 280, -1, -1));
-
-        Bottom3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Bottom3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Bottom3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 350, -1, -1));
-
-        Bottom2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Bottom2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Bottom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, -1, -1));
-
-        Bottom1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Bottom1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Bottom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, -1, -1));
-
-        Left3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Left3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Left3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, -1, -1));
-
-        Left2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Left2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Left2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, -1, -1));
-
-        Left1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Left1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Left1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, -1, -1));
 
         Validate.setBackground(new java.awt.Color(0, 153, 0));
         Validate.setText("Valider");
@@ -185,96 +119,294 @@ public class Interface extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    private void PlaceComponents(){
-                setSize(ScreenDim.width, ScreenDim.height);
+
+    private void PlaceComponents() {
+        setSize(ScreenDim.width, ScreenDim.height);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLayout(null);
-        Labyrinth.setBounds(ScreenDim.width/2, (ScreenDim.height)/10, (ScreenDim.height)*7/10, (ScreenDim.height)*7/10);
-        for (int i=0;i<7;i++){
-            for (int j=0;j<7;j++){
-                JButton Case = new JButton(i+" "+j);
-                Case.setPreferredSize(new Dimension(ScreenDim.height/10,ScreenDim.height/10));
+        Labyrinth.setBounds(ScreenDim.width / 2, (ScreenDim.height) / 10, (ScreenDim.height) * 7 / 10, (ScreenDim.height) * 7 / 10);
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 7; j++) {
+                CaseGraphique Case = new CaseGraphique(Session.Labyrinth.Grid[i][j]);
+                Case.setPreferredSize(new Dimension(ScreenDim.height / 10, ScreenDim.height / 10));
                 Labyrinth.add(Case);
             }
         }
-        Pane_Info.setBounds(0, 0, (ScreenDim.width)/3, ScreenDim.height);
-        Top1.setBounds((ScreenDim.width)/2+ScreenDim.height/10, 0, ScreenDim.height/10, ScreenDim.height/10);
-        Top2.setBounds((ScreenDim.width)/2+(ScreenDim.height)*3/10, 0, ScreenDim.height/10, ScreenDim.height/10);
-        Top3.setBounds((ScreenDim.width)/2+(ScreenDim.height)*5/10, 0, ScreenDim.height/10, ScreenDim.height/10);
-        Bottom1.setBounds((ScreenDim.width)/2+ScreenDim.height/10,(ScreenDim.height)*8/10,ScreenDim.height/10, ScreenDim.height/10);
-        Bottom2.setBounds((ScreenDim.width)/2+(ScreenDim.height)*3/10,(ScreenDim.height)*8/10,ScreenDim.height/10, ScreenDim.height/10);
-        Bottom3.setBounds((ScreenDim.width)/2+(ScreenDim.height)*5/10,(ScreenDim.height)*8/10,ScreenDim.height/10, ScreenDim.height/10);
-        Left1.setBounds((ScreenDim.width)/2-(ScreenDim.height)/10, (ScreenDim.height)*2/10, ScreenDim.height/10, ScreenDim.height/10);
-        Left2.setBounds((ScreenDim.width)/2-(ScreenDim.height)/10, (ScreenDim.height)*4/10, ScreenDim.height/10, ScreenDim.height/10);
-        Left3.setBounds((ScreenDim.width)/2-(ScreenDim.height)/10, (ScreenDim.height)*6/10, ScreenDim.height/10, ScreenDim.height/10);
-        Right1.setBounds((ScreenDim.width)/2+(ScreenDim.height)*7/10, (ScreenDim.height)*2/10, ScreenDim.height/10, ScreenDim.height/10);
-        Right2.setBounds((ScreenDim.width)/2+(ScreenDim.height)*7/10, (ScreenDim.height)*4/10, ScreenDim.height/10, ScreenDim.height/10);
-        Right3.setBounds((ScreenDim.width)/2+(ScreenDim.height)*7/10, (ScreenDim.height)*6/10, ScreenDim.height/10, ScreenDim.height/10);
-        Validate.setBounds((ScreenDim.width)*7/20, (ScreenDim.height)*7/9, (ScreenDim.height)*3/40, (ScreenDim.height)*3/40);
-        Rotate.setBounds((ScreenDim.width)*8/20, (ScreenDim.height)*7/9, (ScreenDim.height)*3/40, (ScreenDim.height)*3/40);
-        btn_Help.setBounds((ScreenDim.width)*7/20, (ScreenDim.height)/30, (ScreenDim.height)*3/40, (ScreenDim.height)*3/40);
-        
+        Pane_Info.setBounds(0, 0, (ScreenDim.width) / 3, ScreenDim.height);
+
+        Top1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Top1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Top1);
+        Top1.setBounds((ScreenDim.width) / 2 + ScreenDim.height / 10, 0, ScreenDim.height / 10, ScreenDim.height / 10);
+
+        Top2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Top2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Top2);
+        Top2.setBounds((ScreenDim.width) / 2 + (ScreenDim.height) * 3 / 10, 0, ScreenDim.height / 10, ScreenDim.height / 10);
+
+        Top3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Top3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Top3);
+        Top3.setBounds((ScreenDim.width) / 2 + (ScreenDim.height) * 5 / 10, 0, ScreenDim.height / 10, ScreenDim.height / 10);
+
+        Bottom1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bottom1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Bottom1);
+        Bottom1.setBounds((ScreenDim.width) / 2 + ScreenDim.height / 10, (ScreenDim.height) * 8 / 10, ScreenDim.height / 10, ScreenDim.height / 10);
+
+        Bottom2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bottom2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Bottom2);
+        Bottom2.setBounds((ScreenDim.width) / 2 + (ScreenDim.height) * 3 / 10, (ScreenDim.height) * 8 / 10, ScreenDim.height / 10, ScreenDim.height / 10);
+
+        Bottom3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bottom3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Bottom3);
+        Bottom3.setBounds((ScreenDim.width) / 2 + (ScreenDim.height) * 5 / 10, (ScreenDim.height) * 8 / 10, ScreenDim.height / 10, ScreenDim.height / 10);
+
+        Left1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Left1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Left1);
+        Left1.setBounds((ScreenDim.width) / 2 - (ScreenDim.height) / 10, (ScreenDim.height) * 2 / 10, ScreenDim.height / 10, ScreenDim.height / 10);
+
+        Left2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Left2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Left2);
+        Left2.setBounds((ScreenDim.width) / 2 - (ScreenDim.height) / 10, (ScreenDim.height) * 4 / 10, ScreenDim.height / 10, ScreenDim.height / 10);
+
+        Left3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Left3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Left3);
+        Left3.setBounds((ScreenDim.width) / 2 - (ScreenDim.height) / 10, (ScreenDim.height) * 6 / 10, ScreenDim.height / 10, ScreenDim.height / 10);
+
+        Right1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Right1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Right1);
+        Right1.setBounds((ScreenDim.width) / 2 + (ScreenDim.height) * 7 / 10, (ScreenDim.height) * 2 / 10, ScreenDim.height / 10, ScreenDim.height / 10);
+
+        Right2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Right2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Right2);
+        Right2.setBounds((ScreenDim.width) / 2 + (ScreenDim.height) * 7 / 10, (ScreenDim.height) * 4 / 10, ScreenDim.height / 10, ScreenDim.height / 10);
+
+        Right3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Right3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Right3);
+        Right3.setBounds((ScreenDim.width) / 2 + (ScreenDim.height) * 7 / 10, (ScreenDim.height) * 6 / 10, ScreenDim.height / 10, ScreenDim.height / 10);
+        Validate.setBounds((ScreenDim.width) * 7 / 20, (ScreenDim.height) * 7 / 9, (ScreenDim.height) * 3 / 40, (ScreenDim.height) * 3 / 40);
+        Rotate.setBounds((ScreenDim.width) * 8 / 20, (ScreenDim.height) * 7 / 9, (ScreenDim.height) * 3 / 40, (ScreenDim.height) * 3 / 40);
+        btn_Help.setBounds((ScreenDim.width) * 7 / 20, (ScreenDim.height) / 30, (ScreenDim.height) * 3 / 40, (ScreenDim.height) * 3 / 40);
+
     }
-    
+
+    private void Top1ActionPerformed(java.awt.event.ActionEvent evt) {
+        if (action != "") {
+            for (int i = 0; i < Actions.length; i++) {
+                if (Actions[i].caseassocie == Session.Labyrinth.prochainecase) {
+                    Actions[i].caseassocie = new Case();
+                }
+            }
+        }
+        Top1.caseassocie=Session.Labyrinth.prochainecase;
+        action = "Top1";
+    }
+
+    private void Top2ActionPerformed(java.awt.event.ActionEvent evt) {
+        if (action != "") {
+            for (int i = 0; i < Actions.length; i++) {
+                if (Actions[i].caseassocie == Session.Labyrinth.prochainecase) {
+                    Actions[i].caseassocie = new Case();
+                }
+            }
+        }
+        Top2.caseassocie=Session.Labyrinth.prochainecase;
+        action = "Top2";
+    }
+
+    private void Top3ActionPerformed(java.awt.event.ActionEvent evt) {
+        if (action != "") {
+            for (int i = 0; i < Actions.length; i++) {
+                if (Actions[i].caseassocie == Session.Labyrinth.prochainecase) {
+                    Actions[i].caseassocie = new Case();
+                }
+            }
+        }
+        Top3.caseassocie=Session.Labyrinth.prochainecase;
+        action = "Top3";
+    }
+
+    private void Bottom1ActionPerformed(java.awt.event.ActionEvent evt) {
+        if (action != "") {
+            for (int i = 0; i < Actions.length; i++) {
+                if (Actions[i].caseassocie == Session.Labyrinth.prochainecase) {
+                    Actions[i].caseassocie = new Case();
+                }
+            }
+        }
+        Bottom1.caseassocie=Session.Labyrinth.prochainecase;
+        action = "Bottom1";
+    }
+
+    private void Bottom2ActionPerformed(java.awt.event.ActionEvent evt) {
+        if (action != "") {
+            for (int i = 0; i < Actions.length; i++) {
+                if (Actions[i].caseassocie == Session.Labyrinth.prochainecase) {
+                    Actions[i].caseassocie = new Case();
+                }
+            }
+        }
+        Bottom2.caseassocie=Session.Labyrinth.prochainecase;
+        action = "Bottom2";
+    }
+
+    private void Bottom3ActionPerformed(java.awt.event.ActionEvent evt) {
+        if (action != "") {
+            for (int i = 0; i < Actions.length; i++) {
+                if (Actions[i].caseassocie == Session.Labyrinth.prochainecase) {
+                    Actions[i].caseassocie = new Case();
+                }
+            }
+        }
+        Bottom3.caseassocie=Session.Labyrinth.prochainecase;
+        action = "Bottom3";
+    }
+
+    private void Left1ActionPerformed(java.awt.event.ActionEvent evt) {
+        if (action != "") {
+            for (int i = 0; i < Actions.length; i++) {
+                if (Actions[i].caseassocie == Session.Labyrinth.prochainecase) {
+                    Actions[i].caseassocie = new Case();
+                }
+            }
+        }
+        Left1.caseassocie=Session.Labyrinth.prochainecase;
+        action = "Left1";
+    }
+
+    private void Left2ActionPerformed(java.awt.event.ActionEvent evt) {
+        if (action != "") {
+            for (int i = 0; i < Actions.length; i++) {
+                if (Actions[i].caseassocie == Session.Labyrinth.prochainecase) {
+                    Actions[i].caseassocie = new Case();
+                }
+            }
+        }
+        Left2.caseassocie=Session.Labyrinth.prochainecase;
+        action = "Left2";
+    }
+
+    private void Left3ActionPerformed(java.awt.event.ActionEvent evt) {
+        if (action != "") {
+            for (int i = 0; i < Actions.length; i++) {
+                if (Actions[i].caseassocie == Session.Labyrinth.prochainecase) {
+                    Actions[i].caseassocie = new Case();
+                }
+            }
+        }
+        Left3.caseassocie=Session.Labyrinth.prochainecase;
+        action = "Left3";
+    }
+
+    private void Right1ActionPerformed(java.awt.event.ActionEvent evt) {
+        if (action != "") {
+            for (int i = 0; i < Actions.length; i++) {
+                if (Actions[i].caseassocie == Session.Labyrinth.prochainecase) {
+                    Actions[i].caseassocie = new Case();
+                }
+            }
+        }
+        Right1.caseassocie = Session.Labyrinth.prochainecase;
+        action = "Right1";
+    }
+
+    private void Right2ActionPerformed(java.awt.event.ActionEvent evt) {
+        if (action != "") {
+            for (int i = 0; i < Actions.length; i++) {
+                if (Actions[i].caseassocie == Session.Labyrinth.prochainecase) {
+                    Actions[i].caseassocie = new Case();
+                }
+            }
+        }
+        Right2.caseassocie = Session.Labyrinth.prochainecase;
+        action = "Right2";
+    }
+
+    private void Right3ActionPerformed(java.awt.event.ActionEvent evt) {
+        if (action != "") {
+            for (int i = 0; i < Actions.length; i++) {
+                if (Actions[i].caseassocie == Session.Labyrinth.prochainecase) {
+                    Actions[i].caseassocie = new Case();
+                }
+            }
+        }
+        Right3.caseassocie = Session.Labyrinth.prochainecase;
+        action = "Right3";
+    }
     private void btn_HelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_HelpActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_HelpActionPerformed
-
-    private void Top1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Top1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Top1ActionPerformed
-
-    private void Top2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Top2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Top2ActionPerformed
-
-    private void Top3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Top3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Top3ActionPerformed
-
-    private void Right1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Right1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Right1ActionPerformed
-
-    private void Right2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Right2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Right2ActionPerformed
-
-    private void Right3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Right3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Right3ActionPerformed
-
-    private void Bottom3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bottom3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Bottom3ActionPerformed
-
-    private void Bottom2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bottom2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Bottom2ActionPerformed
-
-    private void Bottom1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bottom1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Bottom1ActionPerformed
-
-    private void Left3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Left3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Left3ActionPerformed
-
-    private void Left2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Left2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Left2ActionPerformed
-
-    private void Left1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Left1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Left1ActionPerformed
 
     private void RotateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RotateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_RotateActionPerformed
 
     private void ValidateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValidateActionPerformed
-        // TODO add your handling code here:
+        switch (action) {
+            case "Top1" -> {
+            }
+            case "Top2" -> {
+            }
+            case "Top3" -> {
+            }
+            case "Bottom1" -> {
+            }
+            case "Bottom2" -> {
+            }
+            case "Bottom3" -> {
+            }
+            case "Left1" -> Session.Labyrinth.DecalerLigne(2, true);
+            case "Left2" -> Session.Labyrinth.DecalerLigne(4, true);
+            case "Left3" -> Session.Labyrinth.DecalerLigne(6, true);
+            case "Right1" -> Session.Labyrinth.DecalerLigne(2, false);
+            case "Right2" -> Session.Labyrinth.DecalerLigne(4, false);
+            case "Right3" -> Session.Labyrinth.DecalerLigne(6, false);
+        }
     }//GEN-LAST:event_ValidateActionPerformed
 
     /**
@@ -314,21 +446,9 @@ public class Interface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Bottom1;
-    private javax.swing.JButton Bottom2;
-    private javax.swing.JButton Bottom3;
     private javax.swing.JPanel Labyrinth;
-    private javax.swing.JButton Left1;
-    private javax.swing.JButton Left2;
-    private javax.swing.JButton Left3;
     private javax.swing.JPanel Pane_Info;
-    private javax.swing.JButton Right1;
-    private javax.swing.JButton Right2;
-    private javax.swing.JButton Right3;
     private javax.swing.JButton Rotate;
-    private javax.swing.JButton Top1;
-    private javax.swing.JButton Top2;
-    private javax.swing.JButton Top3;
     private javax.swing.JButton Validate;
     private javax.swing.JButton btn_Help;
     // End of variables declaration//GEN-END:variables

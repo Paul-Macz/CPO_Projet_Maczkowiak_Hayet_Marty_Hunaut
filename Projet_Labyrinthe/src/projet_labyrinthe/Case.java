@@ -27,7 +27,7 @@ public class Case {
         this.Bas = false;
         this.Gauche = false;
         this.Droite = false;
-        this.Players = null;
+        this.Players = new ArrayList<>();
         this.object = "";
     }
     
