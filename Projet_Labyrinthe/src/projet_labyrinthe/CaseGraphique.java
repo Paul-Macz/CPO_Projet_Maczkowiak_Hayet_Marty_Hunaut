@@ -24,7 +24,7 @@ public class CaseGraphique extends JButton{
     ImageIcon chouette = new ImageIcon(getClass().getResource("/Img/Cases/chouette.png"));
     ImageIcon cle = new ImageIcon(getClass().getResource("/Img/Cases/cle.png"));
     ImageIcon couronne = new ImageIcon(getClass().getResource("/Img/Cases/couronne.png"));
-    ImageIcon crane = new ImageIcon(getClass().getResource("/Img/Cases/carne.png"));
+    ImageIcon crane = new ImageIcon(getClass().getResource("/Img/Cases/crane.png"));
     ImageIcon departB = new ImageIcon(getClass().getResource("/Img/Cases/departB.png"));
     ImageIcon departJ = new ImageIcon(getClass().getResource("/Img/Cases/departJ.png"));
     ImageIcon departR = new ImageIcon(getClass().getResource("/Img/Cases/departR.png"));
