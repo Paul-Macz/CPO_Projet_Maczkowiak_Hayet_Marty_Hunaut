@@ -9,5 +9,12 @@ package projet_labyrinthe;
  * @author lukha
  */
 public class Peon {
+    Player associe;
+    String Color;
+
+    public Peon(Player user, String Color) {
+        this.user = associe;
+        this.Color = Color;
+    }
     
 }
