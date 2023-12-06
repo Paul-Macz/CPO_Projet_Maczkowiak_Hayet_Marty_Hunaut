@@ -13,7 +13,7 @@ public class Peon {
     String Color;
 
     public Peon(Player user, String Color) {
-        this.user = associe;
+        this.associe = user;
         this.Color = Color;
     }
     
