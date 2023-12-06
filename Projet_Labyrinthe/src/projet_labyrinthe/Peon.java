@@ -9,10 +9,12 @@ package projet_labyrinthe;
  * @author lukha
  */
 public class Peon {
+    private Player associe;
     private String couleur; // couleur du pion (blanc, noir)
     private int position;   // position actuelle du pion sur le plateau
 
-    public Peon(String couleur, int position) {
+    public Peon(Player user,String couleur, int position) {
+        this.associe=user;
         this.couleur = couleur;
         this.position = position;
     }
