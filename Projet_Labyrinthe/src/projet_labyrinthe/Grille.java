@@ -71,4 +71,44 @@ public class Grille {
         }
         return true;
     }
+    
+    /**
+     * Déplace l'ensemble des cases de la colonne dans une direction
+     * @param ColNb Determine la colonne modifiée
+     * @param Haut  Determine si on se déplace vers le haut ou vers le bas
+     * @return      Renvoie le succès de l'opération
+     */
+    public boolean DecalerColonne(int ColNb, boolean Haut){
+        if (ColNb<0 ||ColNb>6){
+            return false;
+        }
+        Case temp;
+        int direction;
+        if (Haut){
+            temp=Grid[0][ColNb];
+            direction=1;
+        }
+        else{
+            temp=Grid[6][ColNb];
+            direction=-1;
+        }
+        for(int i=0;i<7;i++){
+            int j;
+            if(Haut){
+                j=6-i;
+            }
+            else{
+                j=i;
+            }
+            if(i==6){
+                Grid[j][ColNb]=prochainecase;
+                Grid[j][ColNb].Players=new ArrayList<>(temp.Players);
+                temp.Players.clear();
+            }
+            else{
+                Grid[j][ColNb]=Grid[j-direction][ColNb];
+            }
+        }
+        return true;
+    }
 }
