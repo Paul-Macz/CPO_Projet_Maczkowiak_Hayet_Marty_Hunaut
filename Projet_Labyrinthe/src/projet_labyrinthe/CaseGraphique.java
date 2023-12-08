@@ -60,7 +60,7 @@ public class CaseGraphique extends JButton{
         BufferedImage image = null;
 		/* Lecture de l'image correspondante (attention aux exceptions) */
 		try {
-			image = ImageIO.read(new File("src/images/" + CaseGrapheAssocie.type + ".png"));
+			image = ImageIO.read(new File("src/images/" + CaseGrapheAssocie.object + ".png"));
 		} catch (IOException ex) {
 			//Logger.getLogger(CaseGraphique.class.getName()).log(Level.SEVERE, null, ex);
 		}

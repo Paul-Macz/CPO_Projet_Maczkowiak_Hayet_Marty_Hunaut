@@ -12,7 +12,6 @@ import java.util.ArrayList;
  */
 public class Case {
     int orientation;
-    int type;
     boolean Haut, Bas, Gauche, Droite; 
     ArrayList<Peon> Players;
     String object;
@@ -22,14 +21,14 @@ public class Case {
      * et sans objet et entierement fermée
      * 
      */
-    public Case() {
+    public Case(String casechoisie) {
         this.orientation = 0;
         this.Haut = false;
         this.Bas = false;
         this.Gauche = false;
         this.Droite = false;
         this.Players = new ArrayList<>();
-        this.object = "";
+        this.object = casechoisie;
     }
     
     /**
