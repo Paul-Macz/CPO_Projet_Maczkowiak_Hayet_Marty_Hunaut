@@ -5,7 +5,15 @@
 package projet_labyrinthe;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.geom.AffineTransform;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
@@ -49,8 +57,37 @@ public class CaseGraphique extends JButton{
     @Override
     public void paintComponent (Graphics G){
         super.paintComponent(G);
+        BufferedImage image = null;
+		/* Lecture de l'image correspondante (attention aux exceptions) */
+		try {
+			image = ImageIO.read(new File("src/images/" + CaseGrapheAssocie.type + ".png"));
+		} catch (IOException ex) {
+			//Logger.getLogger(CaseGraphique.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		Graphics2D g = (Graphics2D) G;
+		/* Cette méthode permet de ne pas tourner toute l'iamge du bouton, et donc
+		que les pions restent droits */
+                /* Création d'une transformation affine de rotation de l'angle indiqué autour
+		du centre de l'image */
+		AffineTransform tx = AffineTransform.getRotateInstance(Math.toRadians(CaseGrapheAssocie.orientation), image.getWidth() / 2, image.getHeight() / 2);
+		/* Affichage de l'image tournée */
+		g.drawImage(image, tx, null);
+		/* Rotation de l'image de l'angle indiqué autour de son centre */
+		/* Affichage de l'image transformée précedement sur place */
+		/*if (CaseGrapheAssocie.presencePion()) {
+			for (Peon pion : CaseGrapheAssocie.Players) {
+				BufferedImage imagePion = null;
+				try {
+					imagePion = ImageIO.read(new File("src/images/pion" + pion.couleur + ".png"));
+				} catch (IOException ex) {
+				//	Logger.getLogger(CaseGraphique.class.getName()).log(Level.SEVERE, null, ex);
+				}
+				g.drawImage(imagePion, 0, 0, null);
+			}
+		}*/
+	}
         
     }
     
     
-}
+
