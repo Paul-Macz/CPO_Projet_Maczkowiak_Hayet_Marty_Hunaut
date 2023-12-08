@@ -388,18 +388,17 @@ public class Interface extends javax.swing.JFrame {
 
     private void ValidateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValidateActionPerformed
         switch (action) {
-            case "Top1" -> {
-            }
-            case "Top2" -> {
-            }
-            case "Top3" -> {
-            }
-            case "Bottom1" -> {
-            }
-            case "Bottom2" -> {
-            }
-            case "Bottom3" -> {
-            }
+            case "Top1" -> Session.Labyrinth.DecalerColonne(2, false);
+            
+            case "Top2" -> Session.Labyrinth.DecalerColonne(4, false);
+            
+            case "Top3" -> Session.Labyrinth.DecalerColonne(6, false);
+            
+            case "Bottom1" -> Session.Labyrinth.DecalerColonne(2, true);
+            
+            case "Bottom2" -> Session.Labyrinth.DecalerColonne(4, true);
+            
+            case "Bottom3" ->Session.Labyrinth.DecalerColonne(6, true);
             case "Left1" -> Session.Labyrinth.DecalerLigne(2, true);
             case "Left2" -> Session.Labyrinth.DecalerLigne(4, true);
             case "Left3" -> Session.Labyrinth.DecalerLigne(6, true);
