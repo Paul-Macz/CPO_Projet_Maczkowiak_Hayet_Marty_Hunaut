@@ -23,18 +23,18 @@ public class Interface extends javax.swing.JFrame {
     String action = "";
     Partie Session;
 
-    CaseGraphique Top1 = new CaseGraphique(new Case());
-    CaseGraphique Top2 = new CaseGraphique(new Case());
-    CaseGraphique Top3 = new CaseGraphique(new Case());
-    CaseGraphique Bottom1 = new CaseGraphique(new Case());
-    CaseGraphique Bottom2 = new CaseGraphique(new Case());
-    CaseGraphique Bottom3 = new CaseGraphique(new Case());
-    CaseGraphique Left1 = new CaseGraphique(new Case());
-    CaseGraphique Left2 = new CaseGraphique(new Case());
-    CaseGraphique Left3 = new CaseGraphique(new Case());
-    CaseGraphique Right1 = new CaseGraphique(new Case());
-    CaseGraphique Right2 = new CaseGraphique(new Case());
-    CaseGraphique Right3 = new CaseGraphique(new Case());
+    CaseGraphique Top1 = new CaseGraphique(new Case("placeHolder"));
+    CaseGraphique Top2 = new CaseGraphique(new Case("placeHolder"));
+    CaseGraphique Top3 = new CaseGraphique(new Case("placeHolder"));
+    CaseGraphique Bottom1 = new CaseGraphique(new Case("placeHolder"));
+    CaseGraphique Bottom2 = new CaseGraphique(new Case("placeHolder"));
+    CaseGraphique Bottom3 = new CaseGraphique(new Case("placeHolder"));
+    CaseGraphique Left1 = new CaseGraphique(new Case("placeHolder"));
+    CaseGraphique Left2 = new CaseGraphique(new Case("placeHolder"));
+    CaseGraphique Left3 = new CaseGraphique(new Case("placeHolder"));
+    CaseGraphique Right1 = new CaseGraphique(new Case("placeHolder"));
+    CaseGraphique Right2 = new CaseGraphique(new Case("placeHolder"));
+    CaseGraphique Right3 = new CaseGraphique(new Case("placeHolder"));
     CaseGraphique[] Actions = new CaseGraphique[12];
 
     int CaseSize = 128;
@@ -238,144 +238,144 @@ public class Interface extends javax.swing.JFrame {
     private void Top1ActionPerformed(java.awt.event.ActionEvent evt) {
         if (action != "") {
             for (int i = 0; i < Actions.length; i++) {
-                if (Actions[i].caseassocie == Session.Labyrinth.prochainecase) {
-                    Actions[i].caseassocie = new Case();
+                if (Actions[i].CaseGrapheAssocie == Session.Labyrinth.prochainecase) {
+                    Actions[i].CaseGrapheAssocie = new Case("placeHolder");
                 }
             }
         }
-        Top1.caseassocie=Session.Labyrinth.prochainecase;
+        Top1.CaseGrapheAssocie=Session.Labyrinth.prochainecase;
         action = "Top1";
     }
 
     private void Top2ActionPerformed(java.awt.event.ActionEvent evt) {
         if (action != "") {
             for (int i = 0; i < Actions.length; i++) {
-                if (Actions[i].caseassocie == Session.Labyrinth.prochainecase) {
-                    Actions[i].caseassocie = new Case();
+                if (Actions[i].CaseGrapheAssocie == Session.Labyrinth.prochainecase) {
+                    Actions[i].CaseGrapheAssocie= new Case("placeHolder");
                 }
             }
         }
-        Top2.caseassocie=Session.Labyrinth.prochainecase;
+        Top2.CaseGrapheAssocie=Session.Labyrinth.prochainecase;
         action = "Top2";
     }
 
     private void Top3ActionPerformed(java.awt.event.ActionEvent evt) {
         if (action != "") {
             for (int i = 0; i < Actions.length; i++) {
-                if (Actions[i].caseassocie == Session.Labyrinth.prochainecase) {
-                    Actions[i].caseassocie = new Case();
+                if (Actions[i].CaseGrapheAssocie == Session.Labyrinth.prochainecase) {
+                    Actions[i].CaseGrapheAssocie = new Case("placeHolder");
                 }
             }
         }
-        Top3.caseassocie=Session.Labyrinth.prochainecase;
+        Top3.CaseGrapheAssocie=Session.Labyrinth.prochainecase;
         action = "Top3";
     }
 
     private void Bottom1ActionPerformed(java.awt.event.ActionEvent evt) {
         if (action != "") {
             for (int i = 0; i < Actions.length; i++) {
-                if (Actions[i].caseassocie == Session.Labyrinth.prochainecase) {
-                    Actions[i].caseassocie = new Case();
+                if (Actions[i].CaseGrapheAssocie == Session.Labyrinth.prochainecase) {
+                    Actions[i].CaseGrapheAssocie = new Case("placeHolder");
                 }
             }
         }
-        Bottom1.caseassocie=Session.Labyrinth.prochainecase;
+        Bottom1.CaseGrapheAssocie=Session.Labyrinth.prochainecase;
         action = "Bottom1";
     }
 
     private void Bottom2ActionPerformed(java.awt.event.ActionEvent evt) {
         if (action != "") {
             for (int i = 0; i < Actions.length; i++) {
-                if (Actions[i].caseassocie == Session.Labyrinth.prochainecase) {
-                    Actions[i].caseassocie = new Case();
+                if (Actions[i].CaseGrapheAssocie == Session.Labyrinth.prochainecase) {
+                    Actions[i].CaseGrapheAssocie = new Case("placeHolder");
                 }
             }
         }
-        Bottom2.caseassocie=Session.Labyrinth.prochainecase;
+        Bottom2.CaseGrapheAssocie=Session.Labyrinth.prochainecase;
         action = "Bottom2";
     }
 
     private void Bottom3ActionPerformed(java.awt.event.ActionEvent evt) {
         if (action != "") {
             for (int i = 0; i < Actions.length; i++) {
-                if (Actions[i].caseassocie == Session.Labyrinth.prochainecase) {
-                    Actions[i].caseassocie = new Case();
+                if (Actions[i].CaseGrapheAssocie == Session.Labyrinth.prochainecase) {
+                    Actions[i].CaseGrapheAssocie = new Case("placeHolder");
                 }
             }
         }
-        Bottom3.caseassocie=Session.Labyrinth.prochainecase;
+        Bottom3.CaseGrapheAssocie=Session.Labyrinth.prochainecase;
         action = "Bottom3";
     }
 
     private void Left1ActionPerformed(java.awt.event.ActionEvent evt) {
         if (action != "") {
             for (int i = 0; i < Actions.length; i++) {
-                if (Actions[i].caseassocie == Session.Labyrinth.prochainecase) {
-                    Actions[i].caseassocie = new Case();
+                if (Actions[i].CaseGrapheAssocie == Session.Labyrinth.prochainecase) {
+                    Actions[i].CaseGrapheAssocie = new Case("placeHolder");
                 }
             }
         }
-        Left1.caseassocie=Session.Labyrinth.prochainecase;
+        Left1.CaseGrapheAssocie=Session.Labyrinth.prochainecase;
         action = "Left1";
     }
 
     private void Left2ActionPerformed(java.awt.event.ActionEvent evt) {
         if (action != "") {
             for (int i = 0; i < Actions.length; i++) {
-                if (Actions[i].caseassocie == Session.Labyrinth.prochainecase) {
-                    Actions[i].caseassocie = new Case();
+                if (Actions[i].CaseGrapheAssocie == Session.Labyrinth.prochainecase) {
+                    Actions[i].CaseGrapheAssocie = new Case("placeHolder");
                 }
             }
         }
-        Left2.caseassocie=Session.Labyrinth.prochainecase;
+        Left2.CaseGrapheAssocie=Session.Labyrinth.prochainecase;
         action = "Left2";
     }
 
     private void Left3ActionPerformed(java.awt.event.ActionEvent evt) {
         if (action != "") {
             for (int i = 0; i < Actions.length; i++) {
-                if (Actions[i].caseassocie == Session.Labyrinth.prochainecase) {
-                    Actions[i].caseassocie = new Case();
+                if (Actions[i].CaseGrapheAssocie == Session.Labyrinth.prochainecase) {
+                    Actions[i].CaseGrapheAssocie = new Case("placeHolder");
                 }
             }
         }
-        Left3.caseassocie=Session.Labyrinth.prochainecase;
+        Left3.CaseGrapheAssocie=Session.Labyrinth.prochainecase;
         action = "Left3";
     }
 
     private void Right1ActionPerformed(java.awt.event.ActionEvent evt) {
         if (action != "") {
             for (int i = 0; i < Actions.length; i++) {
-                if (Actions[i].caseassocie == Session.Labyrinth.prochainecase) {
-                    Actions[i].caseassocie = new Case();
+                if (Actions[i].CaseGrapheAssocie == Session.Labyrinth.prochainecase) {
+                    Actions[i].CaseGrapheAssocie = new Case("placeHolder");
                 }
             }
         }
-        Right1.caseassocie = Session.Labyrinth.prochainecase;
+        Right1.CaseGrapheAssocie = Session.Labyrinth.prochainecase;
         action = "Right1";
     }
 
     private void Right2ActionPerformed(java.awt.event.ActionEvent evt) {
         if (action != "") {
             for (int i = 0; i < Actions.length; i++) {
-                if (Actions[i].caseassocie == Session.Labyrinth.prochainecase) {
-                    Actions[i].caseassocie = new Case();
+                if (Actions[i].CaseGrapheAssocie== Session.Labyrinth.prochainecase) {
+                    Actions[i].CaseGrapheAssocie = new Case("placeHolder");
                 }
             }
         }
-        Right2.caseassocie = Session.Labyrinth.prochainecase;
+        Right2.CaseGrapheAssocie = Session.Labyrinth.prochainecase;
         action = "Right2";
     }
 
     private void Right3ActionPerformed(java.awt.event.ActionEvent evt) {
         if (action != "") {
             for (int i = 0; i < Actions.length; i++) {
-                if (Actions[i].caseassocie == Session.Labyrinth.prochainecase) {
-                    Actions[i].caseassocie = new Case();
+                if (Actions[i].CaseGrapheAssocie == Session.Labyrinth.prochainecase) {
+                    Actions[i].CaseGrapheAssocie = new Case("placeHolder");
                 }
             }
         }
-        Right3.caseassocie = Session.Labyrinth.prochainecase;
+        Right3.CaseGrapheAssocie = Session.Labyrinth.prochainecase;
         action = "Right3";
     }
     private void btn_HelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_HelpActionPerformed

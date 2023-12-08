@@ -26,7 +26,7 @@ public class CaseGraphique extends JButton{
     int nblignes;
     int nbcolonnes;
 
-    public CaseGraphique(Case CaseGrapheAssocie, int nblignes, int nbcolonnes) {
+    public CaseGraphique(Case CaseGrapheAssocie) {
         this.CaseGrapheAssocie = CaseGrapheAssocie;
         this.nblignes = nblignes;
         this.nbcolonnes = nbcolonnes;
