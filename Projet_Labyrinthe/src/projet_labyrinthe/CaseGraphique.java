@@ -59,8 +59,9 @@ public class CaseGraphique extends JButton{
         super.paintComponent(G);
         BufferedImage image = null;
 		/* Lecture de l'image correspondante (attention aux exceptions) */
-		try {
-			image = ImageIO.read(new File("src/images/" + CaseGrapheAssocie.object + ".png"));
+		try {   
+                    System.out.print(CaseGrapheAssocie.object);
+			image = ImageIO.read(new File("src/Img/Cases" + CaseGrapheAssocie.object + ".png"));
 		} catch (IOException ex) {
 			//Logger.getLogger(CaseGraphique.class.getName()).log(Level.SEVERE, null, ex);
 		}
@@ -78,7 +79,7 @@ public class CaseGraphique extends JButton{
 			for (Peon pion : CaseGrapheAssocie.Players) {
 				BufferedImage imagePion = null;
 				try {
-					imagePion = ImageIO.read(new File("src/images/pion" + pion.couleur + ".png"));
+					imagePion = ImageIO.read(new File("src/Img/pion" + pion.couleur + ".png"));
 				} catch (IOException ex) {
 				//	Logger.getLogger(CaseGraphique.class.getName()).log(Level.SEVERE, null, ex);
 				}

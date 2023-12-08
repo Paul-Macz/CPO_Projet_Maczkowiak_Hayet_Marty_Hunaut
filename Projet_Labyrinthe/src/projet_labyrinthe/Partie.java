@@ -8,55 +8,159 @@ import java.awt.List;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
  * @author lukha
  */
 public class Partie {
+
     Grille Labyrinth;
-    Case[] ListeCases;
-    
+    ArrayList<Case> ListeCases;
+    public static Random rand = new Random();
+
     /**
-     *  Initialise les attributs de la nouvelle partie
+     * Initialise les attributs de la nouvelle partie
      */
-    public Partie(){
+    public Partie() {
         Labyrinth = new Grille();
+        ListeCases = new ArrayList<>();
         PlaceCases();
-        ListeCases = new Case[31];
+
     }
-    
+
     /**
-     * Place dans chaque case de la grille une case souhaitée
-     * Fait appele à PlaceCase()
+     * Place dans chaque case de la grille une case souhaitée Fait appele à
+     * PlaceCase()
+     *
+     * @return renvoie le succès de la méthode
      */
-    public boolean PlaceCases(){
+    public boolean PlaceCases() {
+        //Récupération des propriétés de chaque case possible
         Path properties = Path.of("src/projet_labyrinthe/properties.txt");
         java.util.List<String> liste;
-        if (Files.notExists(properties)){
-            return false;
-        }
-        if (!Files.isReadable(properties)){
-            return false;
-        }
-        try{
+        try {
             liste = Files.readAllLines(properties);
-        } 
-        catch(IOException ex){
+        } catch (IOException ex) {
             return false;
         }
-        for (int i=0;i<liste.size();i++){
-            String [] caseProp = liste.get(i).split(" ");
-            ListeCases[i] = new Case(caseProp[0]);
-            
+
+        //Décomposition et stockage des propriétés
+        for (int i = 0; i < liste.size(); i++) {
+            String[] caseProp = liste.get(i).split(" ");
+            ListeCases.add(new Case(caseProp[0]));
+            ListeCases.get(i).Haut = Boolean.parseBoolean(caseProp[1]);
+            ListeCases.get(i).Bas = Boolean.parseBoolean(caseProp[2]);
+            ListeCases.get(i).Gauche = Boolean.parseBoolean(caseProp[3]);
+            ListeCases.get(i).Droite = Boolean.parseBoolean(caseProp[4]);
         }
-                
-        /*Case CaseChoisie = new Case(); //Temporaire le temps de premiers tests
-        for (int i=0;i<7;i++){
-            for (int j=0;j<7;j++){
-                Labyrinth.PlaceCase(i, j, CaseChoisie);
+
+        //Placement des cases
+        int index = -1;
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                if (i == 0 && j == 0) {
+                    //Case départ Bleue
+                    for (int k = 0; k < ListeCases.size(); k++) {
+                        if ("departB".equals(ListeCases.get(k).object)) {
+                            index = k;
+                            break;
+                        }
+                    }
+                    if (index == -1) {
+                        return false;
+                    }
+                    Labyrinth.PlaceCase(i, j, ListeCases.get(index));
+                    ListeCases.remove(index);
+                } else if (i == 0 && j == 6) {
+                    //Case départ Verte
+                    for (int k = 0; k < ListeCases.size(); k++) {
+                        if ("deparV".equals(ListeCases.get(k).object)) {
+                            index = k;
+                            break;
+                        }
+                    }
+                    if (index == -1) {
+                        return false;
+                    }
+                    Labyrinth.PlaceCase(i, j, ListeCases.get(index));
+                    ListeCases.remove(index);
+                } else if (i == 6 && j == 0) {
+                    //Case départ Jaune
+                    for (int k = 0; k < ListeCases.size(); k++) {
+                        if ("departJ".equals(ListeCases.get(k).object)) {
+                            index = k;
+                            break;
+                        }
+                    }
+                    if (index == -1) {
+                        return false;
+                    }
+                    Labyrinth.PlaceCase(i, j, ListeCases.get(index));
+                    ListeCases.remove(index);
+                } else if (i == 6 && j == 6) {
+                    //Case départ Rouge
+                    for (int k = 0; k < ListeCases.size(); k++) {
+                        if ("departR".equals(ListeCases.get(k).object)) {
+                            index = k;
+                            break;
+                        }
+                    }
+                    if (index == -1) {
+                        return false;
+                    }
+                    Labyrinth.PlaceCase(i, j, ListeCases.get(index));
+                    ListeCases.remove(index);
+                } else {
+                    //Tous les autres emplacement de la grille
+                    if (rand.nextInt(100) < 40) {
+                        //Probabilité de 40% d'une case sans objet
+                        if (rand.nextInt(2) == 0) {
+                            //Ligne droite
+                            for (int k = 0; k < ListeCases.size(); k++) {
+                                if ("tuile1".equals(ListeCases.get(k).object)) {
+                                    index = k;
+                                    Labyrinth.PlaceCase(i, j, ListeCases.get(index));
+                                    break;
+                                }
+                            }
+                            if (index == -1) {
+                                return false;
+                            }
+                        } else {
+                            //Case en L
+                            for (int k = 0; k < ListeCases.size(); k++) {
+                                if ("tuile2".equals(ListeCases.get(k).object)) {
+                                    Labyrinth.PlaceCase(i, j, ListeCases.get(index));
+                                    index = k;
+                                    break;
+                                }
+                            }
+                            if (index == -1) {
+                                return false;
+                            }
+                        }
+                    } else {
+                        //Autres cases
+                        index = -1;
+                        //Vérification de ne pas réutiliser les cases suivantes
+                        do {
+                            index = rand.nextInt(ListeCases.size());
+                        } while ("tuile1".equals(ListeCases.get(index).object)
+                                || "tuile2".equals(ListeCases.get(index).object)
+                                || "departV".equals(ListeCases.get(index).object)
+                                || "departR".equals(ListeCases.get(index).object)
+                                || "departJ".equals(ListeCases.get(index).object)
+                                || "departB".equals(ListeCases.get(index).object));
+
+                        Labyrinth.PlaceCase(i, j, ListeCases.get(index));
+                        ListeCases.remove(index);
+                    }
+                }
             }
-        }*/
+        }
         return true;
     }
 }
