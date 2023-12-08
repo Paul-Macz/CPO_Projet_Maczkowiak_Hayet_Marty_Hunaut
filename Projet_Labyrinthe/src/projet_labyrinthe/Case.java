@@ -12,6 +12,7 @@ import java.util.ArrayList;
  */
 public class Case {
     int orientation;
+    int type;
     boolean Haut, Bas, Gauche, Droite; 
     ArrayList<Peon> Players;
     String object;
@@ -79,5 +80,22 @@ public class Case {
         }
     }
     
-    
-}
+    /**
+	 * Détermine si un objet est présent sur la tuile (c-à-d si la tuile n'est
+	 * pas une tuile de départ ou un tuile vide (type 'droit' ou 'coin'))
+	 *
+	 * @return Si la tuile a un objet
+	 */
+	//public boolean presenceObjet() {
+		//return !(type.equals("droit") || type.equals("coin") || type.equals("departB") || type.equals("departV") || type.equals("departJ") || type.equals("departR"));
+	}
+
+	/**
+	 * Détermine si des pions sont présents sur la tuile (ou un seul)
+	 *
+	 * @return Si la tuile a des pions
+	 */
+	//public boolean presencePion() {
+		//return !(pionsPresents == null || pionsPresents.isEmpty());
+	//}
+

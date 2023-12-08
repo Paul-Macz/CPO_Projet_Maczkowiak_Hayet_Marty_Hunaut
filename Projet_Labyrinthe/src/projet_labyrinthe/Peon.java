@@ -14,7 +14,7 @@ public class Peon {
     private int position;   // position actuelle du pion sur le plateau
 
     public Peon(Player user,String couleur, int position) {
-        this.associe=user;
+        this.associe = user;
         this.couleur = couleur;
         this.position = position;
     }
