@@ -61,6 +61,12 @@ public class Partie {
         int index = -1;
         for (int i = 0; i < 7; i++) {
             for (int j = 0; j < 7; j++) {
+                if (i == 6 && j == 2) {
+                    System.out.println(ListeCases.size());
+                    for (int o = 0; o < ListeCases.size(); o++) {
+                        System.out.println(ListeCases.get(o));
+                    }
+                }
                 if (i == 0 && j == 0) {
                     //Case départ Bleue
                     for (int k = 0; k < ListeCases.size(); k++) {
@@ -68,9 +74,6 @@ public class Partie {
                             index = k;
                             break;
                         }
-                    }
-                    if (index == -1) {
-                        return false;
                     }
                     Labyrinth.PlaceCase(i, j, ListeCases.get(index));
                     ListeCases.remove(index);
@@ -82,9 +85,6 @@ public class Partie {
                             break;
                         }
                     }
-                    if (index == -1) {
-                        return false;
-                    }
                     Labyrinth.PlaceCase(i, j, ListeCases.get(index));
                     ListeCases.remove(index);
                 } else if (i == 6 && j == 0) {
@@ -94,9 +94,6 @@ public class Partie {
                             index = k;
                             break;
                         }
-                    }
-                    if (index == -1) {
-                        return false;
                     }
                     Labyrinth.PlaceCase(i, j, ListeCases.get(index));
                     ListeCases.remove(index);
@@ -108,59 +105,60 @@ public class Partie {
                             break;
                         }
                     }
-                    if (index == -1) {
-                        return false;
-                    }
                     Labyrinth.PlaceCase(i, j, ListeCases.get(index));
                     ListeCases.remove(index);
                 } else {
                     //Tous les autres emplacement de la grille
-                    if (rand.nextInt(100) < 40) {
+                    if (rand.nextInt(100) < 50) {
                         //Probabilité de 40% d'une case sans objet
-                        if (rand.nextInt(2) == 0) {
-                            //Ligne droite
-                            for (int k = 0; k < ListeCases.size(); k++) {
-                                if ("tuile1".equals(ListeCases.get(k).object)) {
-                                    index = k;
-                                    Labyrinth.PlaceCase(i, j, ListeCases.get(index));
-                                    break;
-                                }
-                            }
-                            if (index == -1) {
-                                return false;
-                            }
-                        } else {
-                            //Case en L
-                            for (int k = 0; k < ListeCases.size(); k++) {
-                                if ("tuile2".equals(ListeCases.get(k).object)) {
-                                    Labyrinth.PlaceCase(i, j, ListeCases.get(index));
-                                    index = k;
-                                    break;
-                                }
-                            }
-                            if (index == -1) {
-                                return false;
-                            }
-                        }
+                        PlaceCaseSansObjet(i, j);
                     } else {
                         //Autres cases
-                        index = -1;
-                        //Vérification de ne pas réutiliser les cases suivantes
-                        do {
-                            index = rand.nextInt(ListeCases.size());
-                        } while ("tuile1".equals(ListeCases.get(index).object)
-                                || "tuile2".equals(ListeCases.get(index).object)
-                                || "departV".equals(ListeCases.get(index).object)
-                                || "departR".equals(ListeCases.get(index).object)
-                                || "departJ".equals(ListeCases.get(index).object)
-                                || "departB".equals(ListeCases.get(index).object));
+                        if (ListeCases.size() > 5) {
+                            //Vérification de ne pas réutiliser les cases suivantes
+                            do {
+                                index = rand.nextInt(ListeCases.size());
+                            } while ("tuile1".equals(ListeCases.get(index).object)
+                                    || "tuile2".equals(ListeCases.get(index).object)
+                                    || "departV".equals(ListeCases.get(index).object)
+                                    || "departR".equals(ListeCases.get(index).object)
+                                    || "departJ".equals(ListeCases.get(index).object)
+                                    || "departB".equals(ListeCases.get(index).object)
+                                    || "placeHolder".equals(ListeCases.get(index).object));
 
-                        Labyrinth.PlaceCase(i, j, ListeCases.get(index));
-                        ListeCases.remove(index);
+                            Labyrinth.PlaceCase(i, j, ListeCases.get(index));
+                            ListeCases.remove(index);
+                        } //Si toutes les autres cases ont été placée
+                        else {
+                            PlaceCaseSansObjet(i, j);
+                        }
                     }
                 }
             }
         }
         return true;
+    }
+
+    public void PlaceCaseSansObjet(int i, int j) {
+        int index;
+        if (rand.nextInt(3) > 0) {
+            //Ligne droite
+            for (int k = 0; k < ListeCases.size(); k++) {
+                if ("tuile1".equals(ListeCases.get(k).object)) {
+                    index = k;
+                    Labyrinth.PlaceCase(i, j, ListeCases.get(index));
+                    break;
+                }
+            }
+        } else {
+            //Case en L
+            for (int k = 0; k < ListeCases.size(); k++) {
+                if ("tuile2".equals(ListeCases.get(k).object)) {
+                    index = k;
+                    Labyrinth.PlaceCase(i, j, ListeCases.get(index));
+                    break;
+                }
+            }
+        }
     }
 }
