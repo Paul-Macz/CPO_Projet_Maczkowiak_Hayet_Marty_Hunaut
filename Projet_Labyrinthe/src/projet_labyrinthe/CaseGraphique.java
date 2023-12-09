@@ -11,10 +11,7 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 /**
@@ -32,25 +29,6 @@ public class CaseGraphique extends JButton {
     }
 
     /**
-     * Modifie la taille d'une image et la renvoie sous forme d'icone
-     *
-     * @param Img Correspond à l'image d'origine
-     * @param width La largeur souhaitée
-     * @param height La hauteur souhaitée
-     * @return
-     */
-    public static ImageIcon getScaledIcon(ImageIcon Img, int width, int height) {
-
-        Image srcImage = Img.getImage();
-
-        Image resizedImage = srcImage.getScaledInstance(width, height,
-                Image.SCALE_SMOOTH);
-
-        ImageIcon resizedIcon = new ImageIcon(resizedImage);
-        return resizedIcon;
-    }
-
-    /**
      * Redessine la case associé avec l'image souhaitée
      *
      * @param G
@@ -61,28 +39,30 @@ public class CaseGraphique extends JButton {
         BufferedImage image = null;
         /* Lecture de l'image correspondante (attention aux exceptions) */
         try {
-        if (CaseGrapheAssocie != null && CaseGrapheAssocie.object != null) {
-            // Load image using class loader
-            String imagePath = "/Img/Cases/" + CaseGrapheAssocie.object + ".png";
-            image = ImageIO.read(getClass().getResource(imagePath));
-        } else {
-            System.out.println("CaseGrapheAssocie or its object is null");
+            if (CaseGrapheAssocie != null && CaseGrapheAssocie.object != null) {
+                // Load image using class loader
+                String imagePath = "/Img/Cases/" + CaseGrapheAssocie.object + ".png";
+                image = ImageIO.read(getClass().getResource(imagePath));
+            } else {
+                System.out.println("CaseGrapheAssocie or its object is null");
+            }
+        } catch (IOException ex) {
+            System.out.print("glitched case: " + (CaseGrapheAssocie != null ? CaseGrapheAssocie.object : "null"));
+            ex.printStackTrace();
         }
-    } catch (IOException ex) {
-        System.out.print("glitched case: " + (CaseGrapheAssocie != null ? CaseGrapheAssocie.object : "null"));
-        ex.printStackTrace();
-    }
         Graphics2D g = (Graphics2D) G;
-        /* Cette méthode permet de ne pas tourner toute l'iamge du bouton, et donc
-		que les pions restent droits */
- /* Création d'une transformation affine de rotation de l'angle indiqué autour
-		du centre de l'image */
-        AffineTransform tx = AffineTransform.getRotateInstance(Math.toRadians(CaseGrapheAssocie.orientation), image.getWidth() / 2, image.getHeight() / 2);
-        /* Affichage de l'image tournée */
+        double scaleX = (double) Interface.CaseSize / image.getWidth();
+        double scaleY = (double) Interface.CaseSize / image.getHeight();
+
+        // Create an AffineTransform for scaling
+        AffineTransform tx = AffineTransform.getScaleInstance(scaleX, scaleY);
+
+        // Rotate the scaled image
+        tx.rotate(Math.toRadians(CaseGrapheAssocie.orientation), Interface.CaseSize / 2, Interface.CaseSize / 2);
+
         g.drawImage(image, tx, null);
-        /* Rotation de l'image de l'angle indiqué autour de son centre */
- /* Affichage de l'image transformée précedement sur place */
- /*if (CaseGrapheAssocie.presencePion()) {
+
+        /*if (CaseGrapheAssocie.presencePion()) {
 			for (Peon pion : CaseGrapheAssocie.Players) {
 				BufferedImage imagePion = null;
 				try {
