@@ -78,6 +78,11 @@ public class Case {
             }
         }
     }
+
+    @Override
+    public String toString() {
+        return "Case{" + "orientation=" + orientation + ", Haut=" + Haut + ", Bas=" + Bas + ", Gauche=" + Gauche + ", Droite=" + Droite + ", Players=" + Players + ", object=" + object + '}';
+    }
     
     /**
 	 * Détermine si un objet est présent sur la tuile (c-à-d si la tuile n'est

@@ -17,9 +17,10 @@ import javax.swing.JFrame;
  */
 public class Interface extends javax.swing.JFrame {
 
-    Toolkit toolkit = Toolkit.getDefaultToolkit();
-    Dimension ScreenDim = toolkit.getScreenSize();
-
+    static Toolkit toolkit = Toolkit.getDefaultToolkit();
+    static Dimension ScreenDim = toolkit.getScreenSize();
+    static int CaseSize = ScreenDim.height / 10;
+    
     String action = "";
     Partie Session;
 
@@ -37,7 +38,7 @@ public class Interface extends javax.swing.JFrame {
     CaseGraphique Right3 = new CaseGraphique(new Case("placeHolder"));
     CaseGraphique[] Actions = new CaseGraphique[12];
 
-    int CaseSize = 128;
+    
 
     /**
      * Creates new form FenetreDeJeu

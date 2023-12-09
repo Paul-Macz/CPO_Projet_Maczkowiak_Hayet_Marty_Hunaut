@@ -59,8 +59,8 @@ public class Partie {
 
         //Placement des cases
         int index = -1;
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 6; j++) {
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 7; j++) {
                 if (i == 0 && j == 0) {
                     //Case départ Bleue
                     for (int k = 0; k < ListeCases.size(); k++) {
@@ -77,7 +77,7 @@ public class Partie {
                 } else if (i == 0 && j == 6) {
                     //Case départ Verte
                     for (int k = 0; k < ListeCases.size(); k++) {
-                        if ("deparV".equals(ListeCases.get(k).object)) {
+                        if ("departV".equals(ListeCases.get(k).object)) {
                             index = k;
                             break;
                         }
