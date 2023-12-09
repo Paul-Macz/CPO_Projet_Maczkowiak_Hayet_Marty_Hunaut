@@ -139,6 +139,11 @@ public class Partie {
         return true;
     }
 
+    /**
+     * Place une tuile sans objet aléatoire dans la grille
+     * @param i Coordonnée en abscisse
+     * @param j Coordonnée en ordonnée
+     */
     public void PlaceCaseSansObjet(int i, int j) {
         int index;
         if (rand.nextInt(3) > 0) {
