@@ -45,11 +45,11 @@ public class Grille {
         Case temp;
         int direction;
         if (Droite){
-            temp=Grid[LigneNb][6];
+            temp=Grid[LigneNb-1][6];
             direction=1;
         }
         else {
-            temp=Grid[LigneNb][0];
+            temp=Grid[LigneNb-1][0];
             direction=-1;
         }
         for (int i=0;i<7;i++){
@@ -61,12 +61,13 @@ public class Grille {
                 j=i;
             }
             if (i==6){
-                Grid[LigneNb][j]=prochainecase;
-                Grid[LigneNb][j].Players=new ArrayList<>(temp.Players);
-                temp.Players.clear();      
+                Grid[LigneNb-1][j]=prochainecase;
+                //Grid[LigneNb-1][j].Players=new ArrayList<>(temp.Players);
+                //temp.Players.clear();      
             }
             else{
-                Grid[LigneNb][j]=Grid[LigneNb][j-direction];
+
+                Grid[LigneNb-1][j]=Grid[LigneNb-1][j-direction];
             }
         }
         return true;
@@ -75,7 +76,7 @@ public class Grille {
     /**
      * Déplace l'ensemble des cases de la colonne dans une direction
      * @param ColNb Determine la colonne modifiée
-     * @param Haut  Determine si on se déplace vers le haut ou vers le bas
+     * @param Haut  Determine si le déplacement provient du haut
      * @return      Renvoie le succès de l'opération
      */
     public boolean DecalerColonne(int ColNb, boolean Haut){
@@ -85,11 +86,11 @@ public class Grille {
         Case temp;
         int direction;
         if (Haut){
-            temp=Grid[0][ColNb];
+            temp=Grid[0][ColNb-1];
             direction=1;
         }
         else{
-            temp=Grid[6][ColNb];
+            temp=Grid[6][ColNb-1];
             direction=-1;
         }
         for(int i=0;i<7;i++){
@@ -101,12 +102,12 @@ public class Grille {
                 j=i;
             }
             if(i==6){
-                Grid[j][ColNb]=prochainecase;
-                Grid[j][ColNb].Players=new ArrayList<>(temp.Players);
+                Grid[j][ColNb-1]=prochainecase;
+                Grid[j][ColNb-1].Players=new ArrayList<>(temp.Players);
                 temp.Players.clear();
             }
             else{
-                Grid[j][ColNb]=Grid[j-direction][ColNb];
+                Grid[j][ColNb-1]=Grid[j-direction][ColNb-1];
             }
         }
         return true;

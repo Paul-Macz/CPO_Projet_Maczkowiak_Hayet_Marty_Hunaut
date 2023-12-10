@@ -20,7 +20,7 @@ public class Interface extends javax.swing.JFrame {
     static Toolkit toolkit = Toolkit.getDefaultToolkit();
     static Dimension ScreenDim = toolkit.getScreenSize();
     static int CaseSize = ScreenDim.height / 10;
-    
+
     String action = "";
     Partie Session;
 
@@ -37,8 +37,6 @@ public class Interface extends javax.swing.JFrame {
     CaseGraphique Right2 = new CaseGraphique(new Case("placeHolder"));
     CaseGraphique Right3 = new CaseGraphique(new Case("placeHolder"));
     CaseGraphique[] Actions = new CaseGraphique[12];
-
-    
 
     /**
      * Creates new form FenetreDeJeu
@@ -244,7 +242,8 @@ public class Interface extends javax.swing.JFrame {
                 }
             }
         }
-        Top1.CaseGrapheAssocie=Session.Labyrinth.prochainecase;
+        //Top1.CaseGrapheAssocie = Session.Labyrinth.prochainecase;
+        Session.Labyrinth.prochainecase = Right3.CaseGrapheAssocie;
         action = "Top1";
     }
 
@@ -252,11 +251,12 @@ public class Interface extends javax.swing.JFrame {
         if (action != "") {
             for (int i = 0; i < Actions.length; i++) {
                 if (Actions[i].CaseGrapheAssocie == Session.Labyrinth.prochainecase) {
-                    Actions[i].CaseGrapheAssocie= new Case("placeHolder");
+                    Actions[i].CaseGrapheAssocie = new Case("placeHolder");
                 }
             }
         }
-        Top2.CaseGrapheAssocie=Session.Labyrinth.prochainecase;
+        //Top2.CaseGrapheAssocie = Session.Labyrinth.prochainecase;
+        Session.Labyrinth.prochainecase = Right3.CaseGrapheAssocie;
         action = "Top2";
     }
 
@@ -268,7 +268,8 @@ public class Interface extends javax.swing.JFrame {
                 }
             }
         }
-        Top3.CaseGrapheAssocie=Session.Labyrinth.prochainecase;
+        //Top3.CaseGrapheAssocie = Session.Labyrinth.prochainecase;
+        Session.Labyrinth.prochainecase = Right3.CaseGrapheAssocie;
         action = "Top3";
     }
 
@@ -280,7 +281,8 @@ public class Interface extends javax.swing.JFrame {
                 }
             }
         }
-        Bottom1.CaseGrapheAssocie=Session.Labyrinth.prochainecase;
+        //Bottom1.CaseGrapheAssocie = Session.Labyrinth.prochainecase;
+        Session.Labyrinth.prochainecase = Right3.CaseGrapheAssocie;
         action = "Bottom1";
     }
 
@@ -292,7 +294,8 @@ public class Interface extends javax.swing.JFrame {
                 }
             }
         }
-        Bottom2.CaseGrapheAssocie=Session.Labyrinth.prochainecase;
+        //Bottom2.CaseGrapheAssocie = Session.Labyrinth.prochainecase;
+        Session.Labyrinth.prochainecase = Right3.CaseGrapheAssocie;
         action = "Bottom2";
     }
 
@@ -304,7 +307,8 @@ public class Interface extends javax.swing.JFrame {
                 }
             }
         }
-        Bottom3.CaseGrapheAssocie=Session.Labyrinth.prochainecase;
+        //Bottom3.CaseGrapheAssocie = Session.Labyrinth.prochainecase;
+        Session.Labyrinth.prochainecase = Right3.CaseGrapheAssocie;
         action = "Bottom3";
     }
 
@@ -316,7 +320,8 @@ public class Interface extends javax.swing.JFrame {
                 }
             }
         }
-        Left1.CaseGrapheAssocie=Session.Labyrinth.prochainecase;
+        //Left1.CaseGrapheAssocie = Session.Labyrinth.prochainecase;
+        Session.Labyrinth.prochainecase = Right3.CaseGrapheAssocie;
         action = "Left1";
     }
 
@@ -328,7 +333,8 @@ public class Interface extends javax.swing.JFrame {
                 }
             }
         }
-        Left2.CaseGrapheAssocie=Session.Labyrinth.prochainecase;
+        //Left2.CaseGrapheAssocie = Session.Labyrinth.prochainecase;
+        Session.Labyrinth.prochainecase = Right3.CaseGrapheAssocie;
         action = "Left2";
     }
 
@@ -340,7 +346,8 @@ public class Interface extends javax.swing.JFrame {
                 }
             }
         }
-        Left3.CaseGrapheAssocie=Session.Labyrinth.prochainecase;
+        //Left3.CaseGrapheAssocie = Session.Labyrinth.prochainecase;
+        Session.Labyrinth.prochainecase = Right3.CaseGrapheAssocie;
         action = "Left3";
     }
 
@@ -352,19 +359,21 @@ public class Interface extends javax.swing.JFrame {
                 }
             }
         }
-        Right1.CaseGrapheAssocie = Session.Labyrinth.prochainecase;
+        //Right1.CaseGrapheAssocie = Session.Labyrinth.prochainecase;
+        Session.Labyrinth.prochainecase = Right3.CaseGrapheAssocie;
         action = "Right1";
     }
 
     private void Right2ActionPerformed(java.awt.event.ActionEvent evt) {
         if (action != "") {
             for (int i = 0; i < Actions.length; i++) {
-                if (Actions[i].CaseGrapheAssocie== Session.Labyrinth.prochainecase) {
+                if (Actions[i].CaseGrapheAssocie == Session.Labyrinth.prochainecase) {
                     Actions[i].CaseGrapheAssocie = new Case("placeHolder");
                 }
             }
         }
-        Right2.CaseGrapheAssocie = Session.Labyrinth.prochainecase;
+        //Right2.CaseGrapheAssocie = Session.Labyrinth.prochainecase;
+        Session.Labyrinth.prochainecase = Right3.CaseGrapheAssocie;
         action = "Right2";
     }
 
@@ -376,8 +385,10 @@ public class Interface extends javax.swing.JFrame {
                 }
             }
         }
-        Right3.CaseGrapheAssocie = Session.Labyrinth.prochainecase;
+        //Right3.CaseGrapheAssocie = Session.Labyrinth.prochainecase;
+        Session.Labyrinth.prochainecase = Right3.CaseGrapheAssocie;
         action = "Right3";
+
     }
     private void btn_HelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_HelpActionPerformed
         // TODO add your handling code here:
@@ -389,24 +400,42 @@ public class Interface extends javax.swing.JFrame {
 
     private void ValidateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValidateActionPerformed
         switch (action) {
-            case "Top1" -> Session.Labyrinth.DecalerColonne(2, false);
-            
-            case "Top2" -> Session.Labyrinth.DecalerColonne(4, false);
-            
-            case "Top3" -> Session.Labyrinth.DecalerColonne(6, false);
-            
-            case "Bottom1" -> Session.Labyrinth.DecalerColonne(2, true);
-            
-            case "Bottom2" -> Session.Labyrinth.DecalerColonne(4, true);
-            
-            case "Bottom3" ->Session.Labyrinth.DecalerColonne(6, true);
-            case "Left1" -> Session.Labyrinth.DecalerLigne(2, true);
-            case "Left2" -> Session.Labyrinth.DecalerLigne(4, true);
-            case "Left3" -> Session.Labyrinth.DecalerLigne(6, true);
-            case "Right1" -> Session.Labyrinth.DecalerLigne(2, false);
-            case "Right2" -> Session.Labyrinth.DecalerLigne(4, false);
-            case "Right3" -> Session.Labyrinth.DecalerLigne(6, false);
+            case "Top1" ->
+                Session.Labyrinth.DecalerColonne(2, true);
+            case "Top2" ->
+                Session.Labyrinth.DecalerColonne(4, true);
+            case "Top3" ->
+                Session.Labyrinth.DecalerColonne(6, true);
+            case "Bottom1" ->
+                Session.Labyrinth.DecalerColonne(2, false);
+            case "Bottom2" ->
+                Session.Labyrinth.DecalerColonne(4, false);
+            case "Bottom3" ->
+                Session.Labyrinth.DecalerColonne(6, false);
+            case "Left1" ->
+                Session.Labyrinth.DecalerLigne(2, true);
+            case "Left2" ->
+                Session.Labyrinth.DecalerLigne(4, true);
+            case "Left3" ->
+                Session.Labyrinth.DecalerLigne(6, true);
+            case "Right1" ->
+                Session.Labyrinth.DecalerLigne(2, false);
+            case "Right2" ->
+                Session.Labyrinth.DecalerLigne(4, false);
+            case "Right3" -> 
+                Session.Labyrinth.DecalerLigne(6, false);
         }
+            Component[] components = Labyrinth.getComponents();
+            for (int index=0;index<components.length;index++){
+                int i=index/7;
+                int j=index%7;
+                Component comp=components[index];
+                if (comp instanceof CaseGraphique) {
+                    CaseGraphique caseGraphique = (CaseGraphique) comp;
+                    caseGraphique.CaseGrapheAssocie = Session.Labyrinth.Grid[i][j];
+                }
+            }
+        Labyrinth.repaint();
     }//GEN-LAST:event_ValidateActionPerformed
 
     /**

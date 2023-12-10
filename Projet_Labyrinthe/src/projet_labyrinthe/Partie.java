@@ -4,7 +4,6 @@
  */
 package projet_labyrinthe;
 
-import java.awt.List;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -32,9 +31,8 @@ public class Partie {
     }
 
     /**
-     * Place dans chaque case de la grille une case souhaitée Fait appele à
-     * PlaceCase()
-     *
+     * Place dans chaque case de la grille une case souhaitée 
+     * Fait appele à PlaceCase() et PlaceCaseSansObjet()
      * @return renvoie le succès de la méthode
      */
     public boolean PlaceCases() {
@@ -61,12 +59,6 @@ public class Partie {
         int index = -1;
         for (int i = 0; i < 7; i++) {
             for (int j = 0; j < 7; j++) {
-                if (i == 6 && j == 2) {
-                    System.out.println(ListeCases.size());
-                    for (int o = 0; o < ListeCases.size(); o++) {
-                        System.out.println(ListeCases.get(o));
-                    }
-                }
                 if (i == 0 && j == 0) {
                     //Case départ Bleue
                     for (int k = 0; k < ListeCases.size(); k++) {
