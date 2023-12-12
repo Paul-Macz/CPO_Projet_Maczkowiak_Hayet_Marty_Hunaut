@@ -128,6 +128,7 @@ public class Partie {
                 }
             }
         }
+        Labyrinth.Melanger();
         return true;
     }
 
