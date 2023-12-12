@@ -129,7 +129,7 @@ public class Grille {
 				x2 = rand.nextInt(7);
 				y2 = rand.nextInt(7);
 			} while (CaseDepart(x2, y2));
-			if (!EchangerCase(x1, y1, x2, y2)) {
+			if (!EchangerCases(x1, y1, x2, y2)) {
 				return false;
 			}
 		}
