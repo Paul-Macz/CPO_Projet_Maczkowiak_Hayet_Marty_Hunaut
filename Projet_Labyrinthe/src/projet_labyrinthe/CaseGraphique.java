@@ -58,7 +58,7 @@ public class CaseGraphique extends JButton {
         AffineTransform tx = AffineTransform.getScaleInstance(scaleX, scaleY);
 
         // Rotate the scaled image
-        tx.rotate(Math.toRadians(CaseGrapheAssocie.orientation), Interface.CaseSize / 2, Interface.CaseSize / 2);
+        tx.rotate(Math.toRadians(CaseGrapheAssocie.orientation), image.getWidth()/2, image.getHeight()/2 );
 
         g.drawImage(image, tx, null);
 

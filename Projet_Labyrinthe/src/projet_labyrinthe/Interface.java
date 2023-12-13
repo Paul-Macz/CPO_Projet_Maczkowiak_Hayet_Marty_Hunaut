@@ -90,12 +90,12 @@ public class Interface extends javax.swing.JFrame {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         casegraphselectionnee = (CaseGraphique) e.getSource();
-                        System.out.println(caseselectionnee);
                         
                     }
                 });
                 getContentPane().add(democase);
                 democase.setBounds(ScreenDim.width / 2, (ScreenDim.height) / 2,  (ScreenDim.height)/6, (ScreenDim.height)/6);
+                CaseSize=(ScreenDim.height)/6;
                 add(Rotate);
                 Rotate.setBounds((ScreenDim.width)*2/10, (ScreenDim.height)/20,(ScreenDim.width)/10, (ScreenDim.height)/10);
                 Rotate.setVisible(true);
