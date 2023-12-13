@@ -43,39 +43,14 @@ public class Case {
         }
         
         if (angle%90==0){
-            int direction = angle/90;
-            direction= direction%4;
-            boolean temp, temp2;
-            
-            switch (direction) {
-                case 1:
-                    temp=Haut;
-                    Haut=Gauche;
-                    Gauche=Bas;
-                    Bas=Droite;
-                    Droite=temp;
-                    orientation=90;
-                    break;
-                case 2:
-                    temp=Haut;
-                    Haut=Bas;
-                    Bas=Haut;
-                    temp2=Gauche;
-                    Gauche=Droite;
-                    Droite=temp2;
-                    orientation=180;
-                    break;
-                case 3:
-                    temp=Haut;
-                    Haut=Droite;
-                    Droite=Bas;
-                    Bas=Gauche;
-                    Gauche=temp;
-                    orientation=270;
-                    break;
-                default:
-                    break;
-            }
+            boolean temp;
+            orientation+=90;
+            orientation=orientation%360;
+            temp=Haut;
+            Haut = Gauche;
+            Gauche = Bas;
+            Bas = Droite;
+            Droite = temp;
         }
     }
 

@@ -4,12 +4,16 @@
  */
 package projet_labyrinthe;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -23,7 +27,9 @@ public class Interface extends javax.swing.JFrame {
 
     String action = "";
     Partie Session;
-
+    Case caseselectionnee;
+    CaseGraphique casegraphselectionnee;
+    
     CaseGraphique Top1 = new CaseGraphique(new Case("placeHolder"));
     CaseGraphique Top2 = new CaseGraphique(new Case("placeHolder"));
     CaseGraphique Top3 = new CaseGraphique(new Case("placeHolder"));
@@ -37,11 +43,18 @@ public class Interface extends javax.swing.JFrame {
     CaseGraphique Right2 = new CaseGraphique(new Case("placeHolder"));
     CaseGraphique Right3 = new CaseGraphique(new Case("placeHolder"));
     CaseGraphique[] Actions = new CaseGraphique[12];
-
+    int angle=0;
     /**
      * Creates new form FenetreDeJeu
      */
     public Interface() {
+        initComponents();
+        Session = new Partie();
+        DebugMode();
+        //Initialisation();
+    }
+    
+    private void Initialisation(){
         Actions[0] = Top1;
         Actions[1] = Top2;
         Actions[2] = Top3;
@@ -54,11 +67,45 @@ public class Interface extends javax.swing.JFrame {
         Actions[9] = Right1;
         Actions[10] = Right2;
         Actions[11] = Right3;
-        initComponents();
-        Session = new Partie();
+        
+        
         PlaceComponents();
     }
 
+    private void DebugMode(){
+        for (Component component : getContentPane().getComponents()) {
+            component.setVisible(false);
+        }
+        setSize(ScreenDim.width, ScreenDim.height);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setLayout(null);
+        JPanel buttonPanel = new JPanel();
+       
+        JButton but = new JButton("Place une case");
+        CaseSize=(ScreenDim.height)/6;
+        but.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CaseGraphique democase = new CaseGraphique(new Case("departB"));
+                democase.addActionListener(new java.awt.event.ActionListener(){
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        casegraphselectionnee = (CaseGraphique) e.getSource();
+                        System.out.println(caseselectionnee);
+                        
+                    }
+                });
+                getContentPane().add(democase);
+                democase.setBounds(ScreenDim.width / 2, (ScreenDim.height) / 2,  (ScreenDim.height)/6, (ScreenDim.height)/6);
+                add(Rotate);
+                Rotate.setBounds((ScreenDim.width)*2/10, (ScreenDim.height)/20,(ScreenDim.width)/10, (ScreenDim.height)/10);
+                Rotate.setVisible(true);
+            }
+        });
+        add(but);
+        but.setBounds((ScreenDim.width)/10, (ScreenDim.height)/20,(ScreenDim.width)/10, (ScreenDim.height)/10);
+
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -120,7 +167,7 @@ public class Interface extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void PlaceComponents() {
-        setSize(ScreenDim.width, ScreenDim.height);
+       setSize(ScreenDim.width, ScreenDim.height);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLayout(null);
         Labyrinth.setBounds(ScreenDim.width / 2, (ScreenDim.height) / 10, (ScreenDim.height) * 7 / 10, (ScreenDim.height) * 7 / 10);
@@ -396,6 +443,12 @@ public class Interface extends javax.swing.JFrame {
 
     private void RotateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RotateActionPerformed
         // TODO add your handling code here:
+        if (casegraphselectionnee==null){
+            return;
+        }
+        angle=angle+90;
+        casegraphselectionnee.CaseGrapheAssocie.TurnCase(angle);
+        casegraphselectionnee.repaint();
     }//GEN-LAST:event_RotateActionPerformed
 
     private void ValidateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValidateActionPerformed
