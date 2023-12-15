@@ -118,7 +118,7 @@ public class Partie {
                                     || "departB".equals(ListeCases.get(index).object)
                                     || "placeHolder".equals(ListeCases.get(index).object));
 
-                            Labyrinth.PlaceCase(i, j, ListeCases.get(index));
+                            Labyrinth.PlaceCase(i, j, new Case(ListeCases.get(index).object));
                             ListeCases.remove(index);
                         } //Si toutes les autres cases ont été placée
                         else {
@@ -144,7 +144,7 @@ public class Partie {
             for (int k = 0; k < ListeCases.size(); k++) {
                 if ("tuile1".equals(ListeCases.get(k).object)) {
                     index = k;
-                    Labyrinth.PlaceCase(i, j, ListeCases.get(index));
+                    Labyrinth.PlaceCase(i, j, new Case("tuile1"));
                     break;
                 }
             }
@@ -153,7 +153,7 @@ public class Partie {
             for (int k = 0; k < ListeCases.size(); k++) {
                 if ("tuile2".equals(ListeCases.get(k).object)) {
                     index = k;
-                    Labyrinth.PlaceCase(i, j, ListeCases.get(index));
+                    Labyrinth.PlaceCase(i, j, new Case("tuile2"));
                     break;
                 }
             }

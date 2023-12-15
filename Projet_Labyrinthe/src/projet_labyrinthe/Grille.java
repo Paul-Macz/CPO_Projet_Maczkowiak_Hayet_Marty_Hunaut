@@ -16,6 +16,7 @@ public class Grille {
     Case[][] Grid;
     Case prochainecase;
     public static Random rand = new Random();
+
     /**
      * Créer une nouvelle grille de cases en 7x7
      */
@@ -112,33 +113,71 @@ public class Grille {
         }
         return true;
     }
-    
+
     /**
      * Mélange la grille sauf les cases de départ
+     *
      * @return Si l'opération est un succès
      */
-    public boolean Melanger(){
-        int x1,x2,y1,y2;
-        
+    public boolean Melanger() {
+        int x1, x2, y1, y2;
+
         for (int i = 0; i < 30; i++) {
-			do {
-				x1 = rand.nextInt(7);
-				y1 = rand.nextInt(7);
-			} while (CaseDepart(x1, y1));
-			do {
-				x2 = rand.nextInt(7);
-				y2 = rand.nextInt(7);
-			} while (CaseDepart(x2, y2));
-			if (!EchangerCases(x1, y1, x2, y2)) {
-				return false;
-			}
-		}
-		return true;
-        
+            do {
+                x1 = rand.nextInt(7);
+                y1 = rand.nextInt(7);
+            } while (CaseDepart(x1, y1));
+
+            do {
+                x2 = rand.nextInt(7);
+                y2 = rand.nextInt(7);
+            } while (CaseDepart(x2, y2));
+
+            if (!EchangerCases(x1, y1, x2, y2)) {
+                return false;
+            }
+        }
+        Tournergrid();
+        System.out.println("");
+        System.out.println("Melanger");
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 7; j++) {
+                System.out.println(Grid[i][j].object+" "+Grid[i][j].orientation);
+            }
+        }
+        return true;
+
     }
-    
+
+    public void Tournergrid() {
+        int angle;
+        System.out.println("");
+        System.out.println("TournerGrid");
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 7; j++) {
+                if (!CaseDepart(i, j)) {
+                    angle = rand.nextInt(4) * 90;
+                    Tourner(i, j, angle);
+                }
+                System.out.println(Grid[i][j].object+" "+Grid[i][j].orientation);
+            }
+        }
+        System.out.println("");
+        System.out.println("Mid");
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 7; j++) {
+                System.out.println(Grid[i][j].object+" "+Grid[i][j].orientation);
+            }
+        }
+    }
+
+    public void Tourner(int x, int y, int angle) {
+        Grid[x][y].TurnCase(angle);
+    }
+
     /**
      * Echange les cases de deux emplacements dans la grille
+     *
      * @param x1 Coordonnée en abscisse dans la première case
      * @param y1 Coordonnée en ordonnée dans la première case
      * @param x2 Coordonnée en abscisse dans la deuxième case
@@ -146,29 +185,30 @@ public class Grille {
      * @return Succès de l'opération
      */
     public boolean EchangerCases(int x1, int y1, int x2, int y2) {
-		if (x1 > 6 || x1 < 0) {
-			return false;
-		}
-		if (y1 > 6 || y1 < 0) {
-			return false;
-		}
-		if (x2 > 6 || x2 < 0) {
-			return false;
-		}
-		if (y2 > 6 || y2 < 0) {
-			return false;
-		}
-		Case temp = Grid[x1][y1];
-		Grid[x1][y1] = Grid[x2][y2];
-		Grid[x2][y2] = temp;
-		return true;
-	}
-    
+        if (x1 > 6 || x1 < 0) {
+            return false;
+        }
+        if (y1 > 6 || y1 < 0) {
+            return false;
+        }
+        if (x2 > 6 || x2 < 0) {
+            return false;
+        }
+        if (y2 > 6 || y2 < 0) {
+            return false;
+        }
+        Case temp = Grid[x1][y1];
+        Grid[x1][y1] = Grid[x2][y2];
+        Grid[x2][y2] = temp;
+        return true;
+    }
+
     /**
      * Vérifie si une case donnée est une case de départ
+     *
      * @param x Coordonnée en abscisse
      * @param y Coordonnée en ordonnée
-     * @return  Vrai si la case est une case de départ
+     * @return Vrai si la case est une case de départ
      */
     public boolean CaseDepart(int x, int y) {
         if (x > 6 || x < 0) {
@@ -177,10 +217,10 @@ public class Grille {
         if (y > 6 || y < 0) {
             return false;
         }
-        return ((x == 0 && y == 0) ||
-                (x == 0 && y == 6) || 
-                (x == 6 && y == 0) || 
-                (x == 6 && y == 6));
+        return ((x == 0 && y == 0)
+                || (x == 0 && y == 6)
+                || (x == 6 && y == 0)
+                || (x == 6 && y == 6));
     }
 
 }

@@ -43,14 +43,17 @@ public class Case {
         }
         
         if (angle%90==0){
-            boolean temp;
-            orientation+=90;
+            orientation+=angle;
             orientation=orientation%360;
-            temp=Haut;
+            for(int i=0;i<orientation/90;i++){
+                boolean temp;
+                temp=Haut;
             Haut = Gauche;
             Gauche = Bas;
             Bas = Droite;
             Droite = temp;
+            }
+            
         }
     }
 

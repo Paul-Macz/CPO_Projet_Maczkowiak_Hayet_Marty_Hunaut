@@ -50,8 +50,8 @@ public class Interface extends javax.swing.JFrame {
     public Interface() {
         initComponents();
         Session = new Partie();
-        DebugMode();
-        //Initialisation();
+        //DebugMode();
+        Initialisation();
     }
     
     private void Initialisation(){
@@ -85,7 +85,7 @@ public class Interface extends javax.swing.JFrame {
         CaseSize=(ScreenDim.height)/6;
         but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CaseGraphique democase = new CaseGraphique(new Case("departB"));
+                CaseGraphique democase = new CaseGraphique(new Case("tuile1"));
                 democase.addActionListener(new java.awt.event.ActionListener(){
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -173,7 +173,16 @@ public class Interface extends javax.swing.JFrame {
         Labyrinth.setBounds(ScreenDim.width / 2, (ScreenDim.height) / 10, (ScreenDim.height) * 7 / 10, (ScreenDim.height) * 7 / 10);
         for (int i = 0; i < 7; i++) {
             for (int j = 0; j < 7; j++) {
+                
                 CaseGraphique Case = new CaseGraphique(Session.Labyrinth.Grid[i][j]);
+                Case.addActionListener(new java.awt.event.ActionListener(){
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        casegraphselectionnee=(CaseGraphique)e.getSource();
+                        caseselectionnee=casegraphselectionnee.CaseGrapheAssocie;
+                        System.out.println(caseselectionnee);
+                    }
+                });
                 Case.setPreferredSize(new Dimension(ScreenDim.height / 10, ScreenDim.height / 10));
                 Labyrinth.add(Case);
             }
