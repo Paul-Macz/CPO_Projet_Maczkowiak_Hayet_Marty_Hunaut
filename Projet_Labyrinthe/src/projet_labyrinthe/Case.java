@@ -68,16 +68,22 @@ public class Case {
 	 *
 	 * @return Si la tuile a un objet
 	 */
-	//public boolean presenceObjet() {
-		//return !(type.equals("droit") || type.equals("coin") || type.equals("departB") || type.equals("departV") || type.equals("departJ") || type.equals("departR"));
+	public boolean presenceObjet() {
+	return !( object.equals("departB")
+                || object.equals("departV")
+                || object.equals("departJ") 
+                || object.equals("departR")
+                || object.equals("tuile1") 
+                || object.equals("tuile2"));
 	}
 
 	/**
 	 * Détermine si des pions sont présents sur la tuile (ou un seul)
 	 *
-	 * @return Si la tuile a des pions
+	 * @return Si la case a des pions
 	 */
-	//public boolean presencePion() {
-		//return !(pionsPresents == null || pionsPresents.isEmpty());
-	//}
+	public boolean presenceJoueurs() {
+		return !(Players == null || Players.isEmpty());
+	}
 
+}

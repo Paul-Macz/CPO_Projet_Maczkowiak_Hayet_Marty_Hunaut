@@ -4,6 +4,7 @@
  */
 package projet_labyrinthe;
 
+import java.util.Arrays;
 import projet_labyrinthe.Peon ;
 import projet_labyrinthe.Player;
 /**
@@ -33,4 +34,76 @@ public class Player {
          public void setPositionMarqueur(int position) {
                  marqueur.setPosition(position);
     }
+         /**
+	 * Détermine quoi faire quand le pion du joueur arrive sur une nouvelle
+	 * tuile
+	 *
+	 * @param nouvelleCase La nouvelle tuile sur laquelle le pion du joueur est
+	 */
+	public void nouvellePosition(Case nouvelleCase) {
+		if (nouvelleCase.presenceObjet()) {
+			if (listeCartes[indexCarteRetournee].nomObjet.equals(nouvelleCase.object)) {
+				ramasserObjet(nouvelleCase);
+				indexCarteRetournee++;
+			}
+		}
+	}
+
+	/**
+	 * Ajoute l'objet présent sur la tuile à la liste des objets possédés par le
+	 * joueur.
+	 *
+	 * @param case1 La tuile sur laquelle le joueur est
+	 * 
+	 * @return Succès de l'opération
+	 */
+	public boolean ramasserObjet(Case case1) {
+		/* Si l'inventaire est plein, on ne peut pas ajouter d'objet dedans. */
+		if (sacEstPlein()) {
+			return false;
+		}
+		/* On ne peut pas ajouter d'objet qui n'existe pas */
+		if (!case1.presenceObjet()) {
+			return false;
+		}
+		listeObjets[indexCarteRetournee] = case1.object;
+		return true;
+	}
+
+	/**
+	 * Vérifie si le sac du joueur (son attribut 'listeObjets') est plein.
+	 *
+	 * @return Le remplissage du sac
+	 */
+	public boolean sacEstPlein() {
+		for (int i = 0; i < listeObjets.length; i++) {
+			if (listeObjets[i] == null) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * Détermine si le joueur a collecté tous ses objets de quête
+	 *
+	 * @return Si tous les objets ont été ramassés
+	 */
+	public boolean tousObjetsRamasses() {
+		if (!sacEstPlein()) {
+			return false;
+		}
+		if (listeObjets.length < listeCartes.length) {
+			return false;
+		}
+		for (Cartes carte : listeCartes) {
+			/*
+			On retourne faux si l'objet d'une des cartes recherchées n'est pas contenu dans listeObjets
+			 */
+			if (!Arrays.asList(listeObjets).contains(carte.nomObjet)) {
+				return false;
+			}
+		}
+		return true;
+	}
 }

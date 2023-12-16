@@ -23,9 +23,21 @@ public class CaseGraphique extends JButton {
     Case CaseGrapheAssocie;
     int nblignes;
     int nbcolonnes;
+    int posX;
+    int posY;
 
     public CaseGraphique(Case CaseGrapheAssocie) {
         this.CaseGrapheAssocie = CaseGrapheAssocie;
+    }
+    
+    private CaseGraphique(Case CaseGrapheAssocie,int i,int j){
+        this.CaseGrapheAssocie = CaseGrapheAssocie;
+        this.posX=i;
+        this.posY=j;
+    }
+    
+     public static CaseGraphique createInstance(Case CaseGrapheAssocie, int i, int j) {
+        return new CaseGraphique(CaseGrapheAssocie, i, j);
     }
 
     /**
@@ -58,21 +70,31 @@ public class CaseGraphique extends JButton {
         AffineTransform tx = AffineTransform.getScaleInstance(scaleX, scaleY);
 
         // Rotate the scaled image
-        tx.rotate(Math.toRadians(CaseGrapheAssocie.orientation), image.getWidth()/2, image.getHeight()/2 );
+        tx.rotate(Math.toRadians(CaseGrapheAssocie.orientation), image.getWidth() / 2, image.getHeight() / 2);
 
         g.drawImage(image, tx, null);
 
-        /*if (CaseGrapheAssocie.presencePion()) {
-			for (Peon pion : CaseGrapheAssocie.Players) {
-				BufferedImage imagePion = null;
-				try {
-					imagePion = ImageIO.read(new File("src/Img/Heaume_" + pion.couleur + ".png"));
-				} catch (IOException ex) {
-				//	Logger.getLogger(CaseGraphique.class.getName()).log(Level.SEVERE, null, ex);
-				}
-				g.drawImage(imagePion, 0, 0, null);
-			}
-		}*/
+        if (CaseGrapheAssocie.presenceJoueurs()) {
+            for (Peon pion : CaseGrapheAssocie.Players) {
+                BufferedImage imagePion = null;
+                try {
+                    imagePion = ImageIO.read(new File("src/Img/Pion/Heaume_" + pion.couleur + ".png"));
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+                double translateX = (Interface.CaseSize) / 2.0;
+                double translateY = (Interface.CaseSize) / 2.0;
+
+                double scaleX2 = (double) Interface.CaseSize / (2.0* imagePion.getWidth());
+                double scaleY2 = (double) Interface.CaseSize / (2.0* imagePion.getHeight());
+
+                int scaledWidth = (int) (imagePion.getWidth() * scaleX2);
+                int scaledHeight = (int) (imagePion.getHeight() * scaleY2);
+                int x = (Interface.CaseSize - scaledWidth) / 2;
+                int y = (Interface.CaseSize - scaledHeight) / 2;
+                g.drawImage(imagePion,x,y,scaledWidth,scaledHeight, null);
+            }
+        }
     }
 
 }

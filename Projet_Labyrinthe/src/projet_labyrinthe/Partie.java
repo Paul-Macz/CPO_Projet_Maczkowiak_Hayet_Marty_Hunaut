@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -16,23 +19,159 @@ import java.util.Random;
  */
 public class Partie {
 
+    int nombreJoueurs;
+    int joueurCourant = 0;
+    Player[] listeJoueurs;
     Grille Labyrinth;
-    ArrayList<Case> ListeCases;
+    static ArrayList<Case> ListeCases;
     public static Random rand = new Random();
 
     /**
      * Initialise les attributs de la nouvelle partie
      */
-    public Partie() {
+    public Partie(int nbjoueurs) {
+        nombreJoueurs = nbjoueurs;
         Labyrinth = new Grille();
+        listeJoueurs = new Player[nbjoueurs];
         ListeCases = new ArrayList<>();
-        PlaceCases();
-
+        
     }
 
     /**
-     * Place dans chaque case de la grille une case souhaitée 
-     * Fait appele à PlaceCase() et PlaceCaseSansObjet()
+     * Crée un joueur de la liste à partir de son numéro et de son nom.
+     *
+     * @param indice la position du joueur
+     * @param nom le nom du joueur
+     * @return Succès de l'opération
+     */
+    public boolean creerJoueur(int indice, String nom) {
+        if (indice >= nombreJoueurs) {
+            return false;
+        }
+        if (listeJoueurs[indice] != null) {
+            return false;
+        }
+        listeJoueurs[indice] = new Player(nom, 24 / nombreJoueurs);
+        return true;
+    }
+
+    /**
+     * Initialise la partie dans un contexte graphique
+     */
+    public void InitialiserPartie() {
+        attribuerCouleurs();
+        distribuerCartes();
+        PlaceCases();
+        placerPionsDebut();
+    }
+
+    /**
+     * Ajoute les pions des joueurs sur leur position de départ aux 4 coins du
+     * plateau
+     */
+    public void placerPionsDebut() {
+        for (int i = 0; i < listeJoueurs.length; i++) {
+            switch (i) {
+                case 0 -> Labyrinth.Grid[0][0].Players.add(listeJoueurs[0].marqueur);
+                case 1 -> Labyrinth.Grid[0][6].Players.add(listeJoueurs[1].marqueur);
+                case 2 -> Labyrinth.Grid[6][6].Players.add(listeJoueurs[2].marqueur);
+                case 3 -> Labyrinth.Grid[6][0].Players.add(listeJoueurs[3].marqueur);
+            }
+        }
+    }
+
+    /**
+     * Incrémente l'indice correspondant au joueur courant, ce faisant passant
+     * au joueur suivant.
+     */
+    public void joueurSuivant() {
+        joueurCourant = ++joueurCourant % nombreJoueurs;
+    }
+
+    /**
+     * Attribue des couleurs aux joueurs, de façon non aléatoire.
+     *
+     * @return Succès de l'opération
+     */
+    public boolean attribuerCouleurs() {
+        if (nombreJoueurs > 4 || nombreJoueurs < 1) {
+            return false;
+        }
+        switch (nombreJoueurs) {
+            case 4:
+                listeJoueurs[3].attribuerCouleur("jaune");
+            case 3:
+                listeJoueurs[2].attribuerCouleur("rouge");
+            case 2:
+                listeJoueurs[1].attribuerCouleur("vert");
+            case 1:
+                listeJoueurs[0].attribuerCouleur("bleu");
+        }
+        return true;
+    }
+
+    /**
+     * Crée la liste des cartes, les mélange et les distribue.
+     *
+     * @return Succès de l'opération
+     */
+    public boolean distribuerCartes() {
+        /* Création de la liste des tuiles */
+        Path cheminFichierListe = Path.of("src/projet_labyrinthe/properties.txt");
+        List<String> ListeObjets;
+        if (Files.notExists(cheminFichierListe)) {
+            System.err.println("Le fichier properties.txt n'existe pas");
+            return false;
+        }
+        if (!Files.isReadable(cheminFichierListe)) {
+            System.err.println("Impossible de lire le fichier properties.txt");
+            return false;
+        }
+        try {
+            ListeObjets = Files.readAllLines​(cheminFichierListe);
+        } catch (IOException ex) {
+            return false;
+        }
+
+        /* On supprime de la liste listeTypes ce qui n'est pas un objet de quête */
+        Iterator iter = ListeObjets.iterator();
+        while (iter.hasNext()) {
+            String[] elem = ((String) iter.next()).split(" ");
+            String subelem = elem[0];
+            /* Comparaison avec les chaînes à ne pas garder */
+            if (subelem.equals("tuile1") 
+                    || subelem.equals("tuile2") 
+                    || subelem.equals("departB") 
+                    || subelem.equals("departV") 
+                    || subelem.equals("departJ") 
+                    || subelem.equals("departR")) {
+                iter.remove();
+            }
+        }
+        if (ListeObjets.size() != 24) {
+            return false;
+        }
+
+        /* On mélange la liste avec la méthode de Collections */
+        Collections.shuffle(ListeObjets);
+
+        /* Distribution des cartes */
+        int j = 0;
+        int nbCartesPJ = 24 / nombreJoueurs;
+        for (int i = 0; i < ListeObjets.size(); i++) {
+            if (i % nbCartesPJ == 0 && i != 0) {
+                j++;
+            }
+            listeJoueurs[j].listeCartes[i % nbCartesPJ] = new Cartes(ListeObjets.get(i).split(" ")[0]);
+        }
+
+        return true;
+    }
+
+    /**
+     * Place dans chaque case de la grille une case souhaitée Fait appele à
+     * PlaceCase() et PlaceCaseSansObjet()
+     *
      * @return renvoie le succès de la méthode
      */
     public boolean PlaceCases() {
@@ -134,6 +273,7 @@ public class Partie {
 
     /**
      * Place une tuile sans objet aléatoire dans la grille
+     *
      * @param i Coordonnée en abscisse
      * @param j Coordonnée en ordonnée
      */
