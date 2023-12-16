@@ -66,7 +66,7 @@ public class CaseGraphique extends JButton {
 			for (Peon pion : CaseGrapheAssocie.Players) {
 				BufferedImage imagePion = null;
 				try {
-					imagePion = ImageIO.read(new File("src/Img/pion" + pion.couleur + ".png"));
+					imagePion = ImageIO.read(new File("src/Img/Heaume_" + pion.couleur + ".png"));
 				} catch (IOException ex) {
 				//	Logger.getLogger(CaseGraphique.class.getName()).log(Level.SEVERE, null, ex);
 				}
