@@ -25,6 +25,7 @@ public class CaseGraphique extends JButton {
     int nbcolonnes;
     int posX;
     int posY;
+    private double customScale = 1.0;
 
     public CaseGraphique(Case CaseGrapheAssocie) {
         this.CaseGrapheAssocie = CaseGrapheAssocie;
@@ -39,7 +40,12 @@ public class CaseGraphique extends JButton {
      public static CaseGraphique createInstance(Case CaseGrapheAssocie, int i, int j) {
         return new CaseGraphique(CaseGrapheAssocie, i, j);
     }
-
+    
+    public void setScale(double scale) {
+        customScale = scale;
+        repaint(); // Trigger repaint to apply the new scale
+    }
+     
     /**
      * Redessine la case associé avec l'image souhaitée
      *
@@ -65,6 +71,8 @@ public class CaseGraphique extends JButton {
         Graphics2D g = (Graphics2D) G;
         double scaleX = (double) Interface.CaseSize / image.getWidth();
         double scaleY = (double) Interface.CaseSize / image.getHeight();
+        scaleX *= customScale;
+        scaleY *= customScale;
 
         // Create an AffineTransform for scaling
         AffineTransform tx = AffineTransform.getScaleInstance(scaleX, scaleY);

@@ -7,6 +7,7 @@ package projet_labyrinthe;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
 import java.awt.Toolkit;
@@ -27,7 +28,7 @@ public class Interface extends javax.swing.JFrame {
     static Toolkit toolkit = Toolkit.getDefaultToolkit();
     static Dimension ScreenDim = toolkit.getScreenSize();
     static int CaseSize = ScreenDim.height / 10;
-    static int CardSize = ScreenDim.height / 6;
+    static int CardSize = ScreenDim.height / 7;
 
     String action = "";
     Partie Session;
@@ -205,20 +206,26 @@ public class Interface extends javax.swing.JFrame {
 
         lbl_J1.setText("Joueur 1");
         Pane_Info.add(lbl_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+
+        lbl_nomJ2.setText("name");
         Pane_Info.add(lbl_nomJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
-        lbl_J2.setText("J1");
+        lbl_J2.setText("Joueur 2");
         Pane_Info.add(lbl_J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        lbl_J3.setText("J1");
+        lbl_J3.setText("Joueur 3");
         Pane_Info.add(lbl_J3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        lbl_nomJ3.setText("name");
         Pane_Info.add(lbl_nomJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
+
+        lbl_nomJ4.setText("name");
         Pane_Info.add(lbl_nomJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
-        lbl_J4.setText("J1");
+        lbl_J4.setText("Joueur 4");
         Pane_Info.add(lbl_J4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        Pane_J1.setBackground(new java.awt.Color(102, 102, 102));
+        Pane_J1.setBackground(new java.awt.Color(0, 102, 153));
         Pane_J1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Chrono_J1.setText("jLabel1");
@@ -235,7 +242,7 @@ public class Interface extends javax.swing.JFrame {
 
         Pane_Info.add(Pane_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 160, 60));
 
-        Pane_J2.setBackground(new java.awt.Color(102, 102, 102));
+        Pane_J2.setBackground(new java.awt.Color(0, 153, 51));
         Pane_J2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Chrono_J2.setText("jLabel1");
@@ -252,7 +259,7 @@ public class Interface extends javax.swing.JFrame {
 
         Pane_Info.add(Pane_J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 160, 60));
 
-        Pane_J3.setBackground(new java.awt.Color(102, 102, 102));
+        Pane_J3.setBackground(new java.awt.Color(204, 204, 0));
         Pane_J3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Chrono_J3.setText("jLabel1");
@@ -269,7 +276,7 @@ public class Interface extends javax.swing.JFrame {
 
         Pane_Info.add(Pane_J3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 160, 60));
 
-        Pane_J4.setBackground(new java.awt.Color(102, 102, 102));
+        Pane_J4.setBackground(new java.awt.Color(153, 0, 0));
         Pane_J4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Chrono_J4.setText("jLabel1");
@@ -289,16 +296,19 @@ public class Interface extends javax.swing.JFrame {
         getContentPane().add(Pane_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Validate.setBackground(new java.awt.Color(0, 153, 0));
-        Validate.setText("Valider");
+        Validate.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
+        Validate.setText("✔");
         Validate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ValidateActionPerformed(evt);
             }
         });
-        getContentPane().add(Validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, -1, -1));
+        getContentPane().add(Validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 432, -1, -1));
 
         Rotate.setBackground(new java.awt.Color(255, 153, 0));
-        Rotate.setText("Tourner");
+        Rotate.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Rotate.setForeground(new java.awt.Color(255, 255, 255));
+        Rotate.setText("⤾");
         Rotate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RotateActionPerformed(evt);
@@ -477,7 +487,13 @@ public class Interface extends javax.swing.JFrame {
         
         //Creation autres boutons d'actions
         Validate.setBounds((ScreenDim.width) * 7 / 20, (ScreenDim.height) * 7 / 9, (ScreenDim.height) * 3 / 40, (ScreenDim.height) * 3 / 40);
+        Validate.setText("<html>&#10003;<html>");
+        Validate.setFont(new Font("Arial Unicode MS",Font.BOLD,18));
+        Validate.setForeground(Color.white);
         Rotate.setBounds((ScreenDim.width) * 8 / 20, (ScreenDim.height) * 7 / 9, (ScreenDim.height) * 3 / 40, (ScreenDim.height) * 3 / 40);
+        Rotate.setText("<html>&#10558;<html>");
+        Rotate.setFont(new Font("Arial Unicode MS",Font.BOLD,24));
+        Rotate.setForeground(Color.white);
         btn_Help.setBounds((ScreenDim.width) * 7 / 20, (ScreenDim.height) / 30, (ScreenDim.height) * 3 / 40, (ScreenDim.height) * 3 / 40);
 
     }
@@ -489,18 +505,20 @@ public class Interface extends javax.swing.JFrame {
         Pane_Info.setBounds(0, 0, (ScreenDim.width) / 3, ScreenDim.height);
         
         Pane_Info.add(lbl_ChronoJeu, new AbsoluteConstraints((ScreenDim.width)/8, (ScreenDim.height)/100 , lbl_ChronoJeu.getWidth(),lbl_ChronoJeu.getHeight()));
-        Pane_Info.add(lbl_JoueurCourant, new AbsoluteConstraints((ScreenDim.width)/8, (ScreenDim.height)/12 , lbl_ChronoJeu.getWidth(),lbl_ChronoJeu.getHeight()));
-        Pane_Info.add(lbl_ChronoTour, new AbsoluteConstraints((ScreenDim.width)/8, (ScreenDim.height)/6 , lbl_ChronoJeu.getWidth(),lbl_ChronoJeu.getHeight()));
+        Pane_Info.add(lbl_JoueurCourant, new AbsoluteConstraints((ScreenDim.width)*3/100, (ScreenDim.height)/12 , lbl_JoueurCourant.getWidth(),lbl_JoueurCourant.getHeight()));
+        Pane_Info.add(lbl_NomJoueur, new AbsoluteConstraints((ScreenDim.width)/8, (ScreenDim.height)/12 , lbl_NomJoueur.getWidth(),lbl_NomJoueur.getHeight()));
+        Pane_Info.add(lbl_ChronoTour, new AbsoluteConstraints((ScreenDim.width)/8, (ScreenDim.height)/6 , lbl_ChronoTour.getWidth(),lbl_ChronoTour.getHeight()));
 
         
-        //CarteGraphique ObjetaRamasser = new CarteGraphique(new Cartes("araignee"));
-        //Pane_Info.add(ObjetaRamasser, new AbsoluteConstraints((ScreenDim.width)*3/100, (ScreenDim.height)/4 , (ScreenDim.width)/8, (ScreenDim.height)/6));
-        Pane_Info.add(lbl_nextCard, new AbsoluteConstraints((ScreenDim.width)/8, (ScreenDim.height)/4 , lbl_nextCard.getWidth(),lbl_nextCard.getHeight()));
+        CarteGraphique ObjetaRamasser = new CarteGraphique(new Cartes("araignee"));
+        Pane_Info.add(ObjetaRamasser, new AbsoluteConstraints((ScreenDim.width)*3/100, (ScreenDim.height)*9/40 , (ScreenDim.width)/8, (ScreenDim.height)/4));
+        Pane_Info.add(lbl_nextCard, new AbsoluteConstraints( (ScreenDim.width)*3 / 100, (ScreenDim.height)* 11/24, lbl_nextCard.getWidth(),lbl_nextCard.getHeight()));
         
         Session.Labyrinth.prochainecase = new Case("cle");
         CaseGraphique ProchaineCase = new CaseGraphique(new Case(Session.Labyrinth.prochainecase.object));
-        Pane_Info.add(ProchaineCase, new AbsoluteConstraints((ScreenDim.width)*3 / 100, (ScreenDim.height)* 9/24, (ScreenDim.height) / 10, (ScreenDim.height) / 10));
-        Pane_Info.add(lbl_nextCase, new AbsoluteConstraints((ScreenDim.width)/8, (ScreenDim.height)* 10/24, lbl_nextCase.getWidth(), lbl_nextCase.getHeight()));
+        ProchaineCase.setScale(1.3);
+        Pane_Info.add(ProchaineCase, new AbsoluteConstraints((ScreenDim.width)/6, (ScreenDim.height)/4, (ScreenDim.height)* 13/100, (ScreenDim.height)* 13/100));
+        Pane_Info.add(lbl_nextCase, new AbsoluteConstraints((ScreenDim.width)/6, (ScreenDim.height)* 10/24, lbl_nextCase.getWidth(), lbl_nextCase.getHeight()));
         
         
         Pane_Info.add(lbl_J1, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*21/40));

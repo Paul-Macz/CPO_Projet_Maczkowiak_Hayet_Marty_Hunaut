@@ -150,6 +150,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_nomJ2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="name"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="0" y="30" width="-1" height="-1"/>
@@ -158,7 +161,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_J2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="J1"/>
+            <Property name="text" type="java.lang.String" value="Joueur 2"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -168,7 +171,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_J3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="J1"/>
+            <Property name="text" type="java.lang.String" value="Joueur 3"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -177,6 +180,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_nomJ3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="name"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="0" y="30" width="-1" height="-1"/>
@@ -184,6 +190,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_nomJ4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="name"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="0" y="30" width="-1" height="-1"/>
@@ -192,7 +201,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_J4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="J1"/>
+            <Property name="text" type="java.lang.String" value="Joueur 4"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -203,7 +212,7 @@
         <Container class="javax.swing.JPanel" name="Pane_J1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="66" red="66" type="rgb"/>
+              <Color blue="99" green="66" red="0" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -261,7 +270,7 @@
         <Container class="javax.swing.JPanel" name="Pane_J2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="66" red="66" type="rgb"/>
+              <Color blue="33" green="99" red="0" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -319,7 +328,7 @@
         <Container class="javax.swing.JPanel" name="Pane_J3">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="66" red="66" type="rgb"/>
+              <Color blue="0" green="cc" red="cc" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -377,7 +386,7 @@
         <Container class="javax.swing.JPanel" name="Pane_J4">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="66" red="66" type="rgb"/>
+              <Color blue="0" green="0" red="99" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -439,14 +448,17 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="99" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Valider"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial Rounded MT Bold" size="24" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&#x2714;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ValidateActionPerformed"/>
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="280" y="440" width="-1" height="-1"/>
+          <AbsoluteConstraints x="280" y="432" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -455,7 +467,13 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="99" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Tourner"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&#x293e;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RotateActionPerformed"/>

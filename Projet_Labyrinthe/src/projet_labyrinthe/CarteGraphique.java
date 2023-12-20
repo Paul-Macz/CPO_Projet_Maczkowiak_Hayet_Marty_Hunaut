@@ -35,7 +35,7 @@ public class CarteGraphique extends JComponent{
         try {
             if (CarteAssociee != null && CarteAssociee.nomObjet != null) {
                 // Load image using class loader
-                String imagePath = "/Img/Cartes/" + CarteAssociee.nomObjet + ".png";
+                String imagePath = "/Img/Cartes/Carte_" + CarteAssociee.nomObjet + ".png";
                 image = ImageIO.read(getClass().getResource(imagePath));
             } else {
                 System.out.println("CaseGrapheAssocie or its object is null");
@@ -46,7 +46,7 @@ public class CarteGraphique extends JComponent{
         }
         Graphics2D g = (Graphics2D) G;
         double scaleX = (double) Interface.CardSize / image.getWidth();
-        double scaleY = (double) Interface.CardSize / image.getHeight();
+        double scaleY = (double) 1.5*Interface.CardSize / image.getHeight();
 
         // Create an AffineTransform for scaling
         AffineTransform tx = AffineTransform.getScaleInstance(scaleX, scaleY);
