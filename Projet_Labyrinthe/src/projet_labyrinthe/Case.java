@@ -46,6 +46,7 @@ public class Case {
             orientation+=angle;
             orientation=orientation%360;
             for(int i=0;i<orientation/90;i++){
+                //System.out.println(this);
                 boolean temp;
                 temp=Haut;
             Haut = Gauche;

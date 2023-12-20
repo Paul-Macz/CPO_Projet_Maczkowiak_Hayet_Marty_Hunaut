@@ -165,6 +165,12 @@ public class Grille {
         }
     }
 
+    /**
+     * Tourne une case
+     * @param x Abscisse de la case
+     * @param y Ordonnee de la case
+     * @param angle Angle de la rotation
+     */
     public void Tourner(int x, int y, int angle) {
         Grid[x][y].TurnCase(angle);
     }
@@ -235,7 +241,9 @@ public class Grille {
 
 		/* Si les tuiles sont sur la même colonne ou ligne */
 		if (x1 == x2) {
-			/* On vérifie si les tuiles sont adjacentes */
+			System.out.println("1: "+"H:"+Grid[x1][y1].Haut+" B:"+Grid[x1][y1].Bas+" G:"+Grid[x1][y1].Gauche+" D:"+Grid[x1][y1].Droite);
+                        System.out.println("2: "+"H:"+Grid[x2][y2].Haut+" B:"+Grid[x2][y2].Bas+" G:"+Grid[x2][y2].Gauche+" D:"+Grid[x2][y2].Droite);
+
 			if (Math.abs(y1 - y2) > 1) {
 				return false;
 			} else if (y1 - y2 >= 0) {
@@ -246,6 +254,8 @@ public class Grille {
 						&& Grid[x2][y2].Gauche);
 			}
 		} else if (y1 == y2) {
+                    System.out.println("1: "+"H:"+Grid[x1][y1].Haut+" B:"+Grid[x1][y1].Bas+" G:"+Grid[x1][y1].Gauche+" D:"+Grid[x1][y1].Droite);
+                        System.out.println("2: "+"H:"+Grid[x2][y2].Haut+" B:"+Grid[x2][y2].Bas+" G:"+Grid[x2][y2].Gauche+" D:"+Grid[x2][y2].Droite);
 			/* On vérifie si les tuiles sont adjacentes */
 			if (Math.abs(x1 - x2) > 1) {
 				return false;

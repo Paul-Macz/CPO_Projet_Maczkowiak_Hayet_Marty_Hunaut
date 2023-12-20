@@ -24,7 +24,6 @@ public class Partie {
     Player[] listeJoueurs;
     Grille Labyrinth;
     static ArrayList<Case> ListeCases;
-    static ArrayList<Case> CasesDispo;
     public static Random rand = new Random();
 
     /**
@@ -35,7 +34,7 @@ public class Partie {
         Labyrinth = new Grille();
         listeJoueurs = new Player[nbjoueurs];
         ListeCases = new ArrayList<>();
-        CasesDispo = new ArrayList<>();
+
     }
 
     /**
@@ -60,7 +59,6 @@ public class Partie {
      * Initialise la partie dans un contexte graphique
      */
     public void InitialiserPartie() {
-        setCasesDispo();
         attribuerCouleurs();
         distribuerCartes();
         PlaceCases();
@@ -74,10 +72,14 @@ public class Partie {
     public void placerPionsDebut() {
         for (int i = 0; i < listeJoueurs.length; i++) {
             switch (i) {
-                case 0 -> Labyrinth.Grid[0][0].Players.add(listeJoueurs[0].marqueur);
-                case 1 -> Labyrinth.Grid[0][6].Players.add(listeJoueurs[1].marqueur);
-                case 2 -> Labyrinth.Grid[6][6].Players.add(listeJoueurs[2].marqueur);
-                case 3 -> Labyrinth.Grid[6][0].Players.add(listeJoueurs[3].marqueur);
+                case 0 ->
+                    Labyrinth.Grid[0][0].Players.add(listeJoueurs[0].marqueur);
+                case 1 ->
+                    Labyrinth.Grid[0][6].Players.add(listeJoueurs[1].marqueur);
+                case 2 ->
+                    Labyrinth.Grid[6][6].Players.add(listeJoueurs[2].marqueur);
+                case 3 ->
+                    Labyrinth.Grid[6][0].Players.add(listeJoueurs[3].marqueur);
             }
         }
     }
@@ -140,20 +142,20 @@ public class Partie {
         while (iter.hasNext()) {
             String[] elem = ((String) iter.next()).split(" ");
             String subelem = elem[0];
-            
-            if (subelem.equals("tuile1") 
-                    || subelem.equals("tuile2") 
-                    || subelem.equals("departB") 
-                    || subelem.equals("departV") 
-                    || subelem.equals("departJ") 
+
+            if (subelem.equals("tuile1")
+                    || subelem.equals("tuile2")
+                    || subelem.equals("departB")
+                    || subelem.equals("departV")
+                    || subelem.equals("departJ")
                     || subelem.equals("departR")
                     || subelem.equals("placeHolder")) {
                 iter.remove();
             }
-            
+
         }
         //System.out.println("1"+ListeObjets);
-        
+
         if (ListeObjets.size() != 24) {
             return false;
         }
@@ -175,22 +177,7 @@ public class Partie {
         return true;
     }
 
-    public static void setCasesDispo() {
-        GetCard(CasesDispo);
-        for (int i=0;i<CasesDispo.size();i++){
-            if ("departB".equals(CasesDispo.get(i).object)
-                    || "departV".equals(CasesDispo.get(i).object)
-                    || "departJ".equals(CasesDispo.get(i).object)
-                    || "departR".equals(CasesDispo.get(i).object)
-                    || "tuile1".equals(CasesDispo.get(i).object)
-                    || "tuile2".equals(CasesDispo.get(i).object)
-                    || "placeHolder".equals(CasesDispo.get(i).object)){
-                CasesDispo.remove(i);
-            }
-        }
-    }
-    
-    public static boolean GetCard(ArrayList<Case> Liste){
+    public static boolean GetCard(ArrayList<Case> Liste) {
         //Récupération des propriétés de chaque case possible
         Path properties = Path.of("src/projet_labyrinthe/properties.txt");
         java.util.List<String> liste;
@@ -208,10 +195,11 @@ public class Partie {
             Liste.get(i).Bas = Boolean.parseBoolean(caseProp[2]);
             Liste.get(i).Gauche = Boolean.parseBoolean(caseProp[3]);
             Liste.get(i).Droite = Boolean.parseBoolean(caseProp[4]);
+            //System.out.println(Liste.get(i));
         }
         return true;
     }
-    
+
     /**
      * Place dans chaque case de la grille une case souhaitée Fait appele à
      * PlaceCase() et PlaceCaseSansObjet()
@@ -285,6 +273,10 @@ public class Partie {
                                     || "placeHolder".equals(ListeCases.get(index).object));
 
                             Labyrinth.PlaceCase(i, j, new Case(ListeCases.get(index).object));
+                            Labyrinth.Grid[i][j].Haut = ListeCases.get(index).Haut;
+                            Labyrinth.Grid[i][j].Bas = ListeCases.get(index).Bas;
+                            Labyrinth.Grid[i][j].Gauche = ListeCases.get(index).Gauche;
+                            Labyrinth.Grid[i][j].Droite = ListeCases.get(index).Droite;
                             ListeCases.remove(index);
                         } //Si toutes les autres cases ont été placée
                         else {
@@ -292,8 +284,19 @@ public class Partie {
                         }
                     }
                 }
+//                for (Case ListeCase : ListeCases) {
+//                    System.out.println(ListeCase);
+//                }
+                //System.out.println(Labyrinth.Grid[i][j]);
             }
         }
+        for (int k = 0; k < ListeCases.size(); k++) {
+            if ("placeHolder".equals(ListeCases.get(k).object)) {
+                index = k;
+                break;
+            }
+        }
+        ListeCases.remove(index);
         Labyrinth.Melanger();
         return true;
     }
@@ -312,6 +315,10 @@ public class Partie {
                 if ("tuile1".equals(ListeCases.get(k).object)) {
                     index = k;
                     Labyrinth.PlaceCase(i, j, new Case("tuile1"));
+                    Labyrinth.Grid[i][j].Haut = ListeCases.get(index).Haut;
+                    Labyrinth.Grid[i][j].Bas = ListeCases.get(index).Bas;
+                    Labyrinth.Grid[i][j].Gauche = ListeCases.get(index).Gauche;
+                    Labyrinth.Grid[i][j].Droite = ListeCases.get(index).Droite;
                     break;
                 }
             }
@@ -321,6 +328,10 @@ public class Partie {
                 if ("tuile2".equals(ListeCases.get(k).object)) {
                     index = k;
                     Labyrinth.PlaceCase(i, j, new Case("tuile2"));
+                    Labyrinth.Grid[i][j].Haut = ListeCases.get(index).Haut;
+                    Labyrinth.Grid[i][j].Bas = ListeCases.get(index).Bas;
+                    Labyrinth.Grid[i][j].Gauche = ListeCases.get(index).Gauche;
+                    Labyrinth.Grid[i][j].Droite = ListeCases.get(index).Droite;
                     break;
                 }
             }

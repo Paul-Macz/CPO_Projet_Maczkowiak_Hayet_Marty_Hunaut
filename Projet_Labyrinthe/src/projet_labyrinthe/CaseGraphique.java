@@ -48,7 +48,6 @@ public class CaseGraphique extends JButton {
      
     /**
      * Redessine la case associé avec l'image souhaitée
-     *
      * @param G
      */
     @Override

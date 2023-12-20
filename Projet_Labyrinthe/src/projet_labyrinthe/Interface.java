@@ -368,11 +368,14 @@ public class Interface extends javax.swing.JFrame {
                         if (deplacement) {
                             int[] posPionJCourant = Session.Labyrinth.positionPion(Session.listeJoueurs[Session.joueurCourant]);
                             if (posPionJCourant != null) {
+                                System.out.println("PathFinding "+Session.Labyrinth.PathFinding(posPionJCourant[0], posPionJCourant[1], Case.posX, Case.posY, null)
+                                        +" x1:"+posPionJCourant[0]+" y1:"+posPionJCourant[1]+" x2:"+Case.posX+" y2:"+Case.posY);
                                 if (Session.Labyrinth.PathFinding(posPionJCourant[0], posPionJCourant[1], Case.posX, Case.posY, null)) {
                                     Peon pionActuel = Session.listeJoueurs[Session.joueurCourant].marqueur;
                                     Session.Labyrinth.Grid[posPionJCourant[0]][posPionJCourant[1]].Players.remove(pionActuel);
                                     Session.Labyrinth.Grid[Case.posX][Case.posY].Players.add(pionActuel);
                                     pionActuel.associe.nouvellePosition(Case.CaseGrapheAssocie);
+                                    Labyrinth.repaint();
                                     /* Si le joueur a fini, on termine la partie */
                                     if (pionActuel.associe.tousObjetsRamasses()) {
                                         //partieTerminee(pionActuel.associe);
@@ -521,9 +524,13 @@ public class Interface extends javax.swing.JFrame {
         Pane_Info.add(lbl_nextCard, new AbsoluteConstraints( (ScreenDim.width)*3 / 100, (ScreenDim.height)* 11/24, lbl_nextCard.getWidth(),lbl_nextCard.getHeight()));
         
         //Session.Labyrinth.prochainecase = new Case("cle");
-        //System.out.println(Partie.CasesDispo.size());
-        int temp =Partie.rand.nextInt(Partie.CasesDispo.size());
-        Session.Labyrinth.prochainecase=new Case(Partie.CasesDispo.get(temp).object);
+        //System.out.println(Partie.ListeCases.size());
+        int temp =Partie.rand.nextInt(Partie.ListeCases.size());
+        Session.Labyrinth.prochainecase=new Case(Partie.ListeCases.get(temp).object);
+        Session.Labyrinth.prochainecase.Haut=Partie.ListeCases.get(temp).Haut;
+        Session.Labyrinth.prochainecase.Bas=Partie.ListeCases.get(temp).Bas;
+        Session.Labyrinth.prochainecase.Gauche=Partie.ListeCases.get(temp).Gauche;
+        Session.Labyrinth.prochainecase.Droite=Partie.ListeCases.get(temp).Droite;
         ProchaineCase = new CaseGraphique(new Case(Session.Labyrinth.prochainecase.object));
         
         ProchaineCase.setScale(1.3);
@@ -532,20 +539,24 @@ public class Interface extends javax.swing.JFrame {
         
         
         Pane_Info.add(lbl_J1, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*21/40));
+        lbl_nomJ1.setText(Session.listeJoueurs[0].nom);
         Pane_Info.add(lbl_nomJ1, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*22/40));
         Pane_Info.add(Pane_J1, new AbsoluteConstraints((ScreenDim.width)/9, (ScreenDim.height)/2, (Pane_Info.getWidth())*6/10, Pane_J1.getHeight()));
         //LayoutManager layout=Pane_Info.getLayout();
         //Pane_J1.add(lbl_txtChronoJ1, new AbsoluteConstraints((ScreenDim.width)*11/90,(ScreenDim.height)/2));
         
         Pane_Info.add(lbl_J2, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*25/40));
+        lbl_nomJ2.setText(Session.listeJoueurs[1].nom);
         Pane_Info.add(lbl_nomJ2, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*26/40));
         Pane_Info.add(Pane_J2, new AbsoluteConstraints((ScreenDim.width)/9, (ScreenDim.height)*12/20, (Pane_Info.getWidth())*6/10, Pane_J1.getHeight()));
 
         Pane_Info.add(lbl_J3, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*29/40));
+        lbl_nomJ3.setText(Session.listeJoueurs[2].nom);
         Pane_Info.add(lbl_nomJ3, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*30/40));
         Pane_Info.add(Pane_J3, new AbsoluteConstraints((ScreenDim.width)/9, (ScreenDim.height)*14/20, (Pane_Info.getWidth())*6/10, Pane_J1.getHeight()));
         
         Pane_Info.add(lbl_J4, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*33/40));
+        lbl_nomJ4.setText(Session.listeJoueurs[3].nom);
         Pane_Info.add(lbl_nomJ4, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*34/40));
         Pane_Info.add(Pane_J4, new AbsoluteConstraints((ScreenDim.width)/9, (ScreenDim.height)*16/20, (Pane_Info.getWidth())*6/10, Pane_J1.getHeight()));
 
@@ -786,9 +797,9 @@ public class Interface extends javax.swing.JFrame {
             }
             Labyrinth.repaint();
             CasePlacee();
-            int temp =Partie.rand.nextInt(Partie.CasesDispo.size());
-            Session.Labyrinth.prochainecase=new Case(Partie.CasesDispo.get(temp).object);
-            //System.out.println(Partie.CasesDispo.get(temp).object);
+            int temp =Partie.rand.nextInt(Partie.ListeCases.size());
+            Session.Labyrinth.prochainecase=new Case(Partie.ListeCases.get(temp).object);
+            //System.out.println(Partie.ListeCases.get(temp).object);
             ProchaineCase.CaseGrapheAssocie=new Case(Session.Labyrinth.prochainecase.object);
             ProchaineCase.repaint();
         }

@@ -16,19 +16,29 @@ import javax.swing.JComponent;
  *
  * @author lukha
  */
-public class CarteGraphique extends JComponent{
+public class CarteGraphique extends JComponent {
+
     Cartes CarteAssociee;
 
+    /**
+     * Constructeur de CarteGraphique
+     * @param CarteAssociee
+     */
     public CarteGraphique(Cartes CarteAssociee) {
         this.CarteAssociee = CarteAssociee;
     }
-    
-        public void setCarteAssociee(Cartes newCarteAssociee) {
+
+    /**
+     * Set la CarteAssociee 
+     * @param newCarteAssociee la carte en question
+     */
+    public void setCarteAssociee(Cartes newCarteAssociee) {
         this.CarteAssociee = newCarteAssociee;
         repaint(); // Trigger repaint when the associated Cartes object changes
     }
+
     /**
-     * Redessine la case associé avec l'image souhaitée
+     * Redessine la carte associé avec l'image souhaitée
      *
      * @param G
      */
@@ -46,16 +56,16 @@ public class CarteGraphique extends JComponent{
                 System.out.println("CaseGrapheAssocie or its object is null");
             }
         } catch (IOException ex) {
-            System.out.print("glitched case: " + (CarteAssociee  != null ? CarteAssociee.nomObjet : "null"));
+            System.out.print("glitched case: " + (CarteAssociee != null ? CarteAssociee.nomObjet : "null"));
             ex.printStackTrace();
         }
         Graphics2D g = (Graphics2D) G;
         double scaleX = (double) Interface.CardSize / image.getWidth();
-        double scaleY = (double) 1.5*Interface.CardSize / image.getHeight();
+        double scaleY = (double) 1.5 * Interface.CardSize / image.getHeight();
 
         // Create an AffineTransform for scaling
         AffineTransform tx = AffineTransform.getScaleInstance(scaleX, scaleY);
-        
+
         g.drawImage(image, tx, null);
     }
 }
