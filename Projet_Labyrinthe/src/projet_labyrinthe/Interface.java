@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.LayoutManager;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
+import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 /**
  *
@@ -128,6 +130,41 @@ public class Interface extends javax.swing.JFrame {
 
         Labyrinth = new javax.swing.JPanel();
         Pane_Info = new javax.swing.JPanel();
+        ChronoJeu = new javax.swing.JLabel();
+        lbl_NomJoueur = new javax.swing.JLabel();
+        lbl_JoueurCourant = new javax.swing.JLabel();
+        lbl_ChronoTour = new javax.swing.JLabel();
+        lbl_ChronoJeu = new javax.swing.JLabel();
+        lbl_nextCase = new javax.swing.JLabel();
+        lbl_nextCard = new javax.swing.JLabel();
+        lbl_nomJ1 = new javax.swing.JLabel();
+        lbl_J1 = new javax.swing.JLabel();
+        lbl_nomJ2 = new javax.swing.JLabel();
+        lbl_J2 = new javax.swing.JLabel();
+        lbl_J3 = new javax.swing.JLabel();
+        lbl_nomJ3 = new javax.swing.JLabel();
+        lbl_nomJ4 = new javax.swing.JLabel();
+        lbl_J4 = new javax.swing.JLabel();
+        Pane_J1 = new javax.swing.JPanel();
+        Chrono_J1 = new javax.swing.JLabel();
+        lbl_Objet_J1 = new javax.swing.JLabel();
+        lbl_txtChronoJ1 = new javax.swing.JLabel();
+        lbl_txtObjetJ1 = new javax.swing.JLabel();
+        Pane_J2 = new javax.swing.JPanel();
+        Chrono_J2 = new javax.swing.JLabel();
+        lbl_Objet_J2 = new javax.swing.JLabel();
+        lbl_txtChronoJ2 = new javax.swing.JLabel();
+        lbl_txtObjetJ2 = new javax.swing.JLabel();
+        Pane_J3 = new javax.swing.JPanel();
+        Chrono_J3 = new javax.swing.JLabel();
+        lbl_Objet_J3 = new javax.swing.JLabel();
+        lbl_txtChronoJ3 = new javax.swing.JLabel();
+        lbl_txtObjetJ3 = new javax.swing.JLabel();
+        Pane_J4 = new javax.swing.JPanel();
+        Chrono_J4 = new javax.swing.JLabel();
+        lbl_Objet_J4 = new javax.swing.JLabel();
+        lbl_txtChronoJ4 = new javax.swing.JLabel();
+        lbl_txtObjetJ4 = new javax.swing.JLabel();
         Validate = new javax.swing.JButton();
         Rotate = new javax.swing.JButton();
         btn_Help = new javax.swing.JButton();
@@ -143,6 +180,112 @@ public class Interface extends javax.swing.JFrame {
 
         Pane_Info.setBackground(new java.awt.Color(0, 102, 51));
         Pane_Info.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Pane_Info.add(ChronoJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        lbl_NomJoueur.setText("jLabel1");
+        Pane_Info.add(lbl_NomJoueur, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        lbl_JoueurCourant.setText("Joueur Courant");
+        Pane_Info.add(lbl_JoueurCourant, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        lbl_ChronoTour.setText("Chrono du Tour");
+        Pane_Info.add(lbl_ChronoTour, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        lbl_ChronoJeu.setText("Chrono de la Partie");
+        Pane_Info.add(lbl_ChronoJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        lbl_nextCase.setText("Prochaine Case");
+        Pane_Info.add(lbl_nextCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        lbl_nextCard.setText("Objet à Ramasser");
+        Pane_Info.add(lbl_nextCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        lbl_nomJ1.setText("name");
+        Pane_Info.add(lbl_nomJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
+
+        lbl_J1.setText("Joueur 1");
+        Pane_Info.add(lbl_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+        Pane_Info.add(lbl_nomJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
+
+        lbl_J2.setText("J1");
+        Pane_Info.add(lbl_J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        lbl_J3.setText("J1");
+        Pane_Info.add(lbl_J3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        Pane_Info.add(lbl_nomJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
+        Pane_Info.add(lbl_nomJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
+
+        lbl_J4.setText("J1");
+        Pane_Info.add(lbl_J4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        Pane_J1.setBackground(new java.awt.Color(102, 102, 102));
+        Pane_J1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Chrono_J1.setText("jLabel1");
+        Pane_J1.add(Chrono_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
+
+        lbl_Objet_J1.setText("jLabel1");
+        Pane_J1.add(lbl_Objet_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, -1, -1));
+
+        lbl_txtChronoJ1.setText("Temps");
+        Pane_J1.add(lbl_txtChronoJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        lbl_txtObjetJ1.setText("Nb d'objets ramassés");
+        Pane_J1.add(lbl_txtObjetJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+
+        Pane_Info.add(Pane_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 160, 60));
+
+        Pane_J2.setBackground(new java.awt.Color(102, 102, 102));
+        Pane_J2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Chrono_J2.setText("jLabel1");
+        Pane_J2.add(Chrono_J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
+
+        lbl_Objet_J2.setText("jLabel1");
+        Pane_J2.add(lbl_Objet_J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
+
+        lbl_txtChronoJ2.setText("Temps");
+        Pane_J2.add(lbl_txtChronoJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+
+        lbl_txtObjetJ2.setText("Nb d'objets ramassés");
+        Pane_J2.add(lbl_txtObjetJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+
+        Pane_Info.add(Pane_J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 160, 60));
+
+        Pane_J3.setBackground(new java.awt.Color(102, 102, 102));
+        Pane_J3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Chrono_J3.setText("jLabel1");
+        Pane_J3.add(Chrono_J3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
+
+        lbl_Objet_J3.setText("jLabel1");
+        Pane_J3.add(lbl_Objet_J3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
+
+        lbl_txtChronoJ3.setText("Temps");
+        Pane_J3.add(lbl_txtChronoJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+
+        lbl_txtObjetJ3.setText("Nb d'objets ramassés");
+        Pane_J3.add(lbl_txtObjetJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+
+        Pane_Info.add(Pane_J3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 160, 60));
+
+        Pane_J4.setBackground(new java.awt.Color(102, 102, 102));
+        Pane_J4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Chrono_J4.setText("jLabel1");
+        Pane_J4.add(Chrono_J4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
+
+        lbl_Objet_J4.setText("jLabel1");
+        Pane_J4.add(lbl_Objet_J4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
+
+        lbl_txtChronoJ4.setText("Temps");
+        Pane_J4.add(lbl_txtChronoJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+
+        lbl_txtObjetJ4.setText("Nb d'objets ramassés");
+        Pane_J4.add(lbl_txtObjetJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+
+        Pane_Info.add(Pane_J4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 160, 60));
+
         getContentPane().add(Pane_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Validate.setBackground(new java.awt.Color(0, 153, 0));
@@ -182,10 +325,25 @@ public class Interface extends javax.swing.JFrame {
         setSize(ScreenDim.width, ScreenDim.height);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLayout(null);
+        
+        //Creation de la grille
+        PlaceGrid();
+
+        //Creation des boutons
+        PlaceBtn();
+
+        //Création du panneau d'information
+        PlacePane_Info();
+    }
+    
+    /**
+     * Place les elements de la grille
+     */
+    public void PlaceGrid(){
         Labyrinth.setBounds(ScreenDim.width / 2, (ScreenDim.height) / 10, (ScreenDim.height) * 7 / 10, (ScreenDim.height) * 7 / 10);
         for (int i = 0; i < 7; i++) {
             for (int j = 0; j < 7; j++) {
-                CaseGraphique Case = CaseGraphique.createInstance(Session.Labyrinth.Grid[i][j],i,j);
+                CaseGraphique Case = CaseGraphique.createInstance(Session.Labyrinth.Grid[i][j], i, j);
                 Case.addActionListener(new java.awt.event.ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -204,7 +362,7 @@ public class Interface extends javax.swing.JFrame {
                                         //partieTerminee(pionActuel.associe);
                                     }
                                     deplacement = false;
-                                } 
+                                }
                                 //actualiserAffichage();
                             }
                         }
@@ -214,7 +372,12 @@ public class Interface extends javax.swing.JFrame {
                 Labyrinth.add(Case);
             }
         }
-
+    }
+    
+    /**
+     * Place les boutons
+     */
+    public void PlaceBtn() {
         //Creation des boutons d'actions de la grille
         Top1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -311,23 +474,55 @@ public class Interface extends javax.swing.JFrame {
         });
         getContentPane().add(Right3);
         Right3.setBounds((ScreenDim.width) / 2 + (ScreenDim.height) * 7 / 10, (ScreenDim.height) * 6 / 10, ScreenDim.height / 10, ScreenDim.height / 10);
-
+        
         //Creation autres boutons d'actions
         Validate.setBounds((ScreenDim.width) * 7 / 20, (ScreenDim.height) * 7 / 9, (ScreenDim.height) * 3 / 40, (ScreenDim.height) * 3 / 40);
         Rotate.setBounds((ScreenDim.width) * 8 / 20, (ScreenDim.height) * 7 / 9, (ScreenDim.height) * 3 / 40, (ScreenDim.height) * 3 / 40);
         btn_Help.setBounds((ScreenDim.width) * 7 / 20, (ScreenDim.height) / 30, (ScreenDim.height) * 3 / 40, (ScreenDim.height) * 3 / 40);
 
-        //Création du panneau d'information
+    }
+    
+    /**
+     * Place le panneau information et ses elements
+     */
+    public void PlacePane_Info(){
         Pane_Info.setBounds(0, 0, (ScreenDim.width) / 3, ScreenDim.height);
-//        CarteGraphique ObjetaRamasser = new CarteGraphique(new Cartes("araignee"));
-//        Pane_Info.add(ObjetaRamasser);
-//        ObjetaRamasser.setBounds((ScreenDim.width)/10, (ScreenDim.height)/4 , (ScreenDim.width)/8, (ScreenDim.height)/6);
+        
+        Pane_Info.add(lbl_ChronoJeu, new AbsoluteConstraints((ScreenDim.width)/8, (ScreenDim.height)/100 , lbl_ChronoJeu.getWidth(),lbl_ChronoJeu.getHeight()));
+        Pane_Info.add(lbl_JoueurCourant, new AbsoluteConstraints((ScreenDim.width)/8, (ScreenDim.height)/12 , lbl_ChronoJeu.getWidth(),lbl_ChronoJeu.getHeight()));
+        Pane_Info.add(lbl_ChronoTour, new AbsoluteConstraints((ScreenDim.width)/8, (ScreenDim.height)/6 , lbl_ChronoJeu.getWidth(),lbl_ChronoJeu.getHeight()));
+
+        
+        //CarteGraphique ObjetaRamasser = new CarteGraphique(new Cartes("araignee"));
+        //Pane_Info.add(ObjetaRamasser, new AbsoluteConstraints((ScreenDim.width)*3/100, (ScreenDim.height)/4 , (ScreenDim.width)/8, (ScreenDim.height)/6));
+        Pane_Info.add(lbl_nextCard, new AbsoluteConstraints((ScreenDim.width)/8, (ScreenDim.height)/4 , lbl_nextCard.getWidth(),lbl_nextCard.getHeight()));
+        
         Session.Labyrinth.prochainecase = new Case("cle");
         CaseGraphique ProchaineCase = new CaseGraphique(new Case(Session.Labyrinth.prochainecase.object));
-        Pane_Info.add(ProchaineCase, new AbsoluteConstraints((ScreenDim.width) / 100, (ScreenDim.height) / 4, (ScreenDim.height) / 10, (ScreenDim.height) / 10));
+        Pane_Info.add(ProchaineCase, new AbsoluteConstraints((ScreenDim.width)*3 / 100, (ScreenDim.height)* 9/24, (ScreenDim.height) / 10, (ScreenDim.height) / 10));
+        Pane_Info.add(lbl_nextCase, new AbsoluteConstraints((ScreenDim.width)/8, (ScreenDim.height)* 10/24, lbl_nextCase.getWidth(), lbl_nextCase.getHeight()));
+        
+        
+        Pane_Info.add(lbl_J1, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*21/40));
+        Pane_Info.add(lbl_nomJ1, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*22/40));
+        Pane_Info.add(Pane_J1, new AbsoluteConstraints((ScreenDim.width)/9, (ScreenDim.height)/2, (Pane_Info.getWidth())*6/10, Pane_J1.getHeight()));
+        //LayoutManager layout=Pane_Info.getLayout();
+        //Pane_J1.add(lbl_txtChronoJ1, new AbsoluteConstraints((ScreenDim.width)*11/90,(ScreenDim.height)/2));
+        
+        Pane_Info.add(lbl_J2, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*25/40));
+        Pane_Info.add(lbl_nomJ2, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*26/40));
+        Pane_Info.add(Pane_J2, new AbsoluteConstraints((ScreenDim.width)/9, (ScreenDim.height)*12/20, (Pane_Info.getWidth())*6/10, Pane_J1.getHeight()));
+
+        Pane_Info.add(lbl_J3, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*29/40));
+        Pane_Info.add(lbl_nomJ3, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*30/40));
+        Pane_Info.add(Pane_J3, new AbsoluteConstraints((ScreenDim.width)/9, (ScreenDim.height)*14/20, (Pane_Info.getWidth())*6/10, Pane_J1.getHeight()));
+        
+        Pane_Info.add(lbl_J4, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*33/40));
+        Pane_Info.add(lbl_nomJ4, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*34/40));
+        Pane_Info.add(Pane_J4, new AbsoluteConstraints((ScreenDim.width)/9, (ScreenDim.height)*16/20, (Pane_Info.getWidth())*6/10, Pane_J1.getHeight()));
 
     }
-
+    
     public void SwitchCase() {
         if (action != "") {
             for (int i = 0; i < Actions.length; i++) {
@@ -524,16 +719,16 @@ public class Interface extends javax.swing.JFrame {
         placement = false;
         deplacement = true;
     }
-    
-    /**
-	 * Termine la partie, quand un joueur a gagné
-	 *
-	 * @param joueurGagnant Le joueur qui a gangé
-	 */
-	public void partieTerminee(Player joueurGagnant) {
-		CasePlacee();
 
-	}
+    /**
+     * Termine la partie, quand un joueur a gagné
+     *
+     * @param joueurGagnant Le joueur qui a gangé
+     */
+    public void partieTerminee(Player joueurGagnant) {
+        CasePlacee();
+
+    }
 
     /**
      * @param args the command line arguments
@@ -572,10 +767,45 @@ public class Interface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ChronoJeu;
+    private javax.swing.JLabel Chrono_J1;
+    private javax.swing.JLabel Chrono_J2;
+    private javax.swing.JLabel Chrono_J3;
+    private javax.swing.JLabel Chrono_J4;
     private javax.swing.JPanel Labyrinth;
     private javax.swing.JPanel Pane_Info;
+    private javax.swing.JPanel Pane_J1;
+    private javax.swing.JPanel Pane_J2;
+    private javax.swing.JPanel Pane_J3;
+    private javax.swing.JPanel Pane_J4;
     private javax.swing.JButton Rotate;
     private javax.swing.JButton Validate;
     private javax.swing.JButton btn_Help;
+    private javax.swing.JLabel lbl_ChronoJeu;
+    private javax.swing.JLabel lbl_ChronoTour;
+    private javax.swing.JLabel lbl_J1;
+    private javax.swing.JLabel lbl_J2;
+    private javax.swing.JLabel lbl_J3;
+    private javax.swing.JLabel lbl_J4;
+    private javax.swing.JLabel lbl_JoueurCourant;
+    private javax.swing.JLabel lbl_NomJoueur;
+    private javax.swing.JLabel lbl_Objet_J1;
+    private javax.swing.JLabel lbl_Objet_J2;
+    private javax.swing.JLabel lbl_Objet_J3;
+    private javax.swing.JLabel lbl_Objet_J4;
+    private javax.swing.JLabel lbl_nextCard;
+    private javax.swing.JLabel lbl_nextCase;
+    private javax.swing.JLabel lbl_nomJ1;
+    private javax.swing.JLabel lbl_nomJ2;
+    private javax.swing.JLabel lbl_nomJ3;
+    private javax.swing.JLabel lbl_nomJ4;
+    private javax.swing.JLabel lbl_txtChronoJ1;
+    private javax.swing.JLabel lbl_txtChronoJ2;
+    private javax.swing.JLabel lbl_txtChronoJ3;
+    private javax.swing.JLabel lbl_txtChronoJ4;
+    private javax.swing.JLabel lbl_txtObjetJ1;
+    private javax.swing.JLabel lbl_txtObjetJ2;
+    private javax.swing.JLabel lbl_txtObjetJ3;
+    private javax.swing.JLabel lbl_txtObjetJ4;
     // End of variables declaration//GEN-END:variables
 }
