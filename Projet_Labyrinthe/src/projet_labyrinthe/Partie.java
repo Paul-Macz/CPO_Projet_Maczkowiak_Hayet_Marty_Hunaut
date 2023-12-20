@@ -24,6 +24,7 @@ public class Partie {
     Player[] listeJoueurs;
     Grille Labyrinth;
     static ArrayList<Case> ListeCases;
+    static ArrayList<Case> CasesDispo;
     public static Random rand = new Random();
 
     /**
@@ -34,7 +35,7 @@ public class Partie {
         Labyrinth = new Grille();
         listeJoueurs = new Player[nbjoueurs];
         ListeCases = new ArrayList<>();
-        
+        CasesDispo = new ArrayList<>();
     }
 
     /**
@@ -59,6 +60,7 @@ public class Partie {
      * Initialise la partie dans un contexte graphique
      */
     public void InitialiserPartie() {
+        setCasesDispo();
         attribuerCouleurs();
         distribuerCartes();
         PlaceCases();
@@ -132,22 +134,26 @@ public class Partie {
         } catch (IOException ex) {
             return false;
         }
-
-        /* On supprime de la liste listeTypes ce qui n'est pas un objet de quête */
+        //System.out.println(ListeObjets);
+        // On supprime de la liste listeTypes ce qui n'est pas un objet 
         Iterator iter = ListeObjets.iterator();
         while (iter.hasNext()) {
             String[] elem = ((String) iter.next()).split(" ");
             String subelem = elem[0];
-            /* Comparaison avec les chaînes à ne pas garder */
+            
             if (subelem.equals("tuile1") 
                     || subelem.equals("tuile2") 
                     || subelem.equals("departB") 
                     || subelem.equals("departV") 
                     || subelem.equals("departJ") 
-                    || subelem.equals("departR")) {
+                    || subelem.equals("departR")
+                    || subelem.equals("placeHolder")) {
                 iter.remove();
             }
+            
         }
+        //System.out.println("1"+ListeObjets);
+        
         if (ListeObjets.size() != 24) {
             return false;
         }
@@ -163,18 +169,28 @@ public class Partie {
                 j++;
             }
             listeJoueurs[j].listeCartes[i % nbCartesPJ] = new Cartes(ListeObjets.get(i).split(" ")[0]);
+            //System.out.println(listeJoueurs[j]+" "+listeJoueurs[j].listeCartes[i % nbCartesPJ]);
         }
 
         return true;
     }
 
-    /**
-     * Place dans chaque case de la grille une case souhaitée Fait appele à
-     * PlaceCase() et PlaceCaseSansObjet()
-     *
-     * @return renvoie le succès de la méthode
-     */
-    public boolean PlaceCases() {
+    public static void setCasesDispo() {
+        GetCard(CasesDispo);
+        for (int i=0;i<CasesDispo.size();i++){
+            if ("departB".equals(CasesDispo.get(i).object)
+                    || "departV".equals(CasesDispo.get(i).object)
+                    || "departJ".equals(CasesDispo.get(i).object)
+                    || "departR".equals(CasesDispo.get(i).object)
+                    || "tuile1".equals(CasesDispo.get(i).object)
+                    || "tuile2".equals(CasesDispo.get(i).object)
+                    || "placeHolder".equals(CasesDispo.get(i).object)){
+                CasesDispo.remove(i);
+            }
+        }
+    }
+    
+    public static boolean GetCard(ArrayList<Case> Liste){
         //Récupération des propriétés de chaque case possible
         Path properties = Path.of("src/projet_labyrinthe/properties.txt");
         java.util.List<String> liste;
@@ -187,12 +203,23 @@ public class Partie {
         //Décomposition et stockage des propriétés
         for (int i = 0; i < liste.size(); i++) {
             String[] caseProp = liste.get(i).split(" ");
-            ListeCases.add(new Case(caseProp[0]));
-            ListeCases.get(i).Haut = Boolean.parseBoolean(caseProp[1]);
-            ListeCases.get(i).Bas = Boolean.parseBoolean(caseProp[2]);
-            ListeCases.get(i).Gauche = Boolean.parseBoolean(caseProp[3]);
-            ListeCases.get(i).Droite = Boolean.parseBoolean(caseProp[4]);
+            Liste.add(new Case(caseProp[0]));
+            Liste.get(i).Haut = Boolean.parseBoolean(caseProp[1]);
+            Liste.get(i).Bas = Boolean.parseBoolean(caseProp[2]);
+            Liste.get(i).Gauche = Boolean.parseBoolean(caseProp[3]);
+            Liste.get(i).Droite = Boolean.parseBoolean(caseProp[4]);
         }
+        return true;
+    }
+    
+    /**
+     * Place dans chaque case de la grille une case souhaitée Fait appele à
+     * PlaceCase() et PlaceCaseSansObjet()
+     *
+     * @return renvoie le succès de la méthode
+     */
+    public boolean PlaceCases() {
+        GetCard(ListeCases);
 
         //Placement des cases
         int index = -1;

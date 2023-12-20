@@ -13,8 +13,10 @@ import java.awt.LayoutManager;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
@@ -49,7 +51,8 @@ public class Interface extends javax.swing.JFrame {
     CaseGraphique Right2 = new CaseGraphique(new Case("placeHolder"));
     CaseGraphique Right3 = new CaseGraphique(new Case("placeHolder"));
     CaseGraphique[] Actions = new CaseGraphique[12];
-
+    CarteGraphique ObjetaRamasser;
+    CaseGraphique ProchaineCase;
     boolean deplacement = false, placement = false;
 
     /**
@@ -63,7 +66,7 @@ public class Interface extends javax.swing.JFrame {
         Session.creerJoueur(2, "Grian");
         Session.creerJoueur(3, "Pearl");
         Session.InitialiserPartie();
-
+        //System.out.println(Session.listeJoueurs[0].listeObjets);
         //DebugMode();
         Initialisation();
     }
@@ -83,7 +86,10 @@ public class Interface extends javax.swing.JFrame {
         Actions[11] = Right3;
 
         PlaceComponents();
+        
+        repaint();
         placement = true;
+        ActualiserText();
     }
 
     private void DebugMode() {
@@ -237,7 +243,7 @@ public class Interface extends javax.swing.JFrame {
         lbl_txtChronoJ1.setText("Temps");
         Pane_J1.add(lbl_txtChronoJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        lbl_txtObjetJ1.setText("Nb d'objets ramassés");
+        lbl_txtObjetJ1.setText("Nb d'objets restants");
         Pane_J1.add(lbl_txtObjetJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
         Pane_Info.add(Pane_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 160, 60));
@@ -254,7 +260,7 @@ public class Interface extends javax.swing.JFrame {
         lbl_txtChronoJ2.setText("Temps");
         Pane_J2.add(lbl_txtChronoJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
-        lbl_txtObjetJ2.setText("Nb d'objets ramassés");
+        lbl_txtObjetJ2.setText("Nb d'objets restants");
         Pane_J2.add(lbl_txtObjetJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
         Pane_Info.add(Pane_J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 160, 60));
@@ -271,7 +277,7 @@ public class Interface extends javax.swing.JFrame {
         lbl_txtChronoJ3.setText("Temps");
         Pane_J3.add(lbl_txtChronoJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
-        lbl_txtObjetJ3.setText("Nb d'objets ramassés");
+        lbl_txtObjetJ3.setText("Nb d'objets restants");
         Pane_J3.add(lbl_txtObjetJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
         Pane_Info.add(Pane_J3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 160, 60));
@@ -288,7 +294,7 @@ public class Interface extends javax.swing.JFrame {
         lbl_txtChronoJ4.setText("Temps");
         Pane_J4.add(lbl_txtChronoJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
-        lbl_txtObjetJ4.setText("Nb d'objets ramassés");
+        lbl_txtObjetJ4.setText("Nb d'objets restants");
         Pane_J4.add(lbl_txtObjetJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
         Pane_Info.add(Pane_J4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 160, 60));
@@ -510,12 +516,16 @@ public class Interface extends javax.swing.JFrame {
         Pane_Info.add(lbl_ChronoTour, new AbsoluteConstraints((ScreenDim.width)/8, (ScreenDim.height)/6 , lbl_ChronoTour.getWidth(),lbl_ChronoTour.getHeight()));
 
         
-        CarteGraphique ObjetaRamasser = new CarteGraphique(new Cartes("araignee"));
+        ObjetaRamasser = new CarteGraphique(new Cartes("araignee"));
         Pane_Info.add(ObjetaRamasser, new AbsoluteConstraints((ScreenDim.width)*3/100, (ScreenDim.height)*9/40 , (ScreenDim.width)/8, (ScreenDim.height)/4));
         Pane_Info.add(lbl_nextCard, new AbsoluteConstraints( (ScreenDim.width)*3 / 100, (ScreenDim.height)* 11/24, lbl_nextCard.getWidth(),lbl_nextCard.getHeight()));
         
-        Session.Labyrinth.prochainecase = new Case("cle");
-        CaseGraphique ProchaineCase = new CaseGraphique(new Case(Session.Labyrinth.prochainecase.object));
+        //Session.Labyrinth.prochainecase = new Case("cle");
+        //System.out.println(Partie.CasesDispo.size());
+        int temp =Partie.rand.nextInt(Partie.CasesDispo.size());
+        Session.Labyrinth.prochainecase=new Case(Partie.CasesDispo.get(temp).object);
+        ProchaineCase = new CaseGraphique(new Case(Session.Labyrinth.prochainecase.object));
+        
         ProchaineCase.setScale(1.3);
         Pane_Info.add(ProchaineCase, new AbsoluteConstraints((ScreenDim.width)/6, (ScreenDim.height)/4, (ScreenDim.height)* 13/100, (ScreenDim.height)* 13/100));
         Pane_Info.add(lbl_nextCase, new AbsoluteConstraints((ScreenDim.width)/6, (ScreenDim.height)* 10/24, lbl_nextCase.getWidth(), lbl_nextCase.getHeight()));
@@ -551,7 +561,52 @@ public class Interface extends javax.swing.JFrame {
             }
         }
     }
+    
+    public void ActualiserText() {
+		Player joueurCourant = Session.listeJoueurs[Session.joueurCourant];
 
+//		actualiserTuilesGraphiques();
+//		panneauGrille.repaint();
+//		panel_tuilevolante.repaint();
+
+		
+		lbl_NomJoueur.setText(joueurCourant.nom);
+                JLabel lblObjetmodifie=lbl_Objet_J1;
+		switch (Session.joueurCourant) {
+			case 0:
+				Pane_Info.setBackground(new java.awt.Color(77, 132, 187));
+                                lblObjetmodifie=lbl_Objet_J1;
+				break;
+
+			case 1:
+				Pane_Info.setBackground(new java.awt.Color(58, 171, 83));
+                                lblObjetmodifie=lbl_Objet_J2;
+				break;
+
+			case 2:
+				Pane_Info.setBackground(new java.awt.Color(214, 90, 57));
+                                lblObjetmodifie=lbl_Objet_J3;
+				break;
+
+			case 3:
+				Pane_Info.setBackground(new java.awt.Color(252, 210, 29));
+                                lblObjetmodifie=lbl_Objet_J4;
+				break;
+		}
+                //System.out.println(joueurCourant.listeCartes[joueurCourant.indexCarteRetournee].nomObjet);
+		ObjetaRamasser.setCarteAssociee(new Cartes(joueurCourant.listeCartes[joueurCourant.indexCarteRetournee].nomObjet));
+		int objReste = joueurCourant.listeCartes.length - joueurCourant.indexCarteRetournee;
+
+		switch (objReste) {
+			case 1:
+				lblObjetmodifie.setText("C'est le dernier !");
+				break;
+			default:
+				lblObjetmodifie.setText(objReste+"");
+				break;
+		}
+	}
+    
     private void Top1ActionPerformed(java.awt.event.ActionEvent evt) {
         if (placement) {
             SwitchCase();
@@ -718,6 +773,7 @@ public class Interface extends javax.swing.JFrame {
                     return;
                 }
             }
+            SwitchCase();
             Component[] components = Labyrinth.getComponents();
             for (int index = 0; index < components.length; index++) {
                 int i = index / 7;
@@ -730,9 +786,15 @@ public class Interface extends javax.swing.JFrame {
             }
             Labyrinth.repaint();
             CasePlacee();
+            int temp =Partie.rand.nextInt(Partie.CasesDispo.size());
+            Session.Labyrinth.prochainecase=new Case(Partie.CasesDispo.get(temp).object);
+            //System.out.println(Partie.CasesDispo.get(temp).object);
+            ProchaineCase.CaseGrapheAssocie=new Case(Session.Labyrinth.prochainecase.object);
+            ProchaineCase.repaint();
         }
     }//GEN-LAST:event_ValidateActionPerformed
-
+    
+    
     public void CasePlacee() {
         placement = false;
         deplacement = true;

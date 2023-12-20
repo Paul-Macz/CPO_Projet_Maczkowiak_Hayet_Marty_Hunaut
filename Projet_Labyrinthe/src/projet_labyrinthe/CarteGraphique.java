@@ -22,6 +22,11 @@ public class CarteGraphique extends JComponent{
     public CarteGraphique(Cartes CarteAssociee) {
         this.CarteAssociee = CarteAssociee;
     }
+    
+        public void setCarteAssociee(Cartes newCarteAssociee) {
+        this.CarteAssociee = newCarteAssociee;
+        repaint(); // Trigger repaint when the associated Cartes object changes
+    }
     /**
      * Redessine la case associé avec l'image souhaitée
      *

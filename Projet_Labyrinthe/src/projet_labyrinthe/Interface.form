@@ -257,7 +257,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lbl_txtObjetJ1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nb d&apos;objets ramass&#xe9;s"/>
+                <Property name="text" type="java.lang.String" value="Nb d&apos;objets restants"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -315,7 +315,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lbl_txtObjetJ2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nb d&apos;objets ramass&#xe9;s"/>
+                <Property name="text" type="java.lang.String" value="Nb d&apos;objets restants"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -373,7 +373,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lbl_txtObjetJ3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nb d&apos;objets ramass&#xe9;s"/>
+                <Property name="text" type="java.lang.String" value="Nb d&apos;objets restants"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -431,7 +431,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lbl_txtObjetJ4">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nb d&apos;objets ramass&#xe9;s"/>
+                <Property name="text" type="java.lang.String" value="Nb d&apos;objets restants"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

@@ -69,8 +69,9 @@ public class Grille {
                     Partie.ListeCases.add(new Case(Grid[LigneNb - 1][j].object));
                 }
                 Grid[LigneNb - 1][j] = prochainecase;
-                //Grid[LigneNb-1][j].Players=new ArrayList<>(temp.Players);
-                //temp.Players.clear();      
+                Grid[LigneNb-1][j].Players=new ArrayList<>(temp.Players);
+                temp.Players.clear();    
+                Partie.ListeCases.add(temp);
             } else {
 
                 Grid[LigneNb - 1][j] = Grid[LigneNb - 1][j - direction];
@@ -93,10 +94,10 @@ public class Grille {
         Case temp;
         int direction;
         if (Haut) {
-            temp = Grid[0][ColNb - 1];
+            temp = Grid[6][ColNb - 1];
             direction = 1;
         } else {
-            temp = Grid[6][ColNb - 1];
+            temp = Grid[0][ColNb - 1];
             direction = -1;
         }
         for (int i = 0; i < 7; i++) {
@@ -113,6 +114,7 @@ public class Grille {
                 Grid[j][ColNb - 1] = prochainecase;
                 Grid[j][ColNb - 1].Players = new ArrayList<>(temp.Players);
                 temp.Players.clear();
+                Partie.ListeCases.add(temp);
             } else {
                 Grid[j][ColNb - 1] = Grid[j - direction][ColNb - 1];
             }
