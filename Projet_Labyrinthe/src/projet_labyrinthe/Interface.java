@@ -60,11 +60,11 @@ public class Interface extends javax.swing.JFrame {
      */
     public Interface() {
         initComponents();
-        Session = new Partie(4);
+        Session = new Partie(3);
         Session.creerJoueur(0, "Scar");
         Session.creerJoueur(1, "Tim");
         Session.creerJoueur(2, "Grian");
-        Session.creerJoueur(3, "Pearl");
+        //Session.creerJoueur(3, "Pearl");
         Session.InitialiserPartie();
         //System.out.println(Session.listeJoueurs[0].listeObjets);
         //DebugMode();
@@ -549,34 +549,58 @@ public class Interface extends javax.swing.JFrame {
         ProchaineCase.setScale(1.3);
         Pane_Info.add(ProchaineCase, new AbsoluteConstraints((ScreenDim.width) / 6, (ScreenDim.height) / 4, (ScreenDim.height) * 13 / 100, (ScreenDim.height) * 13 / 100));
         Pane_Info.add(lbl_nextCase, new AbsoluteConstraints((ScreenDim.width) / 6, (ScreenDim.height) * 10 / 24, lbl_nextCase.getWidth(), lbl_nextCase.getHeight()));
-
+        
         Pane_Info.add(lbl_J1, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 21 / 40));
         lbl_nomJ1.setText(Session.listeJoueurs[0].nom);
         Pane_Info.add(lbl_nomJ1, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 22 / 40));
         Pane_Info.add(Pane_J1, new AbsoluteConstraints((ScreenDim.width) / 9, (ScreenDim.height) / 2, (Pane_Info.getWidth()) * 6 / 10, Pane_J1.getHeight()));
-        lbl_Objet_J1.setText((Session.listeJoueurs[0].listeCartes.length - Session.listeJoueurs[0].indexCarteRetournee)+"");
-
+        lbl_Objet_J1.setText((Session.listeJoueurs[0].listeCartes.length - Session.listeJoueurs[0].indexCarteRetournee)+"/"+Session.listeJoueurs[0].listeCartes.length);
+        
+        lbl_J2.setVisible(false);
+        lbl_nomJ2.setVisible(false);
+        Pane_J2.setVisible(false);
+        lbl_J3.setVisible(false);
+        lbl_nomJ3.setVisible(false);
+        Pane_J3.setVisible(false);
+        lbl_J4.setVisible(false);
+        lbl_nomJ4.setVisible(false);
+        Pane_J4.setVisible(false);
+        
+        if(Session.listeJoueurs.length>1){
+        lbl_J2.setVisible(true);
+        lbl_nomJ2.setVisible(true);
+        Pane_J2.setVisible(true);
         Pane_Info.add(lbl_J2, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 25 / 40));
         lbl_nomJ2.setText(Session.listeJoueurs[1].nom);
         Pane_Info.add(lbl_nomJ2, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 26 / 40));
         Pane_Info.add(Pane_J2, new AbsoluteConstraints((ScreenDim.width) / 9, (ScreenDim.height) * 12 / 20, (Pane_Info.getWidth()) * 6 / 10, Pane_J1.getHeight()));
-        lbl_Objet_J2.setText((Session.listeJoueurs[1].listeCartes.length - Session.listeJoueurs[1].indexCarteRetournee)+"");
-
+        lbl_Objet_J2.setText((Session.listeJoueurs[1].listeCartes.length - Session.listeJoueurs[1].indexCarteRetournee)+"/"+(Session.listeJoueurs[1].listeCartes.length));
+        }
         
+        if(Session.listeJoueurs.length>2){
+        lbl_J3.setVisible(true);
+        lbl_nomJ3.setVisible(true);
+        Pane_J3.setVisible(true);
         Pane_Info.add(lbl_J3, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 29 / 40));
         lbl_nomJ3.setText(Session.listeJoueurs[2].nom);
         Pane_Info.add(lbl_nomJ3, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 30 / 40));
         Pane_Info.add(Pane_J3, new AbsoluteConstraints((ScreenDim.width) / 9, (ScreenDim.height) * 14 / 20, (Pane_Info.getWidth()) * 6 / 10, Pane_J1.getHeight()));
-        lbl_Objet_J3.setText((Session.listeJoueurs[2].listeCartes.length - Session.listeJoueurs[2].indexCarteRetournee)+"");
-
+        lbl_Objet_J3.setText((Session.listeJoueurs[2].listeCartes.length - Session.listeJoueurs[2].indexCarteRetournee)+"/"+Session.listeJoueurs[2].listeCartes.length);
+        }
         
+        if(Session.listeJoueurs.length==4){
+        lbl_J4.setVisible(true);
+        lbl_nomJ4.setVisible(true);
+        Pane_J4.setVisible(true);
         Pane_Info.add(lbl_J4, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 33 / 40));
         lbl_nomJ4.setText(Session.listeJoueurs[3].nom);
         Pane_Info.add(lbl_nomJ4, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 34 / 40));
         Pane_Info.add(Pane_J4, new AbsoluteConstraints((ScreenDim.width) / 9, (ScreenDim.height) * 16 / 20, (Pane_Info.getWidth()) * 6 / 10, Pane_J1.getHeight()));
-        lbl_Objet_J4.setText((Session.listeJoueurs[3].listeCartes.length - Session.listeJoueurs[3].indexCarteRetournee)+"");
-
+        lbl_Objet_J4.setText((Session.listeJoueurs[3].listeCartes.length - Session.listeJoueurs[3].indexCarteRetournee)+"/"+Session.listeJoueurs[3].listeCartes.length);
+        }
     }
+    
+
 
     public void SwitchCase() {
         if (action != "") {
@@ -627,7 +651,7 @@ public class Interface extends javax.swing.JFrame {
                 lblObjetmodifie.setText("C'est le dernier !");
                 break;
             default:
-                lblObjetmodifie.setText(objReste + "");
+                lblObjetmodifie.setText(objReste + "/"+joueurCourant.listeCartes.length);
                 break;
         }
     }
@@ -852,8 +876,10 @@ public class Interface extends javax.swing.JFrame {
      * @param joueurGagnant Le joueur qui a gangé
      */
     public void partieTerminee(Player joueurGagnant) {
-        CasePlacee();
+        placement=false;
+        deplacement=false;
         System.out.println("Bravo");
+        
     }
 
     /**

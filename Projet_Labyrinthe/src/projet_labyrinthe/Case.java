@@ -61,6 +61,12 @@ public class Case {
 
         }
     }
+    
+    public void reset(){
+        while(orientation!=0){
+            TurnCase(90);
+        }
+    }
 
     @Override
     public String toString() {

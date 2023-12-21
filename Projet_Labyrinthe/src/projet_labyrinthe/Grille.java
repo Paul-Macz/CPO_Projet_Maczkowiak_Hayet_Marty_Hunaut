@@ -69,7 +69,9 @@ public class Grille {
                 Grid[LigneNb - 1][j].Players = new ArrayList<>(temp.Players);
                 temp.Players.clear();
                 if (temp.presenceObjet()) {
+                    temp.reset();
                     Partie.ListeCases.add(temp);
+                    
                 }
             } else {
 
@@ -112,6 +114,7 @@ public class Grille {
                 Grid[j][ColNb - 1].Players = new ArrayList<>(temp.Players);
                 temp.Players.clear();
                 if (temp.presenceObjet()) {
+                    temp.reset();
                     Partie.ListeCases.add(temp);
                 }
             } else {
