@@ -31,9 +31,9 @@
                       <Component id="LabelMinutes4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="LabelSEC2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="LabelSEC4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="LabelmS4" min="-2" max="-2" attributes="0"/>
@@ -46,7 +46,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="LabelSEC4" min="-2" max="-2" attributes="0"/>
+                              <Component id="LabelSEC3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -58,7 +58,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="LabelSEC3" min="-2" max="-2" attributes="0"/>
+                              <Component id="LabelSEC2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -79,7 +79,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="39" max="32767" attributes="0"/>
+              <EmptySpace pref="699" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -101,8 +101,8 @@
                   <Component id="LabelMinutes2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="LabelSEC3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="LabelmS2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="LabelSEC2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="Start2" min="-2" max="-2" attributes="0"/>
@@ -112,7 +112,7 @@
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="LabelmS3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="LabelMinutes3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="LabelSEC4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="LabelSEC3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="Start3" min="-2" max="-2" attributes="0"/>
@@ -120,9 +120,9 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="LabelMinutes4" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="LabelSEC2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="LabelmS4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="LabelSEC4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="Start4" min="-2" max="-2" attributes="0"/>

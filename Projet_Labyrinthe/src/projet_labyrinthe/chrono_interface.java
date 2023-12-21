@@ -12,7 +12,7 @@ import  javax.swing.Timer;
 
 /**
  *
- * @author marty
+ * @author owenh et marty
  */
 public class chrono_interface extends javax.swing.JFrame {
     public Timer t1 = new Timer(10, new Check(1));
@@ -176,9 +176,9 @@ public class chrono_interface extends javax.swing.JFrame {
                         .addComponent(LabelMinutes4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(LabelSEC2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(LabelSEC4)
+                        .addGap(12, 12, 12)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(LabelmS4))
@@ -190,7 +190,7 @@ public class chrono_interface extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(LabelSEC4)
+                                .addComponent(LabelSEC3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -201,7 +201,7 @@ public class chrono_interface extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(LabelSEC3)
+                                .addComponent(LabelSEC2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -217,7 +217,7 @@ public class chrono_interface extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(LabelmS1)))))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(699, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,8 +236,8 @@ public class chrono_interface extends javax.swing.JFrame {
                     .addComponent(LabelMinutes2)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
-                    .addComponent(LabelSEC3)
-                    .addComponent(LabelmS2))
+                    .addComponent(LabelmS2)
+                    .addComponent(LabelSEC2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Start2)
                 .addGap(18, 18, 18)
@@ -246,16 +246,16 @@ public class chrono_interface extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(LabelmS3)
                     .addComponent(LabelMinutes3)
-                    .addComponent(LabelSEC4))
+                    .addComponent(LabelSEC3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Start3)
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelMinutes4)
                     .addComponent(jLabel7)
-                    .addComponent(LabelSEC2)
                     .addComponent(jLabel8)
-                    .addComponent(LabelmS4))
+                    .addComponent(LabelmS4)
+                    .addComponent(LabelSEC4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Start4)
                 .addContainerGap(40, Short.MAX_VALUE))
