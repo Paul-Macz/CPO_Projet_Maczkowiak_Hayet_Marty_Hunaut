@@ -291,7 +291,7 @@ public class Grille {
             CasesCouloir = CasesConnues;
         }
         ArrayList<ArrayList<Integer>> tuilesPart = CasesAccessibles(x1, y1);
-        System.out.print(tuilesPart);
+        //System.out.print(tuilesPart);
         ArrayList<Integer> listeVerif = new ArrayList<>();
         listeVerif.add(x2);
         listeVerif.add(y2);

@@ -47,13 +47,13 @@ public class Player {
     }
 
     /**
-     * Détermine quoi faire quand le pion du joueur arrive sur une nouvelle
-     * tuile
+     * Détermine si le joueur atteint l'objet a ramasser
      *
      * @param nouvelleCase La nouvelle tuile sur laquelle le pion du joueur est
      */
     public void nouvellePosition(Case nouvelleCase) {
         if (nouvelleCase.presenceObjet()) {
+            System.out.print("Cartes:"+listeCartes[indexCarteRetournee].nomObjet+" Case:"+nouvelleCase.object);
             if (listeCartes[indexCarteRetournee].nomObjet.equals(nouvelleCase.object)) {
                 ramasserObjet(nouvelleCase);
                 indexCarteRetournee++;
