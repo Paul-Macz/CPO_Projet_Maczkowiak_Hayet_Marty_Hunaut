@@ -86,7 +86,7 @@ public class Interface extends javax.swing.JFrame {
         Actions[11] = Right3;
 
         PlaceComponents();
-        
+
         repaint();
         placement = true;
         ActualiserText();
@@ -341,7 +341,7 @@ public class Interface extends javax.swing.JFrame {
         setSize(ScreenDim.width, ScreenDim.height);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLayout(null);
-        
+
         //Creation de la grille
         PlaceGrid();
 
@@ -351,11 +351,11 @@ public class Interface extends javax.swing.JFrame {
         //Création du panneau d'information
         PlacePane_Info();
     }
-    
+
     /**
      * Place les elements de la grille
      */
-    public void PlaceGrid(){
+    public void PlaceGrid() {
         Labyrinth.setBounds(ScreenDim.width / 2, (ScreenDim.height) / 10, (ScreenDim.height) * 7 / 10, (ScreenDim.height) * 7 / 10);
         for (int i = 0; i < 7; i++) {
             for (int j = 0; j < 7; j++) {
@@ -365,11 +365,12 @@ public class Interface extends javax.swing.JFrame {
                     public void actionPerformed(ActionEvent e) {
                         casegraphselectionnee = (CaseGraphique) e.getSource();
                         caseselectionnee = casegraphselectionnee.CaseGrapheAssocie;
+                        //System.out.print(caseselectionnee);
                         if (deplacement) {
                             int[] posPionJCourant = Session.Labyrinth.positionPion(Session.listeJoueurs[Session.joueurCourant]);
                             if (posPionJCourant != null) {
-                                System.out.println("PathFinding "+Session.Labyrinth.PathFinding(posPionJCourant[0], posPionJCourant[1], Case.posX, Case.posY, null)
-                                        +" x1:"+posPionJCourant[0]+" y1:"+posPionJCourant[1]+" x2:"+Case.posX+" y2:"+Case.posY);
+                                //System.out.println("PathFinding "+Session.Labyrinth.PathFinding(posPionJCourant[0], posPionJCourant[1], Case.posX, Case.posY, null));
+                                //System.out.println("PathFinding "+Session.Labyrinth.PathFinding(posPionJCourant[0], posPionJCourant[1], Case.posX, Case.posY, null)+" x1:"+posPionJCourant[0]+" y1:"+posPionJCourant[1]+" x2:"+Case.posX+" y2:"+Case.posY);
                                 if (Session.Labyrinth.PathFinding(posPionJCourant[0], posPionJCourant[1], Case.posX, Case.posY, null)) {
                                     Peon pionActuel = Session.listeJoueurs[Session.joueurCourant].marqueur;
                                     Session.Labyrinth.Grid[posPionJCourant[0]][posPionJCourant[1]].Players.remove(pionActuel);
@@ -381,8 +382,11 @@ public class Interface extends javax.swing.JFrame {
                                         //partieTerminee(pionActuel.associe);
                                     }
                                     deplacement = false;
+                                    placement = true;
+                                    Session.joueurSuivant();
+                                    ActualiserText();
                                 }
-                                //actualiserAffichage();
+
                             }
                         }
                     }
@@ -392,7 +396,7 @@ public class Interface extends javax.swing.JFrame {
             }
         }
     }
-    
+
     /**
      * Place les boutons
      */
@@ -493,75 +497,77 @@ public class Interface extends javax.swing.JFrame {
         });
         getContentPane().add(Right3);
         Right3.setBounds((ScreenDim.width) / 2 + (ScreenDim.height) * 7 / 10, (ScreenDim.height) * 6 / 10, ScreenDim.height / 10, ScreenDim.height / 10);
-        
+
         //Creation autres boutons d'actions
         Validate.setBounds((ScreenDim.width) * 7 / 20, (ScreenDim.height) * 7 / 9, (ScreenDim.height) * 3 / 40, (ScreenDim.height) * 3 / 40);
         Validate.setText("<html>&#10003;<html>");
-        Validate.setFont(new Font("Arial Unicode MS",Font.BOLD,18));
+        Validate.setFont(new Font("Arial Unicode MS", Font.BOLD, 18));
         Validate.setForeground(Color.white);
         Rotate.setBounds((ScreenDim.width) * 8 / 20, (ScreenDim.height) * 7 / 9, (ScreenDim.height) * 3 / 40, (ScreenDim.height) * 3 / 40);
         Rotate.setText("<html>&#10558;<html>");
-        Rotate.setFont(new Font("Arial Unicode MS",Font.BOLD,24));
+        Rotate.setFont(new Font("Arial Unicode MS", Font.BOLD, 24));
         Rotate.setForeground(Color.white);
         btn_Help.setBounds((ScreenDim.width) * 7 / 20, (ScreenDim.height) / 30, (ScreenDim.height) * 3 / 40, (ScreenDim.height) * 3 / 40);
 
     }
-    
+
     /**
      * Place le panneau information et ses elements
      */
-    public void PlacePane_Info(){
+    public void PlacePane_Info() {
         Pane_Info.setBounds(0, 0, (ScreenDim.width) / 3, ScreenDim.height);
-        
-        Pane_Info.add(lbl_ChronoJeu, new AbsoluteConstraints((ScreenDim.width)/8, (ScreenDim.height)/100 , lbl_ChronoJeu.getWidth(),lbl_ChronoJeu.getHeight()));
-        Pane_Info.add(lbl_JoueurCourant, new AbsoluteConstraints((ScreenDim.width)*3/100, (ScreenDim.height)/12 , lbl_JoueurCourant.getWidth(),lbl_JoueurCourant.getHeight()));
-        Pane_Info.add(lbl_NomJoueur, new AbsoluteConstraints((ScreenDim.width)/8, (ScreenDim.height)/12 , lbl_NomJoueur.getWidth(),lbl_NomJoueur.getHeight()));
-        Pane_Info.add(lbl_ChronoTour, new AbsoluteConstraints((ScreenDim.width)/8, (ScreenDim.height)/6 , lbl_ChronoTour.getWidth(),lbl_ChronoTour.getHeight()));
 
-        
+        Pane_Info.add(lbl_ChronoJeu, new AbsoluteConstraints((ScreenDim.width) / 8, (ScreenDim.height) / 100, lbl_ChronoJeu.getWidth(), lbl_ChronoJeu.getHeight()));
+        Pane_Info.add(lbl_JoueurCourant, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) / 12, lbl_JoueurCourant.getWidth(), lbl_JoueurCourant.getHeight()));
+        Pane_Info.add(lbl_NomJoueur, new AbsoluteConstraints((ScreenDim.width) / 8, (ScreenDim.height) / 12, lbl_NomJoueur.getWidth(), lbl_NomJoueur.getHeight()));
+        Pane_Info.add(lbl_ChronoTour, new AbsoluteConstraints((ScreenDim.width) / 8, (ScreenDim.height) / 6, lbl_ChronoTour.getWidth(), lbl_ChronoTour.getHeight()));
+
         ObjetaRamasser = new CarteGraphique(new Cartes("araignee"));
-        Pane_Info.add(ObjetaRamasser, new AbsoluteConstraints((ScreenDim.width)*3/100, (ScreenDim.height)*9/40 , (ScreenDim.width)/8, (ScreenDim.height)/4));
-        Pane_Info.add(lbl_nextCard, new AbsoluteConstraints( (ScreenDim.width)*3 / 100, (ScreenDim.height)* 11/24, lbl_nextCard.getWidth(),lbl_nextCard.getHeight()));
-        
+        Pane_Info.add(ObjetaRamasser, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 9 / 40, (ScreenDim.width) / 8, (ScreenDim.height) / 4));
+        Pane_Info.add(lbl_nextCard, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 11 / 24, lbl_nextCard.getWidth(), lbl_nextCard.getHeight()));
+
         //Session.Labyrinth.prochainecase = new Case("cle");
         //System.out.println(Partie.ListeCases.size());
-        int temp =Partie.rand.nextInt(Partie.ListeCases.size());
-        Session.Labyrinth.prochainecase=new Case(Partie.ListeCases.get(temp).object);
-        Session.Labyrinth.prochainecase.Haut=Partie.ListeCases.get(temp).Haut;
-        Session.Labyrinth.prochainecase.Bas=Partie.ListeCases.get(temp).Bas;
-        Session.Labyrinth.prochainecase.Gauche=Partie.ListeCases.get(temp).Gauche;
-        Session.Labyrinth.prochainecase.Droite=Partie.ListeCases.get(temp).Droite;
+        int temp = Partie.rand.nextInt(Partie.ListeCases.size());
+//        for (Case ListeCase : Partie.ListeCases) {
+//            System.out.println(ListeCase);
+//        }
+        Session.Labyrinth.prochainecase = new Case(Partie.ListeCases.get(temp).object);
+        Session.Labyrinth.prochainecase.Haut = Partie.ListeCases.get(temp).Haut;
+        Session.Labyrinth.prochainecase.Bas = Partie.ListeCases.get(temp).Bas;
+        Session.Labyrinth.prochainecase.Gauche = Partie.ListeCases.get(temp).Gauche;
+        Session.Labyrinth.prochainecase.Droite = Partie.ListeCases.get(temp).Droite;
         ProchaineCase = new CaseGraphique(new Case(Session.Labyrinth.prochainecase.object));
-        
+        //System.out.println(Session.Labyrinth.prochainecase);
+
         ProchaineCase.setScale(1.3);
-        Pane_Info.add(ProchaineCase, new AbsoluteConstraints((ScreenDim.width)/6, (ScreenDim.height)/4, (ScreenDim.height)* 13/100, (ScreenDim.height)* 13/100));
-        Pane_Info.add(lbl_nextCase, new AbsoluteConstraints((ScreenDim.width)/6, (ScreenDim.height)* 10/24, lbl_nextCase.getWidth(), lbl_nextCase.getHeight()));
-        
-        
-        Pane_Info.add(lbl_J1, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*21/40));
+        Pane_Info.add(ProchaineCase, new AbsoluteConstraints((ScreenDim.width) / 6, (ScreenDim.height) / 4, (ScreenDim.height) * 13 / 100, (ScreenDim.height) * 13 / 100));
+        Pane_Info.add(lbl_nextCase, new AbsoluteConstraints((ScreenDim.width) / 6, (ScreenDim.height) * 10 / 24, lbl_nextCase.getWidth(), lbl_nextCase.getHeight()));
+
+        Pane_Info.add(lbl_J1, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 21 / 40));
         lbl_nomJ1.setText(Session.listeJoueurs[0].nom);
-        Pane_Info.add(lbl_nomJ1, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*22/40));
-        Pane_Info.add(Pane_J1, new AbsoluteConstraints((ScreenDim.width)/9, (ScreenDim.height)/2, (Pane_Info.getWidth())*6/10, Pane_J1.getHeight()));
+        Pane_Info.add(lbl_nomJ1, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 22 / 40));
+        Pane_Info.add(Pane_J1, new AbsoluteConstraints((ScreenDim.width) / 9, (ScreenDim.height) / 2, (Pane_Info.getWidth()) * 6 / 10, Pane_J1.getHeight()));
         //LayoutManager layout=Pane_Info.getLayout();
         //Pane_J1.add(lbl_txtChronoJ1, new AbsoluteConstraints((ScreenDim.width)*11/90,(ScreenDim.height)/2));
-        
-        Pane_Info.add(lbl_J2, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*25/40));
-        lbl_nomJ2.setText(Session.listeJoueurs[1].nom);
-        Pane_Info.add(lbl_nomJ2, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*26/40));
-        Pane_Info.add(Pane_J2, new AbsoluteConstraints((ScreenDim.width)/9, (ScreenDim.height)*12/20, (Pane_Info.getWidth())*6/10, Pane_J1.getHeight()));
 
-        Pane_Info.add(lbl_J3, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*29/40));
+        Pane_Info.add(lbl_J2, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 25 / 40));
+        lbl_nomJ2.setText(Session.listeJoueurs[1].nom);
+        Pane_Info.add(lbl_nomJ2, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 26 / 40));
+        Pane_Info.add(Pane_J2, new AbsoluteConstraints((ScreenDim.width) / 9, (ScreenDim.height) * 12 / 20, (Pane_Info.getWidth()) * 6 / 10, Pane_J1.getHeight()));
+
+        Pane_Info.add(lbl_J3, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 29 / 40));
         lbl_nomJ3.setText(Session.listeJoueurs[2].nom);
-        Pane_Info.add(lbl_nomJ3, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*30/40));
-        Pane_Info.add(Pane_J3, new AbsoluteConstraints((ScreenDim.width)/9, (ScreenDim.height)*14/20, (Pane_Info.getWidth())*6/10, Pane_J1.getHeight()));
-        
-        Pane_Info.add(lbl_J4, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*33/40));
+        Pane_Info.add(lbl_nomJ3, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 30 / 40));
+        Pane_Info.add(Pane_J3, new AbsoluteConstraints((ScreenDim.width) / 9, (ScreenDim.height) * 14 / 20, (Pane_Info.getWidth()) * 6 / 10, Pane_J1.getHeight()));
+
+        Pane_Info.add(lbl_J4, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 33 / 40));
         lbl_nomJ4.setText(Session.listeJoueurs[3].nom);
-        Pane_Info.add(lbl_nomJ4, new AbsoluteConstraints((ScreenDim.width)*3/100,(ScreenDim.height)*34/40));
-        Pane_Info.add(Pane_J4, new AbsoluteConstraints((ScreenDim.width)/9, (ScreenDim.height)*16/20, (Pane_Info.getWidth())*6/10, Pane_J1.getHeight()));
+        Pane_Info.add(lbl_nomJ4, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 34 / 40));
+        Pane_Info.add(Pane_J4, new AbsoluteConstraints((ScreenDim.width) / 9, (ScreenDim.height) * 16 / 20, (Pane_Info.getWidth()) * 6 / 10, Pane_J1.getHeight()));
 
     }
-    
+
     public void SwitchCase() {
         if (action != "") {
             for (int i = 0; i < Actions.length; i++) {
@@ -572,52 +578,50 @@ public class Interface extends javax.swing.JFrame {
             }
         }
     }
-    
+
     public void ActualiserText() {
-		Player joueurCourant = Session.listeJoueurs[Session.joueurCourant];
+        Player joueurCourant = Session.listeJoueurs[Session.joueurCourant];
 
 //		actualiserTuilesGraphiques();
 //		panneauGrille.repaint();
 //		panel_tuilevolante.repaint();
+        lbl_NomJoueur.setText(joueurCourant.nom);
+        JLabel lblObjetmodifie = lbl_Objet_J1;
+        switch (Session.joueurCourant) {
+            case 0:
+                Pane_Info.setBackground(new java.awt.Color(77, 132, 187));
+                lblObjetmodifie = lbl_Objet_J1;
+                break;
 
-		
-		lbl_NomJoueur.setText(joueurCourant.nom);
-                JLabel lblObjetmodifie=lbl_Objet_J1;
-		switch (Session.joueurCourant) {
-			case 0:
-				Pane_Info.setBackground(new java.awt.Color(77, 132, 187));
-                                lblObjetmodifie=lbl_Objet_J1;
-				break;
+            case 1:
+                Pane_Info.setBackground(new java.awt.Color(58, 171, 83));
+                lblObjetmodifie = lbl_Objet_J2;
+                break;
 
-			case 1:
-				Pane_Info.setBackground(new java.awt.Color(58, 171, 83));
-                                lblObjetmodifie=lbl_Objet_J2;
-				break;
+            case 2:
+                Pane_Info.setBackground(new java.awt.Color(207, 23, 23));
+                lblObjetmodifie = lbl_Objet_J3;
+                break;
 
-			case 2:
-				Pane_Info.setBackground(new java.awt.Color(214, 90, 57));
-                                lblObjetmodifie=lbl_Objet_J3;
-				break;
+            case 3:
+                Pane_Info.setBackground(new java.awt.Color(252, 210, 29));
+                lblObjetmodifie = lbl_Objet_J4;
+                break;
+        }
+        //System.out.println(joueurCourant.listeCartes[joueurCourant.indexCarteRetournee].nomObjet);
+        ObjetaRamasser.setCarteAssociee(new Cartes(joueurCourant.listeCartes[joueurCourant.indexCarteRetournee].nomObjet));
+        int objReste = joueurCourant.listeCartes.length - joueurCourant.indexCarteRetournee;
 
-			case 3:
-				Pane_Info.setBackground(new java.awt.Color(252, 210, 29));
-                                lblObjetmodifie=lbl_Objet_J4;
-				break;
-		}
-                //System.out.println(joueurCourant.listeCartes[joueurCourant.indexCarteRetournee].nomObjet);
-		ObjetaRamasser.setCarteAssociee(new Cartes(joueurCourant.listeCartes[joueurCourant.indexCarteRetournee].nomObjet));
-		int objReste = joueurCourant.listeCartes.length - joueurCourant.indexCarteRetournee;
+        switch (objReste) {
+            case 1:
+                lblObjetmodifie.setText("C'est le dernier !");
+                break;
+            default:
+                lblObjetmodifie.setText(objReste + "");
+                break;
+        }
+    }
 
-		switch (objReste) {
-			case 1:
-				lblObjetmodifie.setText("C'est le dernier !");
-				break;
-			default:
-				lblObjetmodifie.setText(objReste+"");
-				break;
-		}
-	}
-    
     private void Top1ActionPerformed(java.awt.event.ActionEvent evt) {
         if (placement) {
             SwitchCase();
@@ -749,12 +753,14 @@ public class Interface extends javax.swing.JFrame {
                 return;
             }
             boutonselectionne.CaseGrapheAssocie.TurnCase(90);
+            //System.out.println("tourne:" + boutonselectionne.CaseGrapheAssocie);
             boutonselectionne.repaint();
         }
     }//GEN-LAST:event_RotateActionPerformed
 
     private void ValidateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValidateActionPerformed
         if (placement) {
+
             switch (action) {
                 case "Top1" ->
                     Session.Labyrinth.DecalerColonne(2, true);
@@ -784,6 +790,9 @@ public class Interface extends javax.swing.JFrame {
                     return;
                 }
             }
+//            for (Case ListeCase : Partie.ListeCases) {
+//                System.out.println(ListeCase);
+//            }
             SwitchCase();
             Component[] components = Labyrinth.getComponents();
             for (int index = 0; index < components.length; index++) {
@@ -795,17 +804,33 @@ public class Interface extends javax.swing.JFrame {
                     caseGraphique.CaseGrapheAssocie = Session.Labyrinth.Grid[i][j];
                 }
             }
+
             Labyrinth.repaint();
             CasePlacee();
-            int temp =Partie.rand.nextInt(Partie.ListeCases.size());
-            Session.Labyrinth.prochainecase=new Case(Partie.ListeCases.get(temp).object);
-            //System.out.println(Partie.ListeCases.get(temp).object);
-            ProchaineCase.CaseGrapheAssocie=new Case(Session.Labyrinth.prochainecase.object);
+//            if(!"tuile1".equals(Session.Labyrinth.prochainecase.object)||!"tuile2".equals(Session.Labyrinth.prochainecase.object)){
+//                Partie.ListeCases.removeIf(element -> element.object.equals(Session.Labyrinth.prochainecase));
+//            }
+
+            int temp = Partie.rand.nextInt(Partie.ListeCases.size());
+            Session.Labyrinth.prochainecase = new Case(Partie.ListeCases.get(temp).object);
+            Session.Labyrinth.prochainecase.Haut = Partie.ListeCases.get(temp).Haut;
+            Session.Labyrinth.prochainecase.Bas = Partie.ListeCases.get(temp).Bas;
+            Session.Labyrinth.prochainecase.Gauche = Partie.ListeCases.get(temp).Gauche;
+            Session.Labyrinth.prochainecase.Droite = Partie.ListeCases.get(temp).Droite;
+            //System.out.println("objet avant:"+Partie.ListeCases.get(temp));
+            ProchaineCase.CaseGrapheAssocie = new Case(Session.Labyrinth.prochainecase.object);
+            //System.out.println("objet apres:" + Session.Labyrinth.prochainecase);
             ProchaineCase.repaint();
+            int[] posPionJCourant = Session.Labyrinth.positionPion(Session.listeJoueurs[Session.joueurCourant]);
+            if (Session.Labyrinth.CasesAccessibles(posPionJCourant[0], posPionJCourant[1]).isEmpty()) {
+                deplacement = false;
+                placement = true;
+                Session.joueurSuivant();
+                ActualiserText();
+            }
         }
     }//GEN-LAST:event_ValidateActionPerformed
-    
-    
+
     public void CasePlacee() {
         placement = false;
         deplacement = true;

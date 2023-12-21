@@ -65,13 +65,12 @@ public class Grille {
                 j = i;
             }
             if (i == 6) {
-                if(Grid[LigneNb - 1][j].presenceObjet()){
-                    Partie.ListeCases.add(new Case(Grid[LigneNb - 1][j].object));
-                }
                 Grid[LigneNb - 1][j] = prochainecase;
-                Grid[LigneNb-1][j].Players=new ArrayList<>(temp.Players);
-                temp.Players.clear();    
-                Partie.ListeCases.add(temp);
+                Grid[LigneNb - 1][j].Players = new ArrayList<>(temp.Players);
+                temp.Players.clear();
+                if (temp.presenceObjet()) {
+                    Partie.ListeCases.add(temp);
+                }
             } else {
 
                 Grid[LigneNb - 1][j] = Grid[LigneNb - 1][j - direction];
@@ -108,13 +107,13 @@ public class Grille {
                 j = i;
             }
             if (i == 6) {
-                if(Grid[j][ColNb-1].presenceObjet()){
-                    Partie.ListeCases.add(new Case(Grid[j][ColNb-1].object));
-                }
+
                 Grid[j][ColNb - 1] = prochainecase;
                 Grid[j][ColNb - 1].Players = new ArrayList<>(temp.Players);
                 temp.Players.clear();
-                Partie.ListeCases.add(temp);
+                if (temp.presenceObjet()) {
+                    Partie.ListeCases.add(temp);
+                }
             } else {
                 Grid[j][ColNb - 1] = Grid[j - direction][ColNb - 1];
             }
@@ -151,7 +150,8 @@ public class Grille {
     }
 
     /**
-     * Tourne les case de la grille (sauf les cases de départ) dans une orientation aléatoire
+     * Tourne les case de la grille (sauf les cases de départ) dans une
+     * orientation aléatoire
      */
     public void Tournergrid() {
         int angle;
@@ -167,6 +167,7 @@ public class Grille {
 
     /**
      * Tourne une case
+     *
      * @param x Abscisse de la case
      * @param y Ordonnee de la case
      * @param angle Angle de la rotation
@@ -223,143 +224,145 @@ public class Grille {
                 || (x == 6 && y == 6));
     }
 
-	/**
-	 * Détermine si un passage existe entre deux cases adjacentes
-	 *
-	 * @param x1 Abscisse de la première case
-	 * @param y1 Ordonnée de la première case
-	 * @param x2 Abscisse de la deuxième case
-	 * @param y2 Ordonnée de la deuxième case
-	 * @return Vrai si présence d'un passage
-	 */
-	public boolean PassagedeCases(int x1, int y1, int x2, int y2) {
-		/* Si les coordonnées sont valides */
-		if (x1 > 6 || x1 < 0 || y1 > 6 || y1 < 0
-                        || x2 > 6 || x2 < 0 || y2 > 6 || y2 < 0) {
-			return false;
-		}
+    /**
+     * Détermine si un passage existe entre deux cases adjacentes
+     *
+     * @param x1 Abscisse de la première case
+     * @param y1 Ordonnée de la première case
+     * @param x2 Abscisse de la deuxième case
+     * @param y2 Ordonnée de la deuxième case
+     * @return Vrai si présence d'un passage
+     */
+    public boolean PassagedeCases(int x1, int y1, int x2, int y2) {
+        /* Si les coordonnées sont valides */
+        if (x1 > 6 || x1 < 0 || y1 > 6 || y1 < 0
+                || x2 > 6 || x2 < 0 || y2 > 6 || y2 < 0) {
+            return false;
+        }
 
-		/* Si les tuiles sont sur la même colonne ou ligne */
-		if (x1 == x2) {
-			System.out.println("1: "+"H:"+Grid[x1][y1].Haut+" B:"+Grid[x1][y1].Bas+" G:"+Grid[x1][y1].Gauche+" D:"+Grid[x1][y1].Droite);
-                        System.out.println("2: "+"H:"+Grid[x2][y2].Haut+" B:"+Grid[x2][y2].Bas+" G:"+Grid[x2][y2].Gauche+" D:"+Grid[x2][y2].Droite);
+        /* Si les tuiles sont sur la même colonne ou ligne */
+        if (x1 == x2) {
+            //System.out.println("1: "+"H:"+Grid[x1][y1].Haut+" B:"+Grid[x1][y1].Bas+" G:"+Grid[x1][y1].Gauche+" D:"+Grid[x1][y1].Droite);
+            //System.out.println("2: "+"H:"+Grid[x2][y2].Haut+" B:"+Grid[x2][y2].Bas+" G:"+Grid[x2][y2].Gauche+" D:"+Grid[x2][y2].Droite);
 
-			if (Math.abs(y1 - y2) > 1) {
-				return false;
-			} else if (y1 - y2 >= 0) {
-				return (Grid[x1][y1].Gauche
-						&& Grid[x2][y2].Droite);
-			} else {
-				return (Grid[x1][y1].Droite
-						&& Grid[x2][y2].Gauche);
-			}
-		} else if (y1 == y2) {
-                    System.out.println("1: "+"H:"+Grid[x1][y1].Haut+" B:"+Grid[x1][y1].Bas+" G:"+Grid[x1][y1].Gauche+" D:"+Grid[x1][y1].Droite);
-                        System.out.println("2: "+"H:"+Grid[x2][y2].Haut+" B:"+Grid[x2][y2].Bas+" G:"+Grid[x2][y2].Gauche+" D:"+Grid[x2][y2].Droite);
-			/* On vérifie si les tuiles sont adjacentes */
-			if (Math.abs(x1 - x2) > 1) {
-				return false;
-			} else if (x1 - x2 >= 0) {
-				return (Grid[x1][y1].Haut
-						&& Grid[x2][y2].Bas);
-			} else {
-				return (Grid[x1][y1].Bas
-						&& Grid[x2][y2].Haut);
-			}
-		} else {
-			return false;
-		}
-	}
+            if (Math.abs(y1 - y2) > 1) {
+                return false;
+            } else if (y1 - y2 >= 0) {
+                return (Grid[x1][y1].Gauche
+                        && Grid[x2][y2].Droite);
+            } else {
+                return (Grid[x1][y1].Droite
+                        && Grid[x2][y2].Gauche);
+            }
+        } else if (y1 == y2) {
+            //System.out.println("1: "+"H:"+Grid[x1][y1].Haut+" B:"+Grid[x1][y1].Bas+" G:"+Grid[x1][y1].Gauche+" D:"+Grid[x1][y1].Droite);
+            //System.out.println("2: "+"H:"+Grid[x2][y2].Haut+" B:"+Grid[x2][y2].Bas+" G:"+Grid[x2][y2].Gauche+" D:"+Grid[x2][y2].Droite);
+            /* On vérifie si les tuiles sont adjacentes */
+            if (Math.abs(x1 - x2) > 1) {
+                return false;
+            } else if (x1 - x2 >= 0) {
+                return (Grid[x1][y1].Haut
+                        && Grid[x2][y2].Bas);
+            } else {
+                return (Grid[x1][y1].Bas
+                        && Grid[x2][y2].Haut);
+            }
+        } else {
+            return false;
+        }
+    }
 
-	/**
-	 * Détermine si il existe un chemin entre deux cases.
-	 *
-	 * @param x1            Abscisse de la première case
-	 * @param y1            Ordonnée de la première case
-	 * @param x2            Abscisse de la deuxième case
-	 * @param y2            Ordonnée de la deuxième ase
-	 * @param CasesConnues Tableau des cases connues (null pour un appel manuel)
-	 * @return              Vrai si présence d'un chemin
-	 */
-	public boolean PathFinding(int x1, int y1, int x2, int y2, ArrayList<Case> CasesConnues) {
-		ArrayList<Case> CasesCouloir;
-		if (CasesConnues == null) {
-			CasesCouloir = new ArrayList<>();
-			CasesCouloir.add(Grid[x1][y1]);
-		} else {
-			CasesCouloir = CasesConnues;
-		}
-		ArrayList<ArrayList<Integer>> tuilesPart = CasesAccessibles(x1, y1);
-		ArrayList<Integer> listeVerif = new ArrayList<>();
-		listeVerif.add(x2);
-		listeVerif.add(y2);
-		if (tuilesPart.contains(listeVerif)) {
-			return true;
-		} else if (!tuilesPart.isEmpty()) {
-			for (ArrayList<Integer> coordsCasesListees : tuilesPart) {
-				if (!CasesCouloir.contains(Grid[coordsCasesListees.get(0)][coordsCasesListees.get(1)])) {
-					CasesCouloir.add(Grid[coordsCasesListees.get(0)][coordsCasesListees.get(1)]);
-					if (PathFinding(coordsCasesListees.get(0), coordsCasesListees.get(1), x2, y2, CasesCouloir)) {
-						return true;
-					}
-				}
-			}
-		}
-		return false;
-	}
-        
-        	/**
-	 * Cherche le pion du joueur dans la grille et retourne sa position
-	 *
-	 * @param JoueurRecherche Le propriétaire du pion
-	 * @return Les coordonnées du pion
-	 */
-	public int[] positionPion(Player JoueurRecherche) {
-		for (int i = 0; i < 7; i++) {
-			for (int j = 0; j < 7; j++) {
-				if (Grid[i][j].presenceJoueurs()) {
-					if (Grid[i][j].Players.contains(JoueurRecherche.marqueur)) {
-						return (new int[]{i, j});
-					}
-				}
-			}
-		}
-		return null;
-	}
-        
-	/**
-	 * Donne la liste des cases accessibles depuis une case donnée
-	 *
-	 * @param x Abscisse de la case
-	 * @param y Ordonnée de la case
-	 * @return Liste des coordonnées des cases accessibles
-	 */
-	public ArrayList<ArrayList<Integer>> CasesAccessibles(int x, int y) {
-		ArrayList<ArrayList<Integer>> CasesAccessibles = new ArrayList<>();
-		if (PassagedeCases(x, y, x + 1, y)) {
-			ArrayList<Integer> listeInter = new ArrayList<>();
-			listeInter.add(x + 1);
-			listeInter.add(y);
-			CasesAccessibles.add(listeInter);
-		}
-		if (PassagedeCases(x, y, x - 1, y)) {
-			ArrayList<Integer> listeInter = new ArrayList<>();
-			listeInter.add(x - 1);
-			listeInter.add(y);
-			CasesAccessibles.add(listeInter);
-		}
-		if (PassagedeCases(x, y, x, y + 1)) {
-			ArrayList<Integer> listeInter = new ArrayList<>();
-			listeInter.add(x);
-			listeInter.add(y + 1);
-			CasesAccessibles.add(listeInter);
-		}
-		if (PassagedeCases(x, y, x, y - 1)) {
-			ArrayList<Integer> listeInter = new ArrayList<>();
-			listeInter.add(x);
-			listeInter.add(y - 1);
-			CasesAccessibles.add(listeInter);
-		}
-		return CasesAccessibles;
-	}
+    /**
+     * Détermine si il existe un chemin entre deux cases.
+     *
+     * @param x1 Abscisse de la première case
+     * @param y1 Ordonnée de la première case
+     * @param x2 Abscisse de la deuxième case
+     * @param y2 Ordonnée de la deuxième ase
+     * @param CasesConnues Tableau des cases connues (null pour un appel manuel)
+     * @return Vrai si présence d'un chemin
+     */
+    public boolean PathFinding(int x1, int y1, int x2, int y2, ArrayList<Case> CasesConnues) {
+        ArrayList<Case> CasesCouloir;
+        if (CasesConnues == null) {
+            CasesCouloir = new ArrayList<>();
+            CasesCouloir.add(Grid[x1][y1]);
+        } else {
+            CasesCouloir = CasesConnues;
+        }
+        ArrayList<ArrayList<Integer>> tuilesPart = CasesAccessibles(x1, y1);
+        System.out.print(tuilesPart);
+        ArrayList<Integer> listeVerif = new ArrayList<>();
+        listeVerif.add(x2);
+        listeVerif.add(y2);
+        if (tuilesPart.contains(listeVerif)) {
+            return true;
+        } else if (!tuilesPart.isEmpty()) {
+            for (ArrayList<Integer> coordsCasesListees : tuilesPart) {
+                //System.out.println(coordsCasesListees);
+                if (!CasesCouloir.contains(Grid[coordsCasesListees.get(0)][coordsCasesListees.get(1)])) {
+                    CasesCouloir.add(Grid[coordsCasesListees.get(0)][coordsCasesListees.get(1)]);
+                    if (PathFinding(coordsCasesListees.get(0), coordsCasesListees.get(1), x2, y2, CasesCouloir)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Cherche le pion du joueur dans la grille et retourne sa position
+     *
+     * @param JoueurRecherche Le propriétaire du pion
+     * @return Les coordonnées du pion
+     */
+    public int[] positionPion(Player JoueurRecherche) {
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 7; j++) {
+                if (Grid[i][j].presenceJoueurs()) {
+                    if (Grid[i][j].Players.contains(JoueurRecherche.marqueur)) {
+                        return (new int[]{i, j});
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Donne la liste des cases accessibles depuis une case donnée
+     *
+     * @param x Abscisse de la case
+     * @param y Ordonnée de la case
+     * @return Liste des coordonnées des cases accessibles
+     */
+    public ArrayList<ArrayList<Integer>> CasesAccessibles(int x, int y) {
+        ArrayList<ArrayList<Integer>> CasesAccessibles = new ArrayList<>();
+        if (PassagedeCases(x, y, x + 1, y)) {
+            ArrayList<Integer> listeInter = new ArrayList<>();
+            listeInter.add(x + 1);
+            listeInter.add(y);
+            CasesAccessibles.add(listeInter);
+        }
+        if (PassagedeCases(x, y, x - 1, y)) {
+            ArrayList<Integer> listeInter = new ArrayList<>();
+            listeInter.add(x - 1);
+            listeInter.add(y);
+            CasesAccessibles.add(listeInter);
+        }
+        if (PassagedeCases(x, y, x, y + 1)) {
+            ArrayList<Integer> listeInter = new ArrayList<>();
+            listeInter.add(x);
+            listeInter.add(y + 1);
+            CasesAccessibles.add(listeInter);
+        }
+        if (PassagedeCases(x, y, x, y - 1)) {
+            ArrayList<Integer> listeInter = new ArrayList<>();
+            listeInter.add(x);
+            listeInter.add(y - 1);
+            CasesAccessibles.add(listeInter);
+        }
+        return CasesAccessibles;
+    }
 }
