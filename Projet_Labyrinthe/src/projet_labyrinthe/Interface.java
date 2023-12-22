@@ -53,8 +53,11 @@ public class Interface extends javax.swing.JFrame {
     CaseGraphique[] Actions = new CaseGraphique[12];
     CarteGraphique ObjetaRamasser;
     CaseGraphique ProchaineCase;
+    Chrono Chrono_Players;
+    Chrono_Partie Chrono_Jeu,Chrono_Tour;
+    
     boolean deplacement = false, placement = false;
-
+    
     /**
      * Creates new form FenetreDeJeu
      */
@@ -84,12 +87,18 @@ public class Interface extends javax.swing.JFrame {
         Actions[9] = Right1;
         Actions[10] = Right2;
         Actions[11] = Right3;
-
+        Chrono_Jeu = new Chrono_Partie(Pane_Info);
+        Chrono_Tour = new Chrono_Partie(Pane_Info);
+        Chrono_Players = new Chrono(Pane_Info);
+        
+        //Chrono_Jeu.;
         PlaceComponents();
 
         repaint();
         placement = true;
         ActualiserText();
+        Chrono_Jeu.Start();
+        Chrono_Tour.Start();
     }
 
     private void DebugMode() {
@@ -137,11 +146,10 @@ public class Interface extends javax.swing.JFrame {
 
         Labyrinth = new javax.swing.JPanel();
         Pane_Info = new javax.swing.JPanel();
-        ChronoJeu = new javax.swing.JLabel();
         lbl_NomJoueur = new javax.swing.JLabel();
         lbl_JoueurCourant = new javax.swing.JLabel();
-        lbl_ChronoTour = new javax.swing.JLabel();
         lbl_ChronoJeu = new javax.swing.JLabel();
+        lbl_ChronoTour = new javax.swing.JLabel();
         lbl_nextCase = new javax.swing.JLabel();
         lbl_nextCard = new javax.swing.JLabel();
         lbl_nomJ1 = new javax.swing.JLabel();
@@ -153,22 +161,18 @@ public class Interface extends javax.swing.JFrame {
         lbl_nomJ4 = new javax.swing.JLabel();
         lbl_J4 = new javax.swing.JLabel();
         Pane_J1 = new javax.swing.JPanel();
-        Chrono_J1 = new javax.swing.JLabel();
         lbl_Objet_J1 = new javax.swing.JLabel();
         lbl_txtChronoJ1 = new javax.swing.JLabel();
         lbl_txtObjetJ1 = new javax.swing.JLabel();
         Pane_J2 = new javax.swing.JPanel();
-        Chrono_J2 = new javax.swing.JLabel();
         lbl_Objet_J2 = new javax.swing.JLabel();
         lbl_txtChronoJ2 = new javax.swing.JLabel();
         lbl_txtObjetJ2 = new javax.swing.JLabel();
         Pane_J3 = new javax.swing.JPanel();
-        Chrono_J3 = new javax.swing.JLabel();
         lbl_Objet_J3 = new javax.swing.JLabel();
         lbl_txtChronoJ3 = new javax.swing.JLabel();
         lbl_txtObjetJ3 = new javax.swing.JLabel();
         Pane_J4 = new javax.swing.JPanel();
-        Chrono_J4 = new javax.swing.JLabel();
         lbl_Objet_J4 = new javax.swing.JLabel();
         lbl_txtChronoJ4 = new javax.swing.JLabel();
         lbl_txtObjetJ4 = new javax.swing.JLabel();
@@ -188,81 +192,74 @@ public class Interface extends javax.swing.JFrame {
         Pane_Info.setBackground(new java.awt.Color(0, 102, 51));
         Pane_Info.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ChronoJeu.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
-        Pane_Info.add(ChronoJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        lbl_NomJoueur.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_NomJoueur.setFont(new java.awt.Font("OCR A Extended", 3, 18)); // NOI18N
         lbl_NomJoueur.setText("jLabel1");
         Pane_Info.add(lbl_NomJoueur, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        lbl_JoueurCourant.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
-        lbl_JoueurCourant.setText("Joueur Courant");
+        lbl_JoueurCourant.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
+        lbl_JoueurCourant.setText("Tour de");
         Pane_Info.add(lbl_JoueurCourant, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        lbl_ChronoTour.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
-        lbl_ChronoTour.setText("Chrono du Tour");
-        Pane_Info.add(lbl_ChronoTour, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        lbl_ChronoJeu.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_ChronoJeu.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
         lbl_ChronoJeu.setText("Chrono de la Partie");
         Pane_Info.add(lbl_ChronoJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        lbl_nextCase.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_ChronoTour.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
+        lbl_ChronoTour.setText("Chrono du Tour");
+        Pane_Info.add(lbl_ChronoTour, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+
+        lbl_nextCase.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
         lbl_nextCase.setText("Prochaine Case");
         Pane_Info.add(lbl_nextCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        lbl_nextCard.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_nextCard.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
         lbl_nextCard.setText("Objet a Ramasser");
         Pane_Info.add(lbl_nextCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        lbl_nomJ1.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_nomJ1.setFont(new java.awt.Font("OCR A Extended", 1, 14)); // NOI18N
         lbl_nomJ1.setText("name");
         Pane_Info.add(lbl_nomJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
-        lbl_J1.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_J1.setFont(new java.awt.Font("OCR A Extended", 0, 14)); // NOI18N
         lbl_J1.setText("Joueur 1");
         Pane_Info.add(lbl_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
 
-        lbl_nomJ2.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_nomJ2.setFont(new java.awt.Font("OCR A Extended", 1, 14)); // NOI18N
         lbl_nomJ2.setText("name");
         Pane_Info.add(lbl_nomJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
-        lbl_J2.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_J2.setFont(new java.awt.Font("OCR A Extended", 0, 14)); // NOI18N
         lbl_J2.setText("Joueur 2");
         Pane_Info.add(lbl_J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        lbl_J3.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_J3.setFont(new java.awt.Font("OCR A Extended", 0, 14)); // NOI18N
         lbl_J3.setText("Joueur 3");
         Pane_Info.add(lbl_J3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        lbl_nomJ3.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_nomJ3.setFont(new java.awt.Font("OCR A Extended", 1, 14)); // NOI18N
         lbl_nomJ3.setText("name");
         Pane_Info.add(lbl_nomJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
-        lbl_nomJ4.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_nomJ4.setFont(new java.awt.Font("OCR A Extended", 1, 14)); // NOI18N
         lbl_nomJ4.setText("name");
         Pane_Info.add(lbl_nomJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
-        lbl_J4.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_J4.setFont(new java.awt.Font("OCR A Extended", 0, 14)); // NOI18N
         lbl_J4.setText("Joueur 4");
         Pane_Info.add(lbl_J4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         Pane_J1.setBackground(new java.awt.Color(0, 102, 153));
         Pane_J1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Chrono_J1.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
-        Chrono_J1.setText("jLabel1");
-        Pane_J1.add(Chrono_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
-
-        lbl_Objet_J1.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_Objet_J1.setFont(new java.awt.Font("Lucida Console", 0, 14)); // NOI18N
         lbl_Objet_J1.setText("jLabel1");
         Pane_J1.add(lbl_Objet_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, -1, -1));
 
-        lbl_txtChronoJ1.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_txtChronoJ1.setFont(new java.awt.Font("OCR A Extended", 0, 14)); // NOI18N
         lbl_txtChronoJ1.setText("Temps");
         Pane_J1.add(lbl_txtChronoJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
-        lbl_txtObjetJ1.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_txtObjetJ1.setFont(new java.awt.Font("OCR A Extended", 0, 14)); // NOI18N
         lbl_txtObjetJ1.setText("Nb d'objets restants");
         Pane_J1.add(lbl_txtObjetJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
@@ -271,19 +268,15 @@ public class Interface extends javax.swing.JFrame {
         Pane_J2.setBackground(new java.awt.Color(0, 153, 51));
         Pane_J2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Chrono_J2.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
-        Chrono_J2.setText("jLabel1");
-        Pane_J2.add(Chrono_J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
-
-        lbl_Objet_J2.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_Objet_J2.setFont(new java.awt.Font("Lucida Console", 0, 14)); // NOI18N
         lbl_Objet_J2.setText("jLabel1");
         Pane_J2.add(lbl_Objet_J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, -1, -1));
 
-        lbl_txtChronoJ2.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_txtChronoJ2.setFont(new java.awt.Font("OCR A Extended", 0, 14)); // NOI18N
         lbl_txtChronoJ2.setText("Temps");
         Pane_J2.add(lbl_txtChronoJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
-        lbl_txtObjetJ2.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_txtObjetJ2.setFont(new java.awt.Font("OCR A Extended", 0, 14)); // NOI18N
         lbl_txtObjetJ2.setText("Nb d'objets restants");
         Pane_J2.add(lbl_txtObjetJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
@@ -292,40 +285,32 @@ public class Interface extends javax.swing.JFrame {
         Pane_J3.setBackground(new java.awt.Color(153, 0, 0));
         Pane_J3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Chrono_J3.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
-        Chrono_J3.setText("jLabel1");
-        Pane_J3.add(Chrono_J3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
-
-        lbl_Objet_J3.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_Objet_J3.setFont(new java.awt.Font("Lucida Console", 0, 14)); // NOI18N
         lbl_Objet_J3.setText("jLabel1");
         Pane_J3.add(lbl_Objet_J3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, -1, -1));
 
-        lbl_txtChronoJ3.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_txtChronoJ3.setFont(new java.awt.Font("OCR A Extended", 0, 14)); // NOI18N
         lbl_txtChronoJ3.setText("Temps");
         Pane_J3.add(lbl_txtChronoJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
-        lbl_txtObjetJ3.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_txtObjetJ3.setFont(new java.awt.Font("OCR A Extended", 0, 14)); // NOI18N
         lbl_txtObjetJ3.setText("Nb d'objets restants");
         Pane_J3.add(lbl_txtObjetJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
         Pane_Info.add(Pane_J3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 280, 60));
 
-        Pane_J4.setBackground(new java.awt.Color(255, 255, 0));
+        Pane_J4.setBackground(new java.awt.Color(200, 200, 0));
         Pane_J4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Chrono_J4.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
-        Chrono_J4.setText("jLabel1");
-        Pane_J4.add(Chrono_J4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
-
-        lbl_Objet_J4.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_Objet_J4.setFont(new java.awt.Font("Lucida Console", 0, 14)); // NOI18N
         lbl_Objet_J4.setText("jLabel1");
         Pane_J4.add(lbl_Objet_J4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, -1, -1));
 
-        lbl_txtChronoJ4.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_txtChronoJ4.setFont(new java.awt.Font("OCR A Extended", 0, 14)); // NOI18N
         lbl_txtChronoJ4.setText("Temps");
         Pane_J4.add(lbl_txtChronoJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
-        lbl_txtObjetJ4.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_txtObjetJ4.setFont(new java.awt.Font("OCR A Extended", 0, 14)); // NOI18N
         lbl_txtObjetJ4.setText("Nb d'objets restants");
         Pane_J4.add(lbl_txtObjetJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
@@ -417,6 +402,7 @@ public class Interface extends javax.swing.JFrame {
                                     deplacement = false;
                                     placement = true;
                                     ActualiserText();
+                                    Chrono_Players.stop(Session.joueurCourant);
                                     Session.joueurSuivant();
                                     ActualiserText();
                                     }
@@ -555,36 +541,32 @@ public class Interface extends javax.swing.JFrame {
     public void PlacePane_Info() {
         Pane_Info.setBounds(0, 0, (ScreenDim.width) / 3, ScreenDim.height);
 
-        Pane_Info.add(lbl_ChronoJeu, new AbsoluteConstraints((ScreenDim.width) / 8, (ScreenDim.height) / 100, lbl_ChronoJeu.getWidth(), lbl_ChronoJeu.getHeight()));
-        Pane_Info.add(lbl_JoueurCourant, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) / 12, lbl_JoueurCourant.getWidth(), lbl_JoueurCourant.getHeight()));
-        Pane_Info.add(lbl_NomJoueur, new AbsoluteConstraints((ScreenDim.width) / 8, (ScreenDim.height) / 12, lbl_NomJoueur.getWidth(), lbl_NomJoueur.getHeight()));
-        Pane_Info.add(lbl_ChronoTour, new AbsoluteConstraints((ScreenDim.width) / 8, (ScreenDim.height) / 6, lbl_ChronoTour.getWidth(), lbl_ChronoTour.getHeight()));
+        Pane_Info.add(lbl_ChronoJeu, new AbsoluteConstraints((ScreenDim.width)*1 / 100, (ScreenDim.height) *8/ 100, lbl_ChronoJeu.getWidth(), lbl_ChronoJeu.getHeight()));
+        Pane_Info.add(lbl_ChronoTour, new AbsoluteConstraints((ScreenDim.width)*1 / 100, (ScreenDim.height) *16/ 100, lbl_ChronoTour.getWidth(), lbl_ChronoTour.getHeight()));
+        Pane_Info.add(Chrono_Tour.Chrono_Partie, new AbsoluteConstraints((ScreenDim.width)*15 / 100, (ScreenDim.height) *16/ 100, 150,34));
+        
+        Pane_Info.add(lbl_JoueurCourant, new AbsoluteConstraints((ScreenDim.width) * 10 / 100, (ScreenDim.height) / 100, lbl_JoueurCourant.getWidth(), lbl_JoueurCourant.getHeight()));
+        Pane_Info.add(lbl_NomJoueur, new AbsoluteConstraints((ScreenDim.width)*17 / 100, (ScreenDim.height) / 100, lbl_NomJoueur.getWidth(), lbl_NomJoueur.getHeight()));
 
         ObjetaRamasser = new CarteGraphique(new Cartes("araignee"));
-        Pane_Info.add(ObjetaRamasser, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 9 / 40, (ScreenDim.width) / 8, (ScreenDim.height) / 4));
-        Pane_Info.add(lbl_nextCard, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 11 / 24, lbl_nextCard.getWidth(), lbl_nextCard.getHeight()));
+        Pane_Info.add(ObjetaRamasser, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 23 / 100, (ScreenDim.width) / 8, (ScreenDim.height) / 4));
+        Pane_Info.add(lbl_nextCard, new AbsoluteConstraints((ScreenDim.width) * 1 / 100, (ScreenDim.height) * 45 / 100, lbl_nextCard.getWidth(), lbl_nextCard.getHeight()));
 
-        //Session.Labyrinth.prochainecase = new Case("cle");
-        //System.out.println(Partie.ListeCases.size());
         int temp = Partie.rand.nextInt(Partie.ListeCases.size());
-//        for (Case ListeCase : Partie.ListeCases) {
-//            System.out.println(ListeCase);
-//        }
         Session.Labyrinth.prochainecase = new Case(Partie.ListeCases.get(temp).object);
         Session.Labyrinth.prochainecase.Haut = Partie.ListeCases.get(temp).Haut;
         Session.Labyrinth.prochainecase.Bas = Partie.ListeCases.get(temp).Bas;
         Session.Labyrinth.prochainecase.Gauche = Partie.ListeCases.get(temp).Gauche;
         Session.Labyrinth.prochainecase.Droite = Partie.ListeCases.get(temp).Droite;
         ProchaineCase = new CaseGraphique(new Case(Session.Labyrinth.prochainecase.object));
-        //System.out.println(Session.Labyrinth.prochainecase);
 
         ProchaineCase.setScale(1.3);
-        Pane_Info.add(ProchaineCase, new AbsoluteConstraints((ScreenDim.width) / 6, (ScreenDim.height) / 4, (ScreenDim.height) * 13 / 100, (ScreenDim.height) * 13 / 100));
-        Pane_Info.add(lbl_nextCase, new AbsoluteConstraints((ScreenDim.width) / 6, (ScreenDim.height) * 10 / 24, lbl_nextCase.getWidth(), lbl_nextCase.getHeight()));
+        Pane_Info.add(ProchaineCase, new AbsoluteConstraints((ScreenDim.width)*20 /100, (ScreenDim.height)*31 /100, (ScreenDim.height) * 13 / 100, (ScreenDim.height) * 13 / 100));
+        Pane_Info.add(lbl_nextCase, new AbsoluteConstraints((ScreenDim.width)*18 /100, (ScreenDim.height) * 45 / 100, lbl_nextCase.getWidth(), lbl_nextCase.getHeight()));
         
-        Pane_Info.add(lbl_J1, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 21 / 40));
+        Pane_Info.add(lbl_J1, new AbsoluteConstraints((ScreenDim.width) * 4 / 100, (ScreenDim.height) * 51 / 100));
         lbl_nomJ1.setText(Session.listeJoueurs[0].nom);
-        Pane_Info.add(lbl_nomJ1, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 22 / 40));
+        Pane_Info.add(lbl_nomJ1, new AbsoluteConstraints((ScreenDim.width) * 5 / 100, (ScreenDim.height) * 54 / 100));
         Pane_Info.add(Pane_J1, new AbsoluteConstraints((ScreenDim.width) / 9, (ScreenDim.height) / 2, (Pane_Info.getWidth()) * 6 / 10, Pane_J1.getHeight()));
         lbl_Objet_J1.setText((Session.listeJoueurs[0].listeCartes.length - Session.listeJoueurs[0].indexCarteRetournee)+"/"+Session.listeJoueurs[0].listeCartes.length);
         
@@ -597,14 +579,18 @@ public class Interface extends javax.swing.JFrame {
         lbl_J4.setVisible(false);
         lbl_nomJ4.setVisible(false);
         Pane_J4.setVisible(false);
+        Chrono_Players.Chrono_J2.setVisible(false);
+        Chrono_Players.Chrono_J3.setVisible(false);
+        Chrono_Players.Chrono_J4.setVisible(false);
         
         if(Session.listeJoueurs.length>1){
         lbl_J2.setVisible(true);
         lbl_nomJ2.setVisible(true);
         Pane_J2.setVisible(true);
-        Pane_Info.add(lbl_J2, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 25 / 40));
+        Chrono_Players.Chrono_J2.setVisible(true);
+        Pane_Info.add(lbl_J2, new AbsoluteConstraints((ScreenDim.width) * 4 / 100, (ScreenDim.height) * 61 / 100));
         lbl_nomJ2.setText(Session.listeJoueurs[1].nom);
-        Pane_Info.add(lbl_nomJ2, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 26 / 40));
+        Pane_Info.add(lbl_nomJ2, new AbsoluteConstraints((ScreenDim.width) * 5 / 100, (ScreenDim.height) * 64 / 100));
         Pane_Info.add(Pane_J2, new AbsoluteConstraints((ScreenDim.width) / 9, (ScreenDim.height) * 12 / 20, (Pane_Info.getWidth()) * 6 / 10, Pane_J1.getHeight()));
         lbl_Objet_J2.setText((Session.listeJoueurs[1].listeCartes.length - Session.listeJoueurs[1].indexCarteRetournee)+"/"+(Session.listeJoueurs[1].listeCartes.length));
         }
@@ -613,9 +599,10 @@ public class Interface extends javax.swing.JFrame {
         lbl_J3.setVisible(true);
         lbl_nomJ3.setVisible(true);
         Pane_J3.setVisible(true);
-        Pane_Info.add(lbl_J3, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 29 / 40));
+        Chrono_Players.Chrono_J3.setVisible(true);
+        Pane_Info.add(lbl_J3, new AbsoluteConstraints((ScreenDim.width) * 4 / 100, (ScreenDim.height) * 71 /100));
         lbl_nomJ3.setText(Session.listeJoueurs[2].nom);
-        Pane_Info.add(lbl_nomJ3, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 30 / 40));
+        Pane_Info.add(lbl_nomJ3, new AbsoluteConstraints((ScreenDim.width) * 5 / 100, (ScreenDim.height) * 74 /100));
         Pane_Info.add(Pane_J3, new AbsoluteConstraints((ScreenDim.width) / 9, (ScreenDim.height) * 14 / 20, (Pane_Info.getWidth()) * 6 / 10, Pane_J1.getHeight()));
         lbl_Objet_J3.setText((Session.listeJoueurs[2].listeCartes.length - Session.listeJoueurs[2].indexCarteRetournee)+"/"+Session.listeJoueurs[2].listeCartes.length);
         }
@@ -624,9 +611,10 @@ public class Interface extends javax.swing.JFrame {
         lbl_J4.setVisible(true);
         lbl_nomJ4.setVisible(true);
         Pane_J4.setVisible(true);
-        Pane_Info.add(lbl_J4, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 33 / 40));
+        Chrono_Players.Chrono_J4.setVisible(true);
+        Pane_Info.add(lbl_J4, new AbsoluteConstraints((ScreenDim.width) * 4 / 100, (ScreenDim.height) * 81 /100));
         lbl_nomJ4.setText(Session.listeJoueurs[3].nom);
-        Pane_Info.add(lbl_nomJ4, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 34 / 40));
+        Pane_Info.add(lbl_nomJ4, new AbsoluteConstraints((ScreenDim.width) * 5 / 100, (ScreenDim.height) * 84/100));
         Pane_Info.add(Pane_J4, new AbsoluteConstraints((ScreenDim.width) / 9, (ScreenDim.height) * 16 / 20, (Pane_Info.getWidth()) * 6 / 10, Pane_J1.getHeight()));
         lbl_Objet_J4.setText((Session.listeJoueurs[3].listeCartes.length - Session.listeJoueurs[3].indexCarteRetournee)+"/"+Session.listeJoueurs[3].listeCartes.length);
         }
@@ -647,6 +635,8 @@ public class Interface extends javax.swing.JFrame {
 
     public void ActualiserText() {
         Player joueurCourant = Session.listeJoueurs[Session.joueurCourant];
+        Chrono_Players.start(Session.joueurCourant);
+        Chrono_Tour.Reset();
 
 //		actualiserTuilesGraphiques();
 //		panneauGrille.repaint();
@@ -674,6 +664,7 @@ public class Interface extends javax.swing.JFrame {
                 lblObjetmodifie = lbl_Objet_J4;
                 break;
         }
+        
         //System.out.println(joueurCourant.listeCartes[joueurCourant.indexCarteRetournee].nomObjet);
         ObjetaRamasser.setCarteAssociee(new Cartes(joueurCourant.listeCartes[joueurCourant.indexCarteRetournee].nomObjet));
         int objReste = joueurCourant.listeCartes.length - joueurCourant.indexCarteRetournee;
@@ -891,6 +882,7 @@ public class Interface extends javax.swing.JFrame {
             if (Session.Labyrinth.CasesAccessibles(posPionJCourant[0], posPionJCourant[1]).isEmpty()) {
                 deplacement = false;
                 placement = true;
+                Chrono_Players.stop(Session.joueurCourant);
                 Session.joueurSuivant();
                 ActualiserText();
             }
@@ -951,11 +943,6 @@ public class Interface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ChronoJeu;
-    private javax.swing.JLabel Chrono_J1;
-    private javax.swing.JLabel Chrono_J2;
-    private javax.swing.JLabel Chrono_J3;
-    private javax.swing.JLabel Chrono_J4;
     private javax.swing.JPanel Labyrinth;
     private javax.swing.JPanel Pane_Info;
     private javax.swing.JPanel Pane_J1;

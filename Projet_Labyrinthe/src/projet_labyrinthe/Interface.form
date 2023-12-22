@@ -62,22 +62,10 @@
         <Property name="useNullLayout" type="boolean" value="false"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="ChronoJeu">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
-            </Property>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="-1" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
         <Component class="javax.swing.JLabel" name="lbl_NomJoueur">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+              <Font name="OCR A Extended" size="18" style="3"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel1"/>
           </Properties>
@@ -90,22 +78,9 @@
         <Component class="javax.swing.JLabel" name="lbl_JoueurCourant">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+              <Font name="OCR A Extended" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Joueur Courant"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="-1" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lbl_ChronoTour">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Chrono du Tour"/>
+            <Property name="text" type="java.lang.String" value="Tour de"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -116,7 +91,7 @@
         <Component class="javax.swing.JLabel" name="lbl_ChronoJeu">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+              <Font name="OCR A Extended" size="18" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Chrono de la Partie"/>
           </Properties>
@@ -126,10 +101,23 @@
             </Constraint>
           </Constraints>
         </Component>
+        <Component class="javax.swing.JLabel" name="lbl_ChronoTour">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="OCR A Extended" size="18" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Chrono du Tour"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="20" y="60" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
         <Component class="javax.swing.JLabel" name="lbl_nextCase">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+              <Font name="OCR A Extended" size="18" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Prochaine Case"/>
           </Properties>
@@ -142,7 +130,7 @@
         <Component class="javax.swing.JLabel" name="lbl_nextCard">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+              <Font name="OCR A Extended" size="18" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Objet a Ramasser"/>
           </Properties>
@@ -155,7 +143,7 @@
         <Component class="javax.swing.JLabel" name="lbl_nomJ1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+              <Font name="OCR A Extended" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="name"/>
           </Properties>
@@ -168,7 +156,7 @@
         <Component class="javax.swing.JLabel" name="lbl_J1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+              <Font name="OCR A Extended" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Joueur 1"/>
           </Properties>
@@ -181,7 +169,7 @@
         <Component class="javax.swing.JLabel" name="lbl_nomJ2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+              <Font name="OCR A Extended" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="name"/>
           </Properties>
@@ -194,7 +182,7 @@
         <Component class="javax.swing.JLabel" name="lbl_J2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+              <Font name="OCR A Extended" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Joueur 2"/>
           </Properties>
@@ -207,7 +195,7 @@
         <Component class="javax.swing.JLabel" name="lbl_J3">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+              <Font name="OCR A Extended" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Joueur 3"/>
           </Properties>
@@ -220,7 +208,7 @@
         <Component class="javax.swing.JLabel" name="lbl_nomJ3">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+              <Font name="OCR A Extended" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="name"/>
           </Properties>
@@ -233,7 +221,7 @@
         <Component class="javax.swing.JLabel" name="lbl_nomJ4">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+              <Font name="OCR A Extended" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="name"/>
           </Properties>
@@ -246,7 +234,7 @@
         <Component class="javax.swing.JLabel" name="lbl_J4">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+              <Font name="OCR A Extended" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Joueur 4"/>
           </Properties>
@@ -272,23 +260,10 @@
             <Property name="useNullLayout" type="boolean" value="false"/>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="Chrono_J1">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jLabel1"/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="210" y="10" width="-1" height="-1"/>
-                </Constraint>
-              </Constraints>
-            </Component>
             <Component class="javax.swing.JLabel" name="lbl_Objet_J1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                  <Font name="Lucida Console" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="jLabel1"/>
               </Properties>
@@ -301,7 +276,7 @@
             <Component class="javax.swing.JLabel" name="lbl_txtChronoJ1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                  <Font name="OCR A Extended" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Temps"/>
               </Properties>
@@ -314,7 +289,7 @@
             <Component class="javax.swing.JLabel" name="lbl_txtObjetJ1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                  <Font name="OCR A Extended" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nb d&apos;objets restants"/>
               </Properties>
@@ -342,23 +317,10 @@
             <Property name="useNullLayout" type="boolean" value="false"/>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="Chrono_J2">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jLabel1"/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="210" y="10" width="-1" height="-1"/>
-                </Constraint>
-              </Constraints>
-            </Component>
             <Component class="javax.swing.JLabel" name="lbl_Objet_J2">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                  <Font name="Lucida Console" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="jLabel1"/>
               </Properties>
@@ -371,7 +333,7 @@
             <Component class="javax.swing.JLabel" name="lbl_txtChronoJ2">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                  <Font name="OCR A Extended" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Temps"/>
               </Properties>
@@ -384,7 +346,7 @@
             <Component class="javax.swing.JLabel" name="lbl_txtObjetJ2">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                  <Font name="OCR A Extended" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nb d&apos;objets restants"/>
               </Properties>
@@ -412,23 +374,10 @@
             <Property name="useNullLayout" type="boolean" value="false"/>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="Chrono_J3">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jLabel1"/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="210" y="10" width="-1" height="-1"/>
-                </Constraint>
-              </Constraints>
-            </Component>
             <Component class="javax.swing.JLabel" name="lbl_Objet_J3">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                  <Font name="Lucida Console" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="jLabel1"/>
               </Properties>
@@ -441,7 +390,7 @@
             <Component class="javax.swing.JLabel" name="lbl_txtChronoJ3">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                  <Font name="OCR A Extended" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Temps"/>
               </Properties>
@@ -454,7 +403,7 @@
             <Component class="javax.swing.JLabel" name="lbl_txtObjetJ3">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                  <Font name="OCR A Extended" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nb d&apos;objets restants"/>
               </Properties>
@@ -469,7 +418,7 @@
         <Container class="javax.swing.JPanel" name="Pane_J4">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="ff" red="ff" type="rgb"/>
+              <Color blue="0" green="c8" red="c8" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -482,23 +431,10 @@
             <Property name="useNullLayout" type="boolean" value="false"/>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="Chrono_J4">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jLabel1"/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="210" y="10" width="-1" height="-1"/>
-                </Constraint>
-              </Constraints>
-            </Component>
             <Component class="javax.swing.JLabel" name="lbl_Objet_J4">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                  <Font name="Lucida Console" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="jLabel1"/>
               </Properties>
@@ -511,7 +447,7 @@
             <Component class="javax.swing.JLabel" name="lbl_txtChronoJ4">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                  <Font name="OCR A Extended" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Temps"/>
               </Properties>
@@ -524,7 +460,7 @@
             <Component class="javax.swing.JLabel" name="lbl_txtObjetJ4">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                  <Font name="OCR A Extended" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nb d&apos;objets restants"/>
               </Properties>
