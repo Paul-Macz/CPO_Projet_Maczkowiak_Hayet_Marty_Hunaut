@@ -9,7 +9,7 @@ import java.util.Random;
 
 /**
  *
- * @author lukha
+ * @authors Owen HAYET, Raphael MARTY, Oscar HUNAUT, Paul MACZKOWIAK
  */
 public class Grille {
 

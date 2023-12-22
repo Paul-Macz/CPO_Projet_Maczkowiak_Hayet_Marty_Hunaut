@@ -14,7 +14,7 @@ import javax.swing.JComponent;
 
 /**
  *
- * @author lukha
+ * @authors Owen HAYET, Raphael MARTY, Oscar HUNAUT, Paul MACZKOWIAK
  */
 public class CarteGraphique extends JComponent {
 

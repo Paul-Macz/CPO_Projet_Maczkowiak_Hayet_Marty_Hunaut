@@ -13,7 +13,7 @@ import static projet_labyrinthe.Interface.ScreenDim;
 
 /**
  *
- * @author owenh et marty
+ * @authors Owen HAYET, Raphael MARTY, Oscar HUNAUT, Paul MACZKOWIAK
  */
 public class Chrono {
     public Timer t1 = new Timer(10, new Check(1));
@@ -28,7 +28,7 @@ public class Chrono {
     
     
      /**
-     * Creates new form chrono
+     * Creer les chrono des joueurs
      */
     public Chrono(JPanel pane) {
         initComponents(pane);
@@ -316,31 +316,34 @@ class Check implements ActionListener {
     
 private void updateLabels(int player, int min, int sec, int ms) {
     switch (player) {
-        case 1:
+        case 1 -> {
             LabelMinutes1.setText(String.format("%02d", min));
             LabelSEC1.setText(String.format("%02d", sec));
             LabelmS1.setText(String.format("%02d", ms));
-            break;
-        case 2:
+            }
+        case 2 -> {
             LabelMinutes2.setText(String.format("%02d", min));
             LabelSEC2.setText(String.format("%02d", sec));
             LabelmS2.setText(String.format("%02d", ms));
-            break;
-        case 3:
+            }
+        case 3 -> {
             LabelMinutes3.setText(String.format("%02d", min));
             LabelSEC3.setText(String.format("%02d", sec));
             LabelmS3.setText(String.format("%02d", ms));
-            break;
-        case 4:
+            }
+        case 4 -> {
             LabelMinutes4.setText(String.format("%02d", min));
             LabelSEC4.setText(String.format("%02d", sec));
             LabelmS4.setText(String.format("%02d", ms));
-            break;
+            }
     }
 }
 
-
-public void start (int player) {
+    /**
+     * Lance un chrono
+     * @param player le joueur dont le chrono doit etre affecte
+     */
+    public void start (int player) {
     if (player == 0 && !isTimer1Running) {
         t1.start();
         isTimer1Running=true;
@@ -356,8 +359,11 @@ public void start (int player) {
     }
 }
 
-
-public void stop(int player) {
+    /**
+     * Arrete un chrono
+     * @param player le joueur dont le chrono doit etre affecte
+     */
+    public void stop(int player) {
     if (player == 0) {
             t1.stop();
             isTimer1Running = false;

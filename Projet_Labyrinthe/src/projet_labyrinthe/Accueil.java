@@ -4,35 +4,36 @@
  */
 package projet_labyrinthe;
 
-import javax.swing.JFrame;
+import java.awt.Color;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import static projet_labyrinthe.Interface.ScreenDim;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import javax.sound.sampled.AudioInputStream;
 
 /**
  *
- * @author Asus
+ * @authors Owen HAYET, Raphael MARTY, Oscar HUNAUT, Paul MACZKOWIAK
  */
 public class Accueil extends javax.swing.JFrame {
     /**
      * Creates new form Accueil
      */
+   
     public Accueil() {
+        Partie Session;
         initComponents();
-        setSize(ScreenDim.width, ScreenDim.height);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
             TEXTNOM2.setVisible(false);
             Lab3.setVisible(false);
-            Lab4.setVisible(false);
-            LISTCOLOR2.setVisible(false);
             TEXTNOM3.setVisible(false);
             Lab5.setVisible(false);
-            Lab6.setVisible(false);
-            LISTCOLOR3.setVisible(false);
             TEXTNOM4.setVisible(false);
             Lab7.setVisible(false);
-            Lab8.setVisible(false);
-            LISTCOLOR4.setVisible(false);
        
             Spinner.addChangeListener(new ChangeListener(){
             @Override
@@ -41,105 +42,62 @@ public class Accueil extends javax.swing.JFrame {
             if ((int) Spinner.getValue()==1){
             TEXTNOM1.setVisible(true);
             Lab1.setVisible(true);
-            Lab2.setVisible(true);
-            LISTCOLOR1.setVisible(true);
             TEXTNOM2.setVisible(false);
             Lab3.setVisible(false);
-            Lab4.setVisible(false);
-            LISTCOLOR2.setVisible(false);
             TEXTNOM3.setVisible(false);
             Lab5.setVisible(false);
-            Lab6.setVisible(false);
-            LISTCOLOR3.setVisible(false);
             TEXTNOM4.setVisible(false);
             Lab7.setVisible(false);
-            Lab8.setVisible(false);
-            LISTCOLOR4.setVisible(false);
         } else if (P==2){
             TEXTNOM1.setVisible(true);
             Lab1.setVisible(true);
-            Lab2.setVisible(true);
-            LISTCOLOR1.setVisible(true);
             TEXTNOM2.setVisible(true);
             Lab3.setVisible(true);
-            Lab4.setVisible(true);
-            LISTCOLOR2.setVisible(true);  
             TEXTNOM3.setVisible(false);
             Lab5.setVisible(false);
-            Lab6.setVisible(false);
-            LISTCOLOR3.setVisible(false);
             TEXTNOM4.setVisible(false);
             Lab7.setVisible(false);
-            Lab8.setVisible(false);
-            LISTCOLOR4.setVisible(false);
         } else if (P==3){
             TEXTNOM1.setVisible(true);
             Lab1.setVisible(true);
-            Lab2.setVisible(true);
-            LISTCOLOR1.setVisible(true);
             TEXTNOM2.setVisible(true);
             Lab3.setVisible(true);
-            Lab4.setVisible(true);
-            LISTCOLOR2.setVisible(true);
             TEXTNOM3.setVisible(true);
             Lab5.setVisible(true);
-            Lab6.setVisible(true);
-            LISTCOLOR3.setVisible(true);
             TEXTNOM4.setVisible(false);
             Lab7.setVisible(false);
-            Lab8.setVisible(false);
-            LISTCOLOR4.setVisible(false);
         } else if (P==4){
             TEXTNOM1.setVisible(true);
             Lab1.setVisible(true);
-            Lab2.setVisible(true);
-            LISTCOLOR1.setVisible(true);
             TEXTNOM2.setVisible(true);
             Lab3.setVisible(true);
-            Lab4.setVisible(true);
-            LISTCOLOR2.setVisible(true);
             TEXTNOM3.setVisible(true);
             Lab5.setVisible(true);
-            Lab6.setVisible(true);
-            LISTCOLOR3.setVisible(true);
             TEXTNOM4.setVisible(true);
             Lab7.setVisible(true);
-            Lab8.setVisible(true);
-            LISTCOLOR4.setVisible(true);
+
        
         }
         if (P==1){
             String Nom1 = TEXTNOM1.getText();  
-            String Couleur1 = (String) LISTCOLOR1.getSelectedItem();
         } else if (P==2){
             String Nom1 = TEXTNOM1.getText();
             String Nom2 = TEXTNOM2.getText();
-            String Couleur1 = (String) LISTCOLOR1.getSelectedItem();
-            String Couleur2 = (String) LISTCOLOR2.getSelectedItem();
         } else if (P==3){
             String Nom1 = TEXTNOM1.getText();
             String Nom2 = TEXTNOM2.getText();
             String Nom3 = TEXTNOM1.getText();
-            String Couleur1 = (String) LISTCOLOR1.getSelectedItem();
-            String Couleur2 = (String) LISTCOLOR2.getSelectedItem();
-            String Couleur3 = (String) LISTCOLOR3.getSelectedItem();
         } else if (P==4){
             String Nom1 = TEXTNOM1.getText();
             String Nom2 = TEXTNOM2.getText();
             String Nom3 = TEXTNOM1.getText();
             String Nom4 = TEXTNOM1.getText();
-            String Couleur1 = (String) LISTCOLOR1.getSelectedItem();
-            String Couleur2 = (String) LISTCOLOR2.getSelectedItem();
-            String Couleur3 = (String) LISTCOLOR3.getSelectedItem();
-            String Couleur4 = (String) LISTCOLOR4.getSelectedItem();
         }}
             });
            
            
-       
-     
-       
     }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -149,29 +107,25 @@ public class Accueil extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
+
         jButton1 = new javax.swing.JButton();
         PAN1 = new javax.swing.JPanel();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        Lancer = new javax.swing.JToggleButton();
         Spinner = new javax.swing.JSpinner();
         jScrollPane1 = new javax.swing.JScrollPane();
         Text1 = new javax.swing.JTextPane();
         Lab1 = new javax.swing.JLabel();
-        Lab2 = new javax.swing.JLabel();
         Lab3 = new javax.swing.JLabel();
-        Lab4 = new javax.swing.JLabel();
         TEXTNOM2 = new javax.swing.JTextField();
         Lab5 = new javax.swing.JLabel();
         TEXTNOM3 = new javax.swing.JTextField();
-        Lab6 = new javax.swing.JLabel();
         TEXTNOM1 = new javax.swing.JTextField();
         Lab7 = new javax.swing.JLabel();
         TEXTNOM4 = new javax.swing.JTextField();
-        Lab8 = new javax.swing.JLabel();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        LISTCOLOR1 = new javax.swing.JComboBox<>();
-        LISTCOLOR2 = new javax.swing.JComboBox<>();
-        LISTCOLOR3 = new javax.swing.JComboBox<>();
-        LISTCOLOR4 = new javax.swing.JComboBox<>();
+        Quitter = new javax.swing.JToggleButton();
+        jLabel1 = new javax.swing.JLabel();
+        DuSON = new javax.swing.JButton();
+        PasDuSON = new javax.swing.JButton();
         Fond = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
@@ -181,13 +135,13 @@ public class Accueil extends javax.swing.JFrame {
 
         PAN1.setBackground(new java.awt.Color(0, 0, 51));
 
-        jToggleButton1.setBackground(new java.awt.Color(0, 153, 0));
-        jToggleButton1.setFont(new java.awt.Font("Georgia", 1, 36)); // NOI18N
-        jToggleButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jToggleButton1.setText("Lancer");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        Lancer.setBackground(new java.awt.Color(0, 153, 0));
+        Lancer.setFont(new java.awt.Font("Georgia", 1, 36)); // NOI18N
+        Lancer.setForeground(new java.awt.Color(0, 0, 0));
+        Lancer.setText("Lancer");
+        Lancer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                LancerActionPerformed(evt);
             }
         });
 
@@ -198,61 +152,52 @@ public class Accueil extends javax.swing.JFrame {
         Text1.setBackground(new java.awt.Color(0, 0, 102));
         Text1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         Text1.setText("Nombre de Joueurs");
+        Text1.setForeground(Color.white);
         jScrollPane1.setViewportView(Text1);
 
         Lab1.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
         Lab1.setText("Nom du premier Joueur ");
-
-        Lab2.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
-        Lab2.setText("Couleur :");
+        Lab1.setForeground(Color.white);
 
         Lab3.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
-        Lab3.setText("Nom du premier Joueur ");
-
-        Lab4.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
-        Lab4.setText("Couleur :");
+        Lab3.setText("Nom du deuxieme Joueur ");
+        Lab3.setForeground(Color.white);
 
         TEXTNOM2.setBackground(new java.awt.Color(51, 0, 102));
         TEXTNOM2.setText("Nom");
+        TEXTNOM2.setForeground(Color.white);
 
         Lab5.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
-        Lab5.setText("Nom du premier Joueur ");
+        Lab5.setText("Nom du troisieme Joueur ");
+        Lab5.setForeground(Color.white);
 
         TEXTNOM3.setBackground(new java.awt.Color(51, 0, 102));
         TEXTNOM3.setText("Nom");
-
-        Lab6.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
-        Lab6.setText("Couleur :");
+        TEXTNOM3.setForeground(Color.white);
 
         TEXTNOM1.setBackground(new java.awt.Color(51, 0, 102));
         TEXTNOM1.setText("Nom");
+        TEXTNOM1.setForeground(Color.white);
 
         Lab7.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
-        Lab7.setText("Nom du premier Joueur ");
+        Lab7.setText("Nom du quatrieme Joueur ");
+        Lab7.setForeground(Color.white);
 
         TEXTNOM4.setBackground(new java.awt.Color(51, 0, 102));
         TEXTNOM4.setText("Nom");
+        TEXTNOM4.setForeground(Color.white);
 
-        Lab8.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
-        Lab8.setText("Couleur :");
-
-        jToggleButton2.setBackground(new java.awt.Color(255, 0, 0));
-        jToggleButton2.setFont(new java.awt.Font("Georgia", 1, 36)); // NOI18N
-        jToggleButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jToggleButton2.setText("Quitter");
-        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+        Quitter.setBackground(new java.awt.Color(255, 0, 0));
+        Quitter.setFont(new java.awt.Font("Georgia", 1, 36)); // NOI18N
+        Quitter.setForeground(new java.awt.Color(0, 0, 0));
+        Quitter.setText("Quitter");
+        Quitter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton2ActionPerformed(evt);
+                QuitterActionPerformed(evt);
             }
         });
 
-        LISTCOLOR1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rouge", "Jaune ", "Vert", "Bleu" }));
-
-        LISTCOLOR2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rouge", "Jaune ", "Vert", "Bleu" }));
-
-        LISTCOLOR3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rouge", "Jaune ", "Vert", "Bleu" }));
-
-        LISTCOLOR4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rouge", "Jaune ", "Vert", "Bleu" }));
+        jLabel1.setText("");
 
         javax.swing.GroupLayout PAN1Layout = new javax.swing.GroupLayout(PAN1);
         PAN1.setLayout(PAN1Layout);
@@ -262,9 +207,9 @@ public class Accueil extends javax.swing.JFrame {
                 .addGroup(PAN1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PAN1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jToggleButton2)
+                        .addComponent(Quitter)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
-                        .addComponent(jToggleButton1))
+                        .addComponent(Lancer))
                     .addGroup(PAN1Layout.createSequentialGroup()
                         .addGroup(PAN1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PAN1Layout.createSequentialGroup()
@@ -273,27 +218,15 @@ public class Accueil extends javax.swing.JFrame {
                                     .addGroup(PAN1Layout.createSequentialGroup()
                                         .addComponent(Lab3)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(TEXTNOM2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(Lab4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(LISTCOLOR2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(TEXTNOM2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(PAN1Layout.createSequentialGroup()
                                         .addComponent(Lab5)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(TEXTNOM3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(Lab6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(LISTCOLOR3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(TEXTNOM3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(PAN1Layout.createSequentialGroup()
                                         .addComponent(Lab7)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(TEXTNOM4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(Lab8)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(LISTCOLOR4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(TEXTNOM4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(PAN1Layout.createSequentialGroup()
                                 .addGap(27, 27, 27)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -303,13 +236,13 @@ public class Accueil extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addComponent(Lab1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TEXTNOM1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
-                                .addComponent(Lab2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(LISTCOLOR1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(TEXTNOM1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 171, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PAN1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(186, 186, 186))
         );
         PAN1Layout.setVerticalGroup(
             PAN1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,52 +254,82 @@ public class Accueil extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PAN1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Lab1)
-                    .addComponent(Lab2)
-                    .addComponent(TEXTNOM1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LISTCOLOR1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TEXTNOM1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(PAN1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Lab3)
-                    .addComponent(TEXTNOM2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Lab4)
-                    .addComponent(LISTCOLOR2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TEXTNOM2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addGroup(PAN1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Lab6)
                     .addComponent(TEXTNOM3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Lab5)
-                    .addComponent(LISTCOLOR3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Lab5))
                 .addGap(30, 30, 30)
                 .addGroup(PAN1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Lab7)
-                    .addComponent(TEXTNOM4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Lab8)
-                    .addComponent(LISTCOLOR4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                    .addComponent(TEXTNOM4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PAN1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton1)
-                    .addComponent(jToggleButton2))
+                    .addComponent(Lancer)
+                    .addComponent(Quitter))
                 .addContainerGap())
         );
 
-        getContentPane().add(PAN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 420, 360));
+        getContentPane().add(PAN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 420, 360));
 
-        //Fond.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet_labyrinthe/5008c241263635.579f73a622fe3.gif"))); // NOI18N
-        Fond.setText("jLabel1");
-        getContentPane().add(Fond, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 380));
+        DuSON.setBackground(new java.awt.Color(51, 0, 102));
+        //DuSON.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet_labyrinthe/du-son.png"))); // NOI18N
+        DuSON.setVisible(false);
+        DuSON.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DuSONActionPerformed(evt);
+            }
+        });
+        getContentPane().add(DuSON, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 10, -1, -1));
+
+        PasDuSON.setBackground(new java.awt.Color(51, 0, 102));
+        PasDuSON.setVisible(false);
+        //PasDuSON.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet_labyrinthe/pas-de-son.png"))); // NOI18N
+        PasDuSON.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PasDuSONActionPerformed(evt);
+            }
+        });
+        getContentPane().add(PasDuSON, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 10, -1, -1));
+
+        Fond.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/5008c241263635.579f73a622fe3.gif"))); // NOI18N
+
+        getContentPane().add(Fond, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0));
 
         pack();
     }// </editor-fold>                        
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        new Interface().setVisible(true);
-       
-        this.dispose();
-    }                                              
+    private void LancerActionPerformed(java.awt.event.ActionEvent evt) {
 
-    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        int nb = (int) Spinner.getValue();
+        String Nom1 = TEXTNOM1.getText();
+        String Nom2 = TEXTNOM2.getText();
+        String Nom3 = TEXTNOM3.getText();
+        String Nom4 = TEXTNOM4.getText();
         this.dispose();
-    }                                              
+        new Interface(nb, Nom1, Nom2, Nom3, Nom4).setVisible(true);
+
+    }                                      
+
+    private void QuitterActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        this.dispose();
+    }                                      
+
+    private void PasDuSONActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        // TODO add your handling code here:
+        //stopSound("path/to/your/sound.wav");
+    }                                        
+
+    private void DuSONActionPerformed(java.awt.event.ActionEvent evt) {                                      
+        // TODO add your handling code here:
+        //playSound("");
+    }                                    
 
     /**
      * @param args the command line arguments
@@ -404,20 +367,16 @@ public class Accueil extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                    
+    private javax.swing.JButton DuSON;
     private javax.swing.JLabel Fond;
-    private javax.swing.JComboBox<String> LISTCOLOR1;
-    private javax.swing.JComboBox<String> LISTCOLOR2;
-    private javax.swing.JComboBox<String> LISTCOLOR3;
-    private javax.swing.JComboBox<String> LISTCOLOR4;
     private javax.swing.JLabel Lab1;
-    private javax.swing.JLabel Lab2;
     private javax.swing.JLabel Lab3;
-    private javax.swing.JLabel Lab4;
     private javax.swing.JLabel Lab5;
-    private javax.swing.JLabel Lab6;
     private javax.swing.JLabel Lab7;
-    private javax.swing.JLabel Lab8;
+    protected javax.swing.JToggleButton Lancer;
     private javax.swing.JPanel PAN1;
+    private javax.swing.JButton PasDuSON;
+    private javax.swing.JToggleButton Quitter;
     private javax.swing.JSpinner Spinner;
     private javax.swing.JTextField TEXTNOM1;
     private javax.swing.JTextField TEXTNOM2;
@@ -425,8 +384,8 @@ public class Accueil extends javax.swing.JFrame {
     private javax.swing.JTextField TEXTNOM4;
     private javax.swing.JTextPane Text1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
     // End of variables declaration                  
 }
+

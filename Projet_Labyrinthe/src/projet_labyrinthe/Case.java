@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author lukha
+ * @authors Owen HAYET, Raphael MARTY, Oscar HUNAUT, Paul MACZKOWIAK
  */
 public class Case {
 
@@ -62,6 +62,9 @@ public class Case {
         }
     }
     
+    /**
+     * Reinitialise la case 
+     */
     public void reset(){
         while(orientation!=0){
             TurnCase(90);

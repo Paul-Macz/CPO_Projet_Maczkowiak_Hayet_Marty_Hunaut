@@ -13,7 +13,7 @@ import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import static projet_labyrinthe.Interface.ScreenDim;
 /**
  *
- * @author owenh
+ * @authors Owen HAYET, Raphael MARTY, Oscar HUNAUT, Paul MACZKOWIAK
  */
 public class Chrono_Partie {
     public Timer t = new Timer(10, new Chrono_Partie.Check());
@@ -22,6 +22,10 @@ public class Chrono_Partie {
     public int sec= 0 ;
     public int ms = 0 ;
     
+    /**
+     * Creer le chrono de la partie
+     * @param pane Le panel dans lequel sera place le chrono
+     */
     public Chrono_Partie(JPanel pane) {
         initComponents(pane);  
     }
@@ -124,10 +128,16 @@ public class Chrono_Partie {
          }
     }
     
+    /**
+     * Lance le chrono
+     */
     public void Start() {                                         
             t.start();
     }                                        
     
+    /**
+     * Reinitialise le chrono
+     */
     public void Reset(){
         min = 0;
         sec= 0 ;

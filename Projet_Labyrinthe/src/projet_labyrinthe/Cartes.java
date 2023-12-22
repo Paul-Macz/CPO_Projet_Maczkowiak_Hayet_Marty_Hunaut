@@ -6,7 +6,7 @@ package projet_labyrinthe;
 
 /**
  *
- * @author marty
+ * @authors Owen HAYET, Raphael MARTY, Oscar HUNAUT, Paul MACZKOWIAK
  */
 public class Cartes {
     String nomObjet;

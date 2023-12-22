@@ -10,7 +10,7 @@ import projet_labyrinthe.Player;
 
 /**
  *
- * @author owenh
+ * @authors Owen HAYET, Raphael MARTY, Oscar HUNAUT, Paul MACZKOWIAK
  */
 public class Player {
 

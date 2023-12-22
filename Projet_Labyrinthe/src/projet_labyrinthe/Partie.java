@@ -15,7 +15,7 @@ import java.util.Random;
 
 /**
  *
- * @author lukha
+ * @authors Owen HAYET, Raphael MARTY, Oscar HUNAUT, Paul MACZKOWIAK
  */
 public class Partie {
 
@@ -177,6 +177,11 @@ public class Partie {
         return true;
     }
 
+    /**
+     * Recupere les cartes et cases 
+     * @param Liste La liste dans laquelle vont etre stockees les cartes et case
+     * @return le succes de l'operation
+     */
     public static boolean GetCard(ArrayList<Case> Liste) {
         //Récupération des propriétés de chaque case possible
         Path properties = Path.of("src/projet_labyrinthe/properties.txt");

@@ -16,7 +16,7 @@ import javax.swing.JButton;
 
 /**
  *
- * @author lukha
+ * @authors Owen HAYET, Raphael MARTY, Oscar HUNAUT, Paul MACZKOWIAK
  */
 public class CaseGraphique extends JButton {
 
@@ -27,6 +27,10 @@ public class CaseGraphique extends JButton {
     int posY;
     private double customScale = 1.0;
 
+    /**
+     * Cree une caseGraphique
+     * @param CaseGrapheAssocie
+     */
     public CaseGraphique(Case CaseGrapheAssocie) {
         this.CaseGrapheAssocie = CaseGrapheAssocie;
     }
@@ -37,10 +41,21 @@ public class CaseGraphique extends JButton {
         this.posY=j;
     }
     
-     public static CaseGraphique createInstance(Case CaseGrapheAssocie, int i, int j) {
+    /**
+     * Creer une autre type de CaseGraphique avec plus de détails
+     * @param CaseGrapheAssocie La case associe
+     * @param i l'abscisse
+     * @param j l'ordonnee
+     * @return appel le deuxieme constructeur
+     */
+    public static CaseGraphique createInstance(Case CaseGrapheAssocie, int i, int j) {
         return new CaseGraphique(CaseGrapheAssocie, i, j);
     }
     
+    /**
+     * Change l'echelle de la case
+     * @param scale echelle
+     */
     public void setScale(double scale) {
         customScale = scale;
         repaint(); // Trigger repaint to apply the new scale

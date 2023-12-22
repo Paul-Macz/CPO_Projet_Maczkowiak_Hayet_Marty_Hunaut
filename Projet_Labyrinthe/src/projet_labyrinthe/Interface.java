@@ -23,7 +23,7 @@ import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 /**
  *
- * @author lukha
+ * @authors Owen HAYET, Raphael MARTY, Oscar HUNAUT, Paul MACZKOWIAK
  */
 public class Interface extends javax.swing.JFrame {
 
@@ -54,23 +54,46 @@ public class Interface extends javax.swing.JFrame {
     CarteGraphique ObjetaRamasser;
     CaseGraphique ProchaineCase;
     Chrono Chrono_Players;
-    Chrono_Partie Chrono_Jeu,Chrono_Tour;
-    
+    Chrono_Partie Chrono_Jeu, Chrono_Tour;
+
     boolean deplacement = false, placement = false;
-    
+
     /**
      * Creates new form FenetreDeJeu
+     *
+     * @param nb    Nombre de Joueur
+     * @param NOM1  Nom du joueur1
+     * @param NOM2  Nom du joueur2
+     * @param NOM3  Nom du joueur3
+     * @param NOM4  Nom du joueur4
      */
-    public Interface() {
+    public Interface(int nb, String NOM1, String NOM2, String NOM3, String NOM4) {
         initComponents();
-        Session = new Partie(4);
-        Session.creerJoueur(0, "Scar");
-        Session.creerJoueur(1, "Tim");
-        Session.creerJoueur(2, "Grian");
-        Session.creerJoueur(3, "Pearl");
-        Session.InitialiserPartie();
-        //System.out.println(Session.listeJoueurs[0].listeObjets);
-        //DebugMode();
+        if (nb == 1) {
+            Session = new Partie(1);
+            Session.creerJoueur(0, NOM1);
+            Session.InitialiserPartie();
+        } else if (nb == 2) {
+            Session = new Partie(2);
+            Session.creerJoueur(0, NOM1);
+            Session.creerJoueur(1, NOM2);
+            Session.InitialiserPartie();
+        } else if (nb == 3) {
+            Session = new Partie(3);
+            Session.creerJoueur(0, NOM1);
+            Session.creerJoueur(1, NOM2);
+            Session.creerJoueur(2, NOM3);
+            Session.InitialiserPartie();
+        } else if (nb == 4) {
+            Session = new Partie(4);
+            Session.creerJoueur(0, NOM1);
+            Session.creerJoueur(1, NOM2);
+            Session.creerJoueur(2, NOM3);
+            Session.creerJoueur(3, NOM4);
+            Session.InitialiserPartie();
+        }
+
+
         Initialisation();
     }
 
@@ -90,7 +113,7 @@ public class Interface extends javax.swing.JFrame {
         Chrono_Jeu = new Chrono_Partie(Pane_Info);
         Chrono_Tour = new Chrono_Partie(Pane_Info);
         Chrono_Players = new Chrono(Pane_Info);
-        
+
         //Chrono_Jeu.;
         PlaceComponents();
 
@@ -99,40 +122,6 @@ public class Interface extends javax.swing.JFrame {
         ActualiserText();
         Chrono_Jeu.Start();
         Chrono_Tour.Start();
-    }
-
-    private void DebugMode() {
-        for (Component component : getContentPane().getComponents()) {
-            component.setVisible(false);
-        }
-        setSize(ScreenDim.width, ScreenDim.height);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
-        setLayout(null);
-        JPanel buttonPanel = new JPanel();
-
-        JButton but = new JButton("Place une case");
-        CaseSize = (ScreenDim.height) / 6;
-        but.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CaseGraphique democase = new CaseGraphique(new Case("tuile1"));
-                democase.addActionListener(new java.awt.event.ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        casegraphselectionnee = (CaseGraphique) e.getSource();
-
-                    }
-                });
-                getContentPane().add(democase);
-                democase.setBounds(ScreenDim.width / 2, (ScreenDim.height) / 2, (ScreenDim.height) / 6, (ScreenDim.height) / 6);
-                CaseSize = (ScreenDim.height) / 6;
-                add(Rotate);
-                Rotate.setBounds((ScreenDim.width) * 2 / 10, (ScreenDim.height) / 20, (ScreenDim.width) / 10, (ScreenDim.height) / 10);
-                Rotate.setVisible(true);
-            }
-        });
-        add(but);
-        but.setBounds((ScreenDim.width) / 10, (ScreenDim.height) / 20, (ScreenDim.width) / 10, (ScreenDim.height) / 10);
-
     }
 
     /**
@@ -144,6 +133,7 @@ public class Interface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFrame_End = new javax.swing.JFrame();
         Labyrinth = new javax.swing.JPanel();
         Pane_Info = new javax.swing.JPanel();
         lbl_NomJoueur = new javax.swing.JLabel();
@@ -382,12 +372,9 @@ public class Interface extends javax.swing.JFrame {
                     public void actionPerformed(ActionEvent e) {
                         casegraphselectionnee = (CaseGraphique) e.getSource();
                         caseselectionnee = casegraphselectionnee.CaseGrapheAssocie;
-                        //System.out.print(caseselectionnee);
                         if (deplacement) {
                             int[] posPionJCourant = Session.Labyrinth.positionPion(Session.listeJoueurs[Session.joueurCourant]);
                             if (posPionJCourant != null) {
-                                //System.out.println("PathFinding "+Session.Labyrinth.PathFinding(posPionJCourant[0], posPionJCourant[1], Case.posX, Case.posY, null));
-                                //System.out.println("PathFinding "+Session.Labyrinth.PathFinding(posPionJCourant[0], posPionJCourant[1], Case.posX, Case.posY, null)+" x1:"+posPionJCourant[0]+" y1:"+posPionJCourant[1]+" x2:"+Case.posX+" y2:"+Case.posY);
                                 if (Session.Labyrinth.PathFinding(posPionJCourant[0], posPionJCourant[1], Case.posX, Case.posY, null)) {
                                     Peon pionActuel = Session.listeJoueurs[Session.joueurCourant].marqueur;
                                     Session.Labyrinth.Grid[posPionJCourant[0]][posPionJCourant[1]].Players.remove(pionActuel);
@@ -397,19 +384,17 @@ public class Interface extends javax.swing.JFrame {
                                     /* Si le joueur a fini, on termine la partie */
                                     if (pionActuel.associe.tousObjetsRamasses()) {
                                         partieTerminee(pionActuel.associe);
+                                    } else {
+                                        deplacement = false;
+                                        placement = true;
+                                        ActualiserText();
+                                        Chrono_Players.stop(Session.joueurCourant);
+                                        Session.joueurSuivant();
+                                        ActualiserText();
                                     }
-                                    else{
-                                    deplacement = false;
-                                    placement = true;
-                                    ActualiserText();
-                                    Chrono_Players.stop(Session.joueurCourant);
-                                    Session.joueurSuivant();
-                                    ActualiserText();
-                                    }
-                                }
-                                else{
-                                    System.out.println("Case actuelle:"+Session.Labyrinth.Grid[posPionJCourant[0]][posPionJCourant[1]]);
-                                    System.out.println("Case inaccessible:"+Session.Labyrinth.Grid[Case.posX][Case.posY]);
+                                } else {
+                                    System.out.println("Case actuelle:" + Session.Labyrinth.Grid[posPionJCourant[0]][posPionJCourant[1]]);
+                                    System.out.println("Case inaccessible:" + Session.Labyrinth.Grid[Case.posX][Case.posY]);
                                 }
                             }
                         }
@@ -541,12 +526,12 @@ public class Interface extends javax.swing.JFrame {
     public void PlacePane_Info() {
         Pane_Info.setBounds(0, 0, (ScreenDim.width) / 3, ScreenDim.height);
 
-        Pane_Info.add(lbl_ChronoJeu, new AbsoluteConstraints((ScreenDim.width)*1 / 100, (ScreenDim.height) *8/ 100, lbl_ChronoJeu.getWidth(), lbl_ChronoJeu.getHeight()));
-        Pane_Info.add(lbl_ChronoTour, new AbsoluteConstraints((ScreenDim.width)*1 / 100, (ScreenDim.height) *16/ 100, lbl_ChronoTour.getWidth(), lbl_ChronoTour.getHeight()));
-        Pane_Info.add(Chrono_Tour.Chrono_Partie, new AbsoluteConstraints((ScreenDim.width)*15 / 100, (ScreenDim.height) *16/ 100, 150,34));
-        
+        Pane_Info.add(lbl_ChronoJeu, new AbsoluteConstraints((ScreenDim.width) * 1 / 100, (ScreenDim.height) * 8 / 100, lbl_ChronoJeu.getWidth(), lbl_ChronoJeu.getHeight()));
+        Pane_Info.add(lbl_ChronoTour, new AbsoluteConstraints((ScreenDim.width) * 1 / 100, (ScreenDim.height) * 16 / 100, lbl_ChronoTour.getWidth(), lbl_ChronoTour.getHeight()));
+        Pane_Info.add(Chrono_Tour.Chrono_Partie, new AbsoluteConstraints((ScreenDim.width) * 15 / 100, (ScreenDim.height) * 16 / 100, 150, 34));
+
         Pane_Info.add(lbl_JoueurCourant, new AbsoluteConstraints((ScreenDim.width) * 10 / 100, (ScreenDim.height) / 100, lbl_JoueurCourant.getWidth(), lbl_JoueurCourant.getHeight()));
-        Pane_Info.add(lbl_NomJoueur, new AbsoluteConstraints((ScreenDim.width)*17 / 100, (ScreenDim.height) / 100, lbl_NomJoueur.getWidth(), lbl_NomJoueur.getHeight()));
+        Pane_Info.add(lbl_NomJoueur, new AbsoluteConstraints((ScreenDim.width) * 17 / 100, (ScreenDim.height) / 100, lbl_NomJoueur.getWidth(), lbl_NomJoueur.getHeight()));
 
         ObjetaRamasser = new CarteGraphique(new Cartes("araignee"));
         Pane_Info.add(ObjetaRamasser, new AbsoluteConstraints((ScreenDim.width) * 3 / 100, (ScreenDim.height) * 23 / 100, (ScreenDim.width) / 8, (ScreenDim.height) / 4));
@@ -561,15 +546,19 @@ public class Interface extends javax.swing.JFrame {
         ProchaineCase = new CaseGraphique(new Case(Session.Labyrinth.prochainecase.object));
 
         ProchaineCase.setScale(1.3);
-        Pane_Info.add(ProchaineCase, new AbsoluteConstraints((ScreenDim.width)*20 /100, (ScreenDim.height)*31 /100, (ScreenDim.height) * 13 / 100, (ScreenDim.height) * 13 / 100));
-        Pane_Info.add(lbl_nextCase, new AbsoluteConstraints((ScreenDim.width)*18 /100, (ScreenDim.height) * 45 / 100, lbl_nextCase.getWidth(), lbl_nextCase.getHeight()));
-        
+        Pane_Info.add(ProchaineCase, new AbsoluteConstraints((ScreenDim.width) * 20 / 100, (ScreenDim.height) * 31 / 100, (ScreenDim.height) * 13 / 100, (ScreenDim.height) * 13 / 100));
+        Pane_Info.add(lbl_nextCase, new AbsoluteConstraints((ScreenDim.width) * 18 / 100, (ScreenDim.height) * 45 / 100, lbl_nextCase.getWidth(), lbl_nextCase.getHeight()));
+
         Pane_Info.add(lbl_J1, new AbsoluteConstraints((ScreenDim.width) * 4 / 100, (ScreenDim.height) * 51 / 100));
         lbl_nomJ1.setText(Session.listeJoueurs[0].nom);
         Pane_Info.add(lbl_nomJ1, new AbsoluteConstraints((ScreenDim.width) * 5 / 100, (ScreenDim.height) * 54 / 100));
         Pane_Info.add(Pane_J1, new AbsoluteConstraints((ScreenDim.width) / 9, (ScreenDim.height) / 2, (Pane_Info.getWidth()) * 6 / 10, Pane_J1.getHeight()));
-        lbl_Objet_J1.setText((Session.listeJoueurs[0].listeCartes.length - Session.listeJoueurs[0].indexCarteRetournee)+"/"+Session.listeJoueurs[0].listeCartes.length);
-        
+        lbl_Objet_J1.setText((Session.listeJoueurs[0].listeCartes.length - Session.listeJoueurs[0].indexCarteRetournee) + "/" + Session.listeJoueurs[0].listeCartes.length);
+
+        Chrono_Players.Chrono_J1.setOpaque(false);
+        Chrono_Players.Chrono_J2.setOpaque(false);
+        Chrono_Players.Chrono_J3.setOpaque(false);
+        Chrono_Players.Chrono_J4.setOpaque(false);
         lbl_J2.setVisible(false);
         lbl_nomJ2.setVisible(false);
         Pane_J2.setVisible(false);
@@ -582,45 +571,44 @@ public class Interface extends javax.swing.JFrame {
         Chrono_Players.Chrono_J2.setVisible(false);
         Chrono_Players.Chrono_J3.setVisible(false);
         Chrono_Players.Chrono_J4.setVisible(false);
-        
-        if(Session.listeJoueurs.length>1){
-        lbl_J2.setVisible(true);
-        lbl_nomJ2.setVisible(true);
-        Pane_J2.setVisible(true);
-        Chrono_Players.Chrono_J2.setVisible(true);
-        Pane_Info.add(lbl_J2, new AbsoluteConstraints((ScreenDim.width) * 4 / 100, (ScreenDim.height) * 61 / 100));
-        lbl_nomJ2.setText(Session.listeJoueurs[1].nom);
-        Pane_Info.add(lbl_nomJ2, new AbsoluteConstraints((ScreenDim.width) * 5 / 100, (ScreenDim.height) * 64 / 100));
-        Pane_Info.add(Pane_J2, new AbsoluteConstraints((ScreenDim.width) / 9, (ScreenDim.height) * 12 / 20, (Pane_Info.getWidth()) * 6 / 10, Pane_J1.getHeight()));
-        lbl_Objet_J2.setText((Session.listeJoueurs[1].listeCartes.length - Session.listeJoueurs[1].indexCarteRetournee)+"/"+(Session.listeJoueurs[1].listeCartes.length));
+
+        if (Session.listeJoueurs.length > 1) {
+            lbl_J2.setVisible(true);
+            lbl_nomJ2.setVisible(true);
+            Pane_J2.setVisible(true);
+            Chrono_Players.Chrono_J2.setVisible(true);
+            Pane_Info.add(lbl_J2, new AbsoluteConstraints((ScreenDim.width) * 4 / 100, (ScreenDim.height) * 61 / 100));
+            lbl_nomJ2.setText(Session.listeJoueurs[1].nom);
+            Pane_Info.add(lbl_nomJ2, new AbsoluteConstraints((ScreenDim.width) * 5 / 100, (ScreenDim.height) * 64 / 100));
+            Pane_Info.add(Pane_J2, new AbsoluteConstraints((ScreenDim.width) / 9, (ScreenDim.height) * 12 / 20, (Pane_Info.getWidth()) * 6 / 10, Pane_J1.getHeight()));
+            lbl_Objet_J2.setText((Session.listeJoueurs[1].listeCartes.length - Session.listeJoueurs[1].indexCarteRetournee) + "/" + (Session.listeJoueurs[1].listeCartes.length));
+
         }
-        
-        if(Session.listeJoueurs.length>2){
-        lbl_J3.setVisible(true);
-        lbl_nomJ3.setVisible(true);
-        Pane_J3.setVisible(true);
-        Chrono_Players.Chrono_J3.setVisible(true);
-        Pane_Info.add(lbl_J3, new AbsoluteConstraints((ScreenDim.width) * 4 / 100, (ScreenDim.height) * 71 /100));
-        lbl_nomJ3.setText(Session.listeJoueurs[2].nom);
-        Pane_Info.add(lbl_nomJ3, new AbsoluteConstraints((ScreenDim.width) * 5 / 100, (ScreenDim.height) * 74 /100));
-        Pane_Info.add(Pane_J3, new AbsoluteConstraints((ScreenDim.width) / 9, (ScreenDim.height) * 14 / 20, (Pane_Info.getWidth()) * 6 / 10, Pane_J1.getHeight()));
-        lbl_Objet_J3.setText((Session.listeJoueurs[2].listeCartes.length - Session.listeJoueurs[2].indexCarteRetournee)+"/"+Session.listeJoueurs[2].listeCartes.length);
+
+        if (Session.listeJoueurs.length > 2) {
+            lbl_J3.setVisible(true);
+            lbl_nomJ3.setVisible(true);
+            Pane_J3.setVisible(true);
+            Chrono_Players.Chrono_J3.setVisible(true);
+            Pane_Info.add(lbl_J3, new AbsoluteConstraints((ScreenDim.width) * 4 / 100, (ScreenDim.height) * 71 / 100));
+            lbl_nomJ3.setText(Session.listeJoueurs[2].nom);
+            Pane_Info.add(lbl_nomJ3, new AbsoluteConstraints((ScreenDim.width) * 5 / 100, (ScreenDim.height) * 74 / 100));
+            Pane_Info.add(Pane_J3, new AbsoluteConstraints((ScreenDim.width) / 9, (ScreenDim.height) * 14 / 20, (Pane_Info.getWidth()) * 6 / 10, Pane_J1.getHeight()));
+            lbl_Objet_J3.setText((Session.listeJoueurs[2].listeCartes.length - Session.listeJoueurs[2].indexCarteRetournee) + "/" + Session.listeJoueurs[2].listeCartes.length);
         }
-        
-        if(Session.listeJoueurs.length==4){
-        lbl_J4.setVisible(true);
-        lbl_nomJ4.setVisible(true);
-        Pane_J4.setVisible(true);
-        Chrono_Players.Chrono_J4.setVisible(true);
-        Pane_Info.add(lbl_J4, new AbsoluteConstraints((ScreenDim.width) * 4 / 100, (ScreenDim.height) * 81 /100));
-        lbl_nomJ4.setText(Session.listeJoueurs[3].nom);
-        Pane_Info.add(lbl_nomJ4, new AbsoluteConstraints((ScreenDim.width) * 5 / 100, (ScreenDim.height) * 84/100));
-        Pane_Info.add(Pane_J4, new AbsoluteConstraints((ScreenDim.width) / 9, (ScreenDim.height) * 16 / 20, (Pane_Info.getWidth()) * 6 / 10, Pane_J1.getHeight()));
-        lbl_Objet_J4.setText((Session.listeJoueurs[3].listeCartes.length - Session.listeJoueurs[3].indexCarteRetournee)+"/"+Session.listeJoueurs[3].listeCartes.length);
+
+        if (Session.listeJoueurs.length == 4) {
+            lbl_J4.setVisible(true);
+            lbl_nomJ4.setVisible(true);
+            Pane_J4.setVisible(true);
+            Chrono_Players.Chrono_J4.setVisible(true);
+            Pane_Info.add(lbl_J4, new AbsoluteConstraints((ScreenDim.width) * 4 / 100, (ScreenDim.height) * 81 / 100));
+            lbl_nomJ4.setText(Session.listeJoueurs[3].nom);
+            Pane_Info.add(lbl_nomJ4, new AbsoluteConstraints((ScreenDim.width) * 5 / 100, (ScreenDim.height) * 84 / 100));
+            Pane_Info.add(Pane_J4, new AbsoluteConstraints((ScreenDim.width) / 9, (ScreenDim.height) * 16 / 20, (Pane_Info.getWidth()) * 6 / 10, Pane_J1.getHeight()));
+            lbl_Objet_J4.setText((Session.listeJoueurs[3].listeCartes.length - Session.listeJoueurs[3].indexCarteRetournee) + "/" + Session.listeJoueurs[3].listeCartes.length);
         }
     }
-    
-
 
     public void SwitchCase() {
         if (action != "") {
@@ -664,8 +652,7 @@ public class Interface extends javax.swing.JFrame {
                 lblObjetmodifie = lbl_Objet_J4;
                 break;
         }
-        
-        //System.out.println(joueurCourant.listeCartes[joueurCourant.indexCarteRetournee].nomObjet);
+
         ObjetaRamasser.setCarteAssociee(new Cartes(joueurCourant.listeCartes[joueurCourant.indexCarteRetournee].nomObjet));
         int objReste = joueurCourant.listeCartes.length - joueurCourant.indexCarteRetournee;
 
@@ -674,7 +661,7 @@ public class Interface extends javax.swing.JFrame {
                 lblObjetmodifie.setText("C'est le dernier !");
                 break;
             default:
-                lblObjetmodifie.setText(objReste + "/"+joueurCourant.listeCartes.length);
+                lblObjetmodifie.setText(objReste + "/" + joueurCourant.listeCartes.length);
                 break;
         }
     }
@@ -810,7 +797,6 @@ public class Interface extends javax.swing.JFrame {
                 return;
             }
             boutonselectionne.CaseGrapheAssocie.TurnCase(90);
-            //System.out.println("tourne:" + boutonselectionne.CaseGrapheAssocie);
             boutonselectionne.repaint();
         }
     }//GEN-LAST:event_RotateActionPerformed
@@ -847,9 +833,7 @@ public class Interface extends javax.swing.JFrame {
                     return;
                 }
             }
-//            for (Case ListeCase : Partie.ListeCases) {
-//                System.out.println(ListeCase);
-//            }
+
             SwitchCase();
             Component[] components = Labyrinth.getComponents();
             for (int index = 0; index < components.length; index++) {
@@ -864,7 +848,7 @@ public class Interface extends javax.swing.JFrame {
 
             Labyrinth.repaint();
             CasePlacee();
-            if(Session.Labyrinth.prochainecase.presenceObjet()){
+            if (Session.Labyrinth.prochainecase.presenceObjet()) {
                 Partie.ListeCases.removeIf(element -> element.object.equals(Session.Labyrinth.prochainecase.object));
             }
 
@@ -874,9 +858,7 @@ public class Interface extends javax.swing.JFrame {
             Session.Labyrinth.prochainecase.Bas = Partie.ListeCases.get(temp).Bas;
             Session.Labyrinth.prochainecase.Gauche = Partie.ListeCases.get(temp).Gauche;
             Session.Labyrinth.prochainecase.Droite = Partie.ListeCases.get(temp).Droite;
-            //System.out.println("objet avant:"+Partie.ListeCases.get(temp));
             ProchaineCase.CaseGrapheAssocie = new Case(Session.Labyrinth.prochainecase.object);
-            //System.out.println("objet apres:" + Session.Labyrinth.prochainecase);
             ProchaineCase.repaint();
             int[] posPionJCourant = Session.Labyrinth.positionPion(Session.listeJoueurs[Session.joueurCourant]);
             if (Session.Labyrinth.CasesAccessibles(posPionJCourant[0], posPionJCourant[1]).isEmpty()) {
@@ -900,47 +882,47 @@ public class Interface extends javax.swing.JFrame {
      * @param joueurGagnant Le joueur qui a gangé
      */
     public void partieTerminee(Player joueurGagnant) {
-        placement=false;
-        deplacement=false;
+        placement = false;
+        deplacement = false;
         System.out.println("Bravo");
-        
+
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Interface().setVisible(true);
-            }
-        });
-    }
+//    /**
+//     * @param args the command line arguments
+//     */
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new Interface().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Labyrinth;
@@ -952,6 +934,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton Rotate;
     private javax.swing.JButton Validate;
     private javax.swing.JButton btn_Help;
+    private javax.swing.JFrame jFrame_End;
     private javax.swing.JLabel lbl_ChronoJeu;
     private javax.swing.JLabel lbl_ChronoTour;
     private javax.swing.JLabel lbl_J1;
