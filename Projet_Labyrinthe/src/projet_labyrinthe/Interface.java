@@ -134,6 +134,7 @@ public class Interface extends javax.swing.JFrame {
     private void initComponents() {
 
         jFrame_End = new javax.swing.JFrame();
+        jFrame_Info = new javax.swing.JFrame();
         Labyrinth = new javax.swing.JPanel();
         Pane_Info = new javax.swing.JPanel();
         lbl_NomJoueur = new javax.swing.JLabel();
@@ -935,6 +936,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton Validate;
     private javax.swing.JButton btn_Help;
     private javax.swing.JFrame jFrame_End;
+    private javax.swing.JFrame jFrame_Info;
     private javax.swing.JLabel lbl_ChronoJeu;
     private javax.swing.JLabel lbl_ChronoTour;
     private javax.swing.JLabel lbl_J1;
