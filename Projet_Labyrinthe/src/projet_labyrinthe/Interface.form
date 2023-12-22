@@ -54,7 +54,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="0" width="-1" height="250"/>
+          <AbsoluteConstraints x="0" y="0" width="500" height="250"/>
         </Constraint>
       </Constraints>
 
@@ -63,6 +63,11 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JLabel" name="ChronoJeu">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="0" y="0" width="-1" height="-1"/>
@@ -71,6 +76,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_NomJoueur">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="jLabel1"/>
           </Properties>
           <Constraints>
@@ -81,6 +89,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_JoueurCourant">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Joueur Courant"/>
           </Properties>
           <Constraints>
@@ -91,6 +102,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_ChronoTour">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Chrono du Tour"/>
           </Properties>
           <Constraints>
@@ -101,6 +115,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_ChronoJeu">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Chrono de la Partie"/>
           </Properties>
           <Constraints>
@@ -111,6 +128,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_nextCase">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Prochaine Case"/>
           </Properties>
           <Constraints>
@@ -121,7 +141,10 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_nextCard">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Objet &#xe0; Ramasser"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Objet a Ramasser"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -131,6 +154,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_nomJ1">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="name"/>
           </Properties>
           <Constraints>
@@ -141,6 +167,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_J1">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Joueur 1"/>
           </Properties>
           <Constraints>
@@ -151,6 +180,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_nomJ2">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="name"/>
           </Properties>
           <Constraints>
@@ -161,6 +193,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_J2">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Joueur 2"/>
           </Properties>
           <Constraints>
@@ -171,6 +206,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_J3">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Joueur 3"/>
           </Properties>
           <Constraints>
@@ -181,6 +219,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_nomJ3">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="name"/>
           </Properties>
           <Constraints>
@@ -191,6 +232,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_nomJ4">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="name"/>
           </Properties>
           <Constraints>
@@ -201,6 +245,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_J4">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Joueur 4"/>
           </Properties>
           <Constraints>
@@ -217,7 +264,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="100" y="0" width="160" height="60"/>
+              <AbsoluteConstraints x="100" y="0" width="280" height="60"/>
             </Constraint>
           </Constraints>
 
@@ -227,36 +274,48 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="Chrono_J1">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="jLabel1"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="150" y="10" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="210" y="10" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="lbl_Objet_J1">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="jLabel1"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="150" y="30" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="210" y="30" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="lbl_txtChronoJ1">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Temps"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="10" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="80" y="10" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="lbl_txtObjetJ1">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Nb d&apos;objets restants"/>
               </Properties>
               <Constraints>
@@ -275,7 +334,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="100" y="60" width="160" height="60"/>
+              <AbsoluteConstraints x="100" y="60" width="280" height="60"/>
             </Constraint>
           </Constraints>
 
@@ -285,36 +344,48 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="Chrono_J2">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="jLabel1"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="150" y="10" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="210" y="10" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="lbl_Objet_J2">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="jLabel1"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="150" y="30" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="210" y="30" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="lbl_txtChronoJ2">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Temps"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="10" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="80" y="10" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="lbl_txtObjetJ2">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Nb d&apos;objets restants"/>
               </Properties>
               <Constraints>
@@ -333,7 +404,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="100" y="190" width="160" height="60"/>
+              <AbsoluteConstraints x="100" y="190" width="280" height="60"/>
             </Constraint>
           </Constraints>
 
@@ -343,36 +414,48 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="Chrono_J3">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="jLabel1"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="150" y="10" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="210" y="10" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="lbl_Objet_J3">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="jLabel1"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="150" y="30" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="210" y="30" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="lbl_txtChronoJ3">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Temps"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="10" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="80" y="10" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="lbl_txtObjetJ3">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Nb d&apos;objets restants"/>
               </Properties>
               <Constraints>
@@ -391,7 +474,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="100" y="110" width="160" height="60"/>
+              <AbsoluteConstraints x="100" y="110" width="280" height="60"/>
             </Constraint>
           </Constraints>
 
@@ -401,36 +484,48 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="Chrono_J4">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="jLabel1"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="150" y="10" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="210" y="10" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="lbl_Objet_J4">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="jLabel1"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="150" y="30" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="210" y="30" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="lbl_txtChronoJ4">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Temps"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="10" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="80" y="10" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="lbl_txtObjetJ4">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="DeadSpaceTitleFont" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Nb d&apos;objets restants"/>
               </Properties>
               <Constraints>

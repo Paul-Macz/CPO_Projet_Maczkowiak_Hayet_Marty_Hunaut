@@ -60,11 +60,11 @@ public class Interface extends javax.swing.JFrame {
      */
     public Interface() {
         initComponents();
-        Session = new Partie(3);
+        Session = new Partie(4);
         Session.creerJoueur(0, "Scar");
         Session.creerJoueur(1, "Tim");
         Session.creerJoueur(2, "Grian");
-        //Session.creerJoueur(3, "Pearl");
+        Session.creerJoueur(3, "Pearl");
         Session.InitialiserPartie();
         //System.out.println(Session.listeJoueurs[0].listeObjets);
         //DebugMode();
@@ -187,119 +187,151 @@ public class Interface extends javax.swing.JFrame {
 
         Pane_Info.setBackground(new java.awt.Color(0, 102, 51));
         Pane_Info.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ChronoJeu.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         Pane_Info.add(ChronoJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        lbl_NomJoueur.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_NomJoueur.setText("jLabel1");
         Pane_Info.add(lbl_NomJoueur, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        lbl_JoueurCourant.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_JoueurCourant.setText("Joueur Courant");
         Pane_Info.add(lbl_JoueurCourant, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        lbl_ChronoTour.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_ChronoTour.setText("Chrono du Tour");
         Pane_Info.add(lbl_ChronoTour, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        lbl_ChronoJeu.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_ChronoJeu.setText("Chrono de la Partie");
         Pane_Info.add(lbl_ChronoJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        lbl_nextCase.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_nextCase.setText("Prochaine Case");
         Pane_Info.add(lbl_nextCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        lbl_nextCard.setText("Objet à Ramasser");
+        lbl_nextCard.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
+        lbl_nextCard.setText("Objet a Ramasser");
         Pane_Info.add(lbl_nextCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        lbl_nomJ1.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_nomJ1.setText("name");
         Pane_Info.add(lbl_nomJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
+        lbl_J1.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_J1.setText("Joueur 1");
         Pane_Info.add(lbl_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
 
+        lbl_nomJ2.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_nomJ2.setText("name");
         Pane_Info.add(lbl_nomJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
+        lbl_J2.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_J2.setText("Joueur 2");
         Pane_Info.add(lbl_J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
+        lbl_J3.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_J3.setText("Joueur 3");
         Pane_Info.add(lbl_J3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
+        lbl_nomJ3.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_nomJ3.setText("name");
         Pane_Info.add(lbl_nomJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
+        lbl_nomJ4.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_nomJ4.setText("name");
         Pane_Info.add(lbl_nomJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
+        lbl_J4.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_J4.setText("Joueur 4");
         Pane_Info.add(lbl_J4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         Pane_J1.setBackground(new java.awt.Color(0, 102, 153));
         Pane_J1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Chrono_J1.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         Chrono_J1.setText("jLabel1");
-        Pane_J1.add(Chrono_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+        Pane_J1.add(Chrono_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
+        lbl_Objet_J1.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_Objet_J1.setText("jLabel1");
-        Pane_J1.add(lbl_Objet_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, -1, -1));
+        Pane_J1.add(lbl_Objet_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, -1, -1));
 
+        lbl_txtChronoJ1.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_txtChronoJ1.setText("Temps");
-        Pane_J1.add(lbl_txtChronoJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        Pane_J1.add(lbl_txtChronoJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
+        lbl_txtObjetJ1.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_txtObjetJ1.setText("Nb d'objets restants");
         Pane_J1.add(lbl_txtObjetJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
-        Pane_Info.add(Pane_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 160, 60));
+        Pane_Info.add(Pane_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 280, 60));
 
         Pane_J2.setBackground(new java.awt.Color(0, 153, 51));
         Pane_J2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Chrono_J2.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         Chrono_J2.setText("jLabel1");
-        Pane_J2.add(Chrono_J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+        Pane_J2.add(Chrono_J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
+        lbl_Objet_J2.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_Objet_J2.setText("jLabel1");
-        Pane_J2.add(lbl_Objet_J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, -1, -1));
+        Pane_J2.add(lbl_Objet_J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, -1, -1));
 
+        lbl_txtChronoJ2.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_txtChronoJ2.setText("Temps");
-        Pane_J2.add(lbl_txtChronoJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        Pane_J2.add(lbl_txtChronoJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
+        lbl_txtObjetJ2.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_txtObjetJ2.setText("Nb d'objets restants");
         Pane_J2.add(lbl_txtObjetJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
-        Pane_Info.add(Pane_J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 160, 60));
+        Pane_Info.add(Pane_J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 280, 60));
 
         Pane_J3.setBackground(new java.awt.Color(153, 0, 0));
         Pane_J3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Chrono_J3.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         Chrono_J3.setText("jLabel1");
-        Pane_J3.add(Chrono_J3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+        Pane_J3.add(Chrono_J3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
+        lbl_Objet_J3.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_Objet_J3.setText("jLabel1");
-        Pane_J3.add(lbl_Objet_J3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, -1, -1));
+        Pane_J3.add(lbl_Objet_J3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, -1, -1));
 
+        lbl_txtChronoJ3.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_txtChronoJ3.setText("Temps");
-        Pane_J3.add(lbl_txtChronoJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        Pane_J3.add(lbl_txtChronoJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
+        lbl_txtObjetJ3.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_txtObjetJ3.setText("Nb d'objets restants");
         Pane_J3.add(lbl_txtObjetJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
-        Pane_Info.add(Pane_J3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 160, 60));
+        Pane_Info.add(Pane_J3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 280, 60));
 
         Pane_J4.setBackground(new java.awt.Color(255, 255, 0));
         Pane_J4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Chrono_J4.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         Chrono_J4.setText("jLabel1");
-        Pane_J4.add(Chrono_J4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+        Pane_J4.add(Chrono_J4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
+        lbl_Objet_J4.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_Objet_J4.setText("jLabel1");
-        Pane_J4.add(lbl_Objet_J4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, -1, -1));
+        Pane_J4.add(lbl_Objet_J4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, -1, -1));
 
+        lbl_txtChronoJ4.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_txtChronoJ4.setText("Temps");
-        Pane_J4.add(lbl_txtChronoJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        Pane_J4.add(lbl_txtChronoJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
+        lbl_txtObjetJ4.setFont(new java.awt.Font("DeadSpaceTitleFont", 0, 12)); // NOI18N
         lbl_txtObjetJ4.setText("Nb d'objets restants");
         Pane_J4.add(lbl_txtObjetJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
-        Pane_Info.add(Pane_J4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 160, 60));
+        Pane_Info.add(Pane_J4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 280, 60));
 
-        getContentPane().add(Pane_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 250));
+        getContentPane().add(Pane_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 250));
 
         Validate.setBackground(new java.awt.Color(0, 153, 0));
         Validate.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
