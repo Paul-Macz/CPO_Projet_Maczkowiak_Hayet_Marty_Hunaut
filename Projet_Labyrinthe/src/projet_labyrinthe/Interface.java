@@ -1381,6 +1381,7 @@ public class Interface extends javax.swing.JFrame {
         jFrame_End.setSize(ScreenDim.width, ScreenDim.height);
         jFrame_End.setExtendedState(JFrame.MAXIMIZED_BOTH);
         jFrame_End.setVisible(true);
+        playSound("src/Music/Stage Win (Super Mario) - Sound Effect HD.wav");
     }
 
     static void sortByIndexCarteRetournee(Player[] array) {
