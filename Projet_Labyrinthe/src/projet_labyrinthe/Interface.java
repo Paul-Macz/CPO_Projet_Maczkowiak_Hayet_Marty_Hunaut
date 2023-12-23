@@ -203,7 +203,7 @@ public class Interface extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel8.setText("<html>- C'est ensuite donc au tour des autres joueurs d'effectuer leur tour et ainsi de suite. Maintenant après avoir traversé le labyrinthe est être arrivé devant votre objet, pour le ramasser il vous suffit donc de vous déplacer sur la case et le tour est joué.");
-        jFrame_Rules.getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 970, 40));
+        jFrame_Rules.getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 970, 30));
 
         jLabel9.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel9.setText("<html>- Maintenant à vous de jouer en effectuant ces mêmes taches et en respectant les règles afin d'être le premier à réunir les 6 objets et gagner la partie.");
@@ -228,9 +228,6 @@ public class Interface extends javax.swing.JFrame {
             }
         });
         jFrame_Rules.getContentPane().add(btn_closeRules, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 200, 70));
-
-        jLabel10.setText("jLabel10");
-        jFrame_Rules.getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 380));
 
         jFrame_Info.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1115,7 +1112,6 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JFrame jFrame_Info;
     private javax.swing.JFrame jFrame_Rules;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
