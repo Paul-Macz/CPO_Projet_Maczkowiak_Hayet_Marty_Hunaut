@@ -475,6 +475,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Console" size="18" style="1"/>
             </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Informations Suppl&#xe9;mentaires"/>
           </Properties>
           <Events>
@@ -494,6 +497,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Console" size="36" style="1"/>
             </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Fermer"/>
           </Properties>
           <Events>
@@ -502,6 +508,18 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="210" y="380" width="200" height="70"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel18">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Img/taverne grand.gif"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="0" y="0" width="980" height="470"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -525,7 +543,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="400" height="-1"/>
+              <AbsoluteConstraints x="0" y="0" width="420" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -569,11 +587,11 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;-Lorsque vous vous d&#xe9;placer de case en case cela est uniquement possible si vous continuez sur le chemin que les cartes vous tracent. Si vous &#xea;tes en face d&apos;un mur vous serez bloqu&#xe9; de tous d&#xe9;placement dans cette direction. Vos d&#xe9;placements sont limit&#xe9;s &#xe0; des d&#xe9;placements haut, bas, gauche, droite, vous ne pouvez pas vous d&#xe9;placer diagonalement."/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;-Lorsque vous vous d&#xe9;placer de case en case cela est uniquement possible si vous continuez sur le chemin que les cartes vous tracent. Si vous &#xea;tes en face d&apos;un mur vous serez bloqu&#xe9; de tous d&#xe9;placement dans cette direction. Vos d&#xe9;placements sont limit&#xe9;s &#xe0; des d&#xe9;placements haut, bas, gauche, droite, vous ne pouvez pas vous d&#xe9;placer diagonalement. Vous pouvez vous d&#xe9;placer d&apos;autant de cases possibles du moment o&#xf9; un chemin le permet."/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="150" width="970" height="80"/>
+              <AbsoluteConstraints x="0" y="150" width="960" height="80"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -625,6 +643,18 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="0" y="220" width="970" height="70"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel17">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Img/warrior grand.gif"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="0" y="0" width="1000" height="440"/>
             </Constraint>
           </Constraints>
         </Component>

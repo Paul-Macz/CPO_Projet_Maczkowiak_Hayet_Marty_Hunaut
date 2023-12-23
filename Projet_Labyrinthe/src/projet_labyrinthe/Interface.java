@@ -157,6 +157,7 @@ public class Interface extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         btn_openInfoSup = new javax.swing.JButton();
         btn_closeRules = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
         jFrame_Info = new javax.swing.JFrame();
         jLabel2 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -165,6 +166,7 @@ public class Interface extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         btn_closeInfoSup = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         Labyrinth = new javax.swing.JPanel();
         Pane_Info = new javax.swing.JPanel();
         lbl_NomJoueur = new javax.swing.JLabel();
@@ -342,6 +344,7 @@ public class Interface extends javax.swing.JFrame {
 
         btn_openInfoSup.setBackground(new java.awt.Color(204, 204, 0));
         btn_openInfoSup.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
+        btn_openInfoSup.setForeground(new java.awt.Color(0, 0, 0));
         btn_openInfoSup.setText("Informations Supplémentaires");
         btn_openInfoSup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -352,6 +355,7 @@ public class Interface extends javax.swing.JFrame {
 
         btn_closeRules.setBackground(new java.awt.Color(153, 0, 0));
         btn_closeRules.setFont(new java.awt.Font("Lucida Console", 1, 36)); // NOI18N
+        btn_closeRules.setForeground(new java.awt.Color(0, 0, 0));
         btn_closeRules.setText("Fermer");
         btn_closeRules.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -360,12 +364,15 @@ public class Interface extends javax.swing.JFrame {
         });
         jFrame_Rules.getContentPane().add(btn_closeRules, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 200, 70));
 
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/taverne grand.gif"))); // NOI18N
+        jFrame_Rules.getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 470));
+
         jFrame_Info.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Georgia", 3, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 102, 255));
         jLabel2.setText("Informations complémentaires :");
-        jFrame_Info.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, -1));
+        jFrame_Info.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, -1));
 
         jLabel11.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -379,8 +386,8 @@ public class Interface extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("<html>-Lorsque vous vous déplacer de case en case cela est uniquement possible si vous continuez sur le chemin que les cartes vous tracent. Si vous êtes en face d'un mur vous serez bloqué de tous déplacement dans cette direction. Vos déplacements sont limités à des déplacements haut, bas, gauche, droite, vous ne pouvez pas vous déplacer diagonalement.");
-        jFrame_Info.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 970, 80));
+        jLabel13.setText("<html>-Lorsque vous vous déplacer de case en case cela est uniquement possible si vous continuez sur le chemin que les cartes vous tracent. Si vous êtes en face d'un mur vous serez bloqué de tous déplacement dans cette direction. Vos déplacements sont limités à des déplacements haut, bas, gauche, droite, vous ne pouvez pas vous déplacer diagonalement. Vous pouvez vous déplacer d'autant de cases possibles du moment où un chemin le permet.");
+        jFrame_Info.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 960, 80));
 
         jLabel14.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -401,6 +408,9 @@ public class Interface extends javax.swing.JFrame {
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("<html>- Vous pouvez tout à fait être bloqué mais pas de panique pour poursuivre le tour il vous suffit de cliquer sur la case ou vous êtes si vous ne pouvez pas vous déplacer. Ensuite si vous êtes situé sur le bout d'un des chemins d'insertion de carte et que vous êtes alors éjecter du plateau ne vous inquiétez pas votre joueur va alors se retrouver de l'autre côté de ce même chemin.");
         jFrame_Info.getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 970, 70));
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/warrior grand.gif"))); // NOI18N
+        jFrame_Info.getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 440));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -617,9 +627,6 @@ public class Interface extends javax.swing.JFrame {
                                     pionActuel.associe.nouvellePosition(Case.CaseGrapheAssocie);
                                     Labyrinth.repaint();
                                     /* Si le joueur a fini, on termine la partie */
-                                    if (pionActuel.associe.indexCarteRetournee == 1) {
-                                        partieTerminee(pionActuel.associe);
-                                    }
                                     if (pionActuel.associe.tousObjetsRamasses()) {
                                         partieTerminee(pionActuel.associe);
                                     } else {
@@ -1438,6 +1445,8 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
