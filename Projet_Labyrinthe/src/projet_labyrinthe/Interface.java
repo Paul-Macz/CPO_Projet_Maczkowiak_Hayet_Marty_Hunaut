@@ -137,7 +137,6 @@ public class Interface extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
         lbl_nom = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         lbl_Win1 = new javax.swing.JLabel();
         lbl_Win2 = new javax.swing.JLabel();
@@ -147,6 +146,7 @@ public class Interface extends javax.swing.JFrame {
         lbl_Win1_objet = new javax.swing.JLabel();
         lbl_Win2_objet = new javax.swing.JLabel();
         lbl_Win3_objet = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         lbl_time = new javax.swing.JLabel();
         jFrame_Rules = new javax.swing.JFrame();
         jLabel1 = new javax.swing.JLabel();
@@ -217,7 +217,7 @@ public class Interface extends javax.swing.JFrame {
         lbl_Win.setText("VAINQUEUR:");
         Pane_Winner.add(lbl_Win, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 240, -1));
 
-        jFrame_End.getContentPane().add(Pane_Winner, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 290, 120));
+        jFrame_End.getContentPane().add(Pane_Winner, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 290, 120));
 
         Pane_Ranking.setBackground(new java.awt.Color(102, 102, 102));
         Pane_Ranking.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -259,53 +259,53 @@ public class Interface extends javax.swing.JFrame {
 
         lbl_nom.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
         lbl_nom.setText("NOM");
-        Pane_Ranking.add(lbl_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
-
-        jLabel15.setFont(new java.awt.Font("OCR A Extended", 1, 16)); // NOI18N
-        jLabel15.setText("<html>NOMBRE D'OBJETS RAMASSES");
-        Pane_Ranking.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 180, 50));
+        Pane_Ranking.add(lbl_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
         jLabel16.setText("TEMPS");
-        Pane_Ranking.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, -1, -1));
+        Pane_Ranking.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
 
         lbl_Win1.setFont(new java.awt.Font("OCR A Extended", 1, 12)); // NOI18N
         lbl_Win1.setText("jLabel17");
-        Pane_Ranking.add(lbl_Win1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, -1, -1));
+        Pane_Ranking.add(lbl_Win1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, -1));
 
         lbl_Win2.setFont(new java.awt.Font("OCR A Extended", 1, 12)); // NOI18N
         lbl_Win2.setText("jLabel17");
-        Pane_Ranking.add(lbl_Win2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, -1, -1));
+        Pane_Ranking.add(lbl_Win2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, -1, -1));
 
         lbl_Win3.setFont(new java.awt.Font("OCR A Extended", 1, 12)); // NOI18N
         lbl_Win3.setText("jLabel17");
-        Pane_Ranking.add(lbl_Win3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, -1, -1));
+        Pane_Ranking.add(lbl_Win3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, -1, -1));
 
         lbl_Win4.setFont(new java.awt.Font("OCR A Extended", 1, 12)); // NOI18N
         lbl_Win4.setText("jLabel18");
-        Pane_Ranking.add(lbl_Win4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, -1, -1));
+        Pane_Ranking.add(lbl_Win4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, -1, -1));
 
         lbl_Win4_objet.setFont(new java.awt.Font("OCR A Extended", 1, 12)); // NOI18N
         lbl_Win4_objet.setText("jLabel17");
-        Pane_Ranking.add(lbl_Win4_objet, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, -1, -1));
+        Pane_Ranking.add(lbl_Win4_objet, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, -1, -1));
 
         lbl_Win1_objet.setFont(new java.awt.Font("OCR A Extended", 1, 12)); // NOI18N
         lbl_Win1_objet.setText("jLabel17");
-        Pane_Ranking.add(lbl_Win1_objet, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
+        Pane_Ranking.add(lbl_Win1_objet, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, -1, -1));
 
         lbl_Win2_objet.setFont(new java.awt.Font("OCR A Extended", 1, 12)); // NOI18N
         lbl_Win2_objet.setText("jLabel17");
-        Pane_Ranking.add(lbl_Win2_objet, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, -1, -1));
+        Pane_Ranking.add(lbl_Win2_objet, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, -1, -1));
 
         lbl_Win3_objet.setFont(new java.awt.Font("OCR A Extended", 1, 12)); // NOI18N
         lbl_Win3_objet.setText("jLabel17");
-        Pane_Ranking.add(lbl_Win3_objet, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, -1, -1));
+        Pane_Ranking.add(lbl_Win3_objet, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, -1, -1));
 
-        jFrame_End.getContentPane().add(Pane_Ranking, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 550, 290));
+        jLabel15.setFont(new java.awt.Font("OCR A Extended", 1, 16)); // NOI18N
+        jLabel15.setText("<html>NOMBRE D'OBJETS RAMASSES");
+        Pane_Ranking.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 180, 50));
+
+        jFrame_End.getContentPane().add(Pane_Ranking, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 550, 290));
 
         lbl_time.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
         lbl_time.setText("TEMPS DE LA PARTIE");
-        jFrame_End.getContentPane().add(lbl_time, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
+        jFrame_End.getContentPane().add(lbl_time, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
 
         jFrame_Rules.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -608,6 +608,9 @@ public class Interface extends javax.swing.JFrame {
                                     pionActuel.associe.nouvellePosition(Case.CaseGrapheAssocie);
                                     Labyrinth.repaint();
                                     /* Si le joueur a fini, on termine la partie */
+                                    if(pionActuel.associe.indexCarteRetournee==2){
+                                        partieTerminee(pionActuel.associe);
+                                    }
                                     if (pionActuel.associe.tousObjetsRamasses()) {
                                         partieTerminee(pionActuel.associe);
                                     } else {
@@ -1186,6 +1189,7 @@ public class Interface extends javax.swing.JFrame {
      * @param joueurGagnant Le joueur qui a gagné
      */
     public void partieTerminee(Player joueurGagnant) {
+        stopSound();
         placement = false;
         deplacement = false;
         System.out.println("Bravo");
@@ -1323,6 +1327,7 @@ public class Interface extends javax.swing.JFrame {
                 }
             }
         }
+        jFrame_End.pack();
         jFrame_End.setVisible(true);
     }
 
