@@ -33,7 +33,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;- BONNE CHANCE A TOUS ET QUE LE MEILLEUR GAGNE!!!!!"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;- BONNE CHANCE A VOUS ET QUE LE MEILLEUR GAGNE !!"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -46,7 +46,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;- Le jeu est un tour par tour. Le tour d&apos;un joueur est alors affecter par la couler de l&apos;&#xe9;cran &#xe0; votre gauche.  &#xa;A pr&#xe9;sent il est temps de commencer."/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;- Le jeu est un tour par tour. Le tour d&apos;un joueur est alors affect&#xe9; par la couleur de l&apos;&#xe9;cran &#xe0; votre gauche.  A pr&#xe9;sent il est temps de commencer."/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -59,7 +59,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;- Le but du jeu et  de tous les joueurs sur le plateau est alors d&apos;arriver &#xe0; atteindre les objets qui leur sont attitrer par les cartes  au fur et &#xe0; mesure . Le premier a avoir parcourue le chemin et r&#xe9;unit les 6 objets lui &#xe9;tant attitrer est le grand vainqueur.Comment alors se d&#xe9;roule une partie?"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;- Le but du jeu et de tous les joueurs sur le plateau est alors d&apos;essayer d&apos;atteindre les objets qui leur sont attribu&#xe9;s par les cartes au fur et &#xe0; mesure . Le premier a avoir parcouru le chemin et r&#xe9;unit les 6 objets qui lui sont atribu&#xe9;s est le grand vainqueur. Comment se d&#xe9;roule la partie ?"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -72,7 +72,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;- Donc, tout d&apos;abord, &#xe0; chaque tour, vous recevez une carte chemin que vous pouvez placer &#xe0; votre guise sur les diff&#xe9;rents chemins bleus du plateau. Ces cartes sont ensuite plac&#xe9;es sur le chemin de votre choix. &#xc0; vous de leur donner une orientation gr&#xe2;ce &#xe0; la case rotation en orange en bas &#xe0; gauche du plateau. Maintenant, il vous suffit de valider votre choix avec la case de validation en verte, juste &#xe0; c&#xf4;t&#xe9; de la case rotation. Le plateau est alors modifi&#xe9;, sortant la carte qui est au bout du chemin choisi. Leur placement est une histoire de strat&#xe9;gie, pouvant tout autant vous servir que desservir vos adversaires. &#xc0; vous de voir."/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;- Tout d&apos;abord, &#xe0; chaque tour, vous recevez une carte chemin que vous pouvez placer &#xe0; votre guise sur les diff&#xe9;rents chemins bleus du plateau. Ces cartes sont ensuite plac&#xe9;es sur le chemin de votre choix. &#xc0; vous de leur donner une orientation gr&#xe2;ce &#xe0; la case rotation en orange en bas &#xe0; gauche du plateau. Maintenant, il vous suffit de valider votre choix avec la case de validation verte, juste &#xe0; c&#xf4;t&#xe9; de la case rotation. Le plateau est alors modifi&#xe9;, sortant la carte qui est au bout du chemin choisi. Leur placement est une histoire de strat&#xe9;gie, pouvant tout autant vous servir que desservir vos adversaires. &#xc0; vous de voir."/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -85,7 +85,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;- Apr&#xe8;s avoir mis votre carte chemin sur le plateau, &#xe0; vous de vous d&#xe9;placer. Vous ne pouvez vous d&#xe9;placer que de case en case et uniquement d&apos;une case par tour. Donc, choisissez le chemin le plus optimis&#xe9; pour arriver &#xe0; votre objectif le plus vite."/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;- Apr&#xe8;s avoir mis votre carte chemin sur le plateau, &#xe0; vous de vous d&#xe9;placer. Vous ne pouvez vous d&#xe9;placer que de case en case et uniquement d&apos;une case par tour. Donc, choisissez le chemin optimal pour que vous puissiez arriver &#xe0; votre objectif le plus rapidement possible ! Le temps compte !"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -98,7 +98,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;- C&apos;est ensuite donc au tour des autres joueurs d&apos;&#xe9;ffectuer leur tour et ainsi de suite. Maintenant apr&#xe8;s avoir traverser le labyrinthe est d&apos;&#xea;tre arriv&#xe9;e devant votre objet, pour le ramasser il vous suffit donc de vous d&#xe9;placer sur la case et le tour est jou&#xe9;."/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;- C&apos;est ensuite donc au tour des autres joueurs d&apos;&#xe9;ffectuer leur tour et ainsi de suite. Maintenant apr&#xe8;s avoir travers&#xe9; le labyrinthe est &#xea;tre arriv&#xe9; devant votre objet, pour le ramasser il vous suffit donc de vous d&#xe9;placer sur la case et le tour est jou&#xe9;."/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -111,7 +111,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;- Maintenant &#xe0; vous de jouer en effectuant ces m&#xea;me taches est r&#xe8;gles afin d&apos;&#xea;tre le premier &#xe0; r&#xe9;unir les 6 objets et gagnez la partie."/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;- Maintenant &#xe0; vous de jouer en effectuant ces m&#xea;mes taches et en respectant les r&#xe8;gles afin d&apos;&#xea;tre le premier &#xe0; r&#xe9;unir les 6 objets et gagner la partie."/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -145,7 +145,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="66" red="99" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Information compl&#xe9;mentaire :"/>
+            <Property name="text" type="java.lang.String" value="Informations compl&#xe9;mentaires :"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -158,7 +158,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;- L&apos;objet qui est rammasser pour chaque joueur est situ&#xe9; sur la page de gauche sur la carte objet &#xe0; ramasser. Les objets &#xe0; rammasser sont al&#xe9;atoires pour chaque joueur. les objets sont attribuer une seul et unique fois &#xe0; un seul des joueurs donc deux joueur ne peuvent pas avoir le m&#xea;me objet."/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;- L&apos;objet qui est ramass&#xe9; pour chaque joueur est situ&#xe9; sur la page de gauche sur la carte objet &#xe0; ramasser. Les objets &#xe0; ramasser sont al&#xe9;atoires pour chaque joueur. Les objets sont attribu&#xe9;s une seuel et unique fois &#xe0; un seul des joueurs donc deux joueurs ne peuvent pas avoir le m&#xea;me objet."/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -171,7 +171,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;- La page de gauche change de couleur selon le joueur qui joue. Cette page actualise aussi les donn&#xe9; affect&#xe9; &#xe0; chauqe joueur l&apos;objet &#xe0; ramasser ou encore la carte chemin qu&apos;il peut placer."/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;- La page de gauche change de couleur selon le joueur qui joue. Cette page actualise aussi les donn&#xe9;es affect&#xe9;es &#xe0; chaque joueur l&apos;objet &#xe0; ramasser ou encore la carte chemin qu&apos;il peut placer."/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -184,7 +184,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;-Lorsque vous vous d&#xe9;placer de case en case cela est uniquement posi=sible si vous continu&#xe9; sur le chemin que les carte vous trace. Si vous &#xea;tre nface d&apos;un mur vous serai bloquer de tous d&#xe9;placement dans cette direction. Vos d&#xe9;placement sont limit&#xe9; &#xe0; des d&#xe9;placement haut, bas, gauche, droite, vous ne pouvez pas vou s d&#xe9;placer diagonalement."/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;-Lorsque vous vous d&#xe9;placer de case en case cela est uniquement possible si vous continuez sur le chemin que les cartes vous tracent. Si vous &#xea;tes en face d&apos;un mur vous serez bloqu&#xe9; de tous d&#xe9;placement dans cette direction. Vos d&#xe9;placements sont limit&#xe9;s &#xe0; des d&#xe9;placements haut, bas, gauche, droite, vous ne pouvez pas vous d&#xe9;placer diagonalement."/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -197,7 +197,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;- Vous pouvez tout &#xe0; fait &#xea;tre bloqu&#xe9; mais pas de panique pour poursuivre le tour il vous suffit de cliquer sur la case ou vous &#xea;tes si vous ne puvez pas vous d&#xe9;placer.Ensuite si vous etes situ&#xe9; sur le bout d&apos;un des chemins de d&apos;insertion de carte est que vous &#xea;tes alors &#xe9;jecter du plateau ne vous inqui&#xe9;tez pas votre joueur  va alors ce retrouver de l&apos;autre c&#xf4;t&#xe9;e de ce m&#xea;me chemin."/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;- Vous pouvez tout &#xe0; fait &#xea;tre bloqu&#xe9; mais pas de panique pour poursuivre le tour il vous suffit de cliquer sur la case ou vous &#xea;tes si vous ne pouvez pas vous d&#xe9;placer. Ensuite si vous &#xea;tes situ&#xe9; sur le bout d&apos;un des chemins d&apos;insertion de carte et que vous &#xea;tes alors &#xe9;jecter du plateau ne vous inqui&#xe9;tez pas votre joueur va alors se retrouver de l&apos;autre c&#xf4;t&#xe9; de ce m&#xea;me chemin."/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
