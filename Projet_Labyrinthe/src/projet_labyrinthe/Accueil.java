@@ -14,7 +14,13 @@ import javax.swing.JFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
 import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import java.net.URL;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 /**
  *
@@ -127,7 +133,8 @@ public class Accueil extends javax.swing.JFrame {
         DuSON = new javax.swing.JButton();
         PasDuSON = new javax.swing.JButton();
         Fond = new javax.swing.JLabel();
-
+        DuSON.setVisible(false);
+        PasDuSON.setVisible(true);
         jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -279,7 +286,7 @@ public class Accueil extends javax.swing.JFrame {
         getContentPane().add(PAN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 420, 360));
 
         DuSON.setBackground(new java.awt.Color(51, 0, 102));
-        //DuSON.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet_labyrinthe/du-son.png"))); // NOI18N
+        DuSON.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/du-son.png"))); // NOI18N
         DuSON.setVisible(false);
         DuSON.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -290,23 +297,23 @@ public class Accueil extends javax.swing.JFrame {
 
         PasDuSON.setBackground(new java.awt.Color(51, 0, 102));
         PasDuSON.setVisible(false);
-        //PasDuSON.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet_labyrinthe/pas-de-son.png"))); // NOI18N
+        PasDuSON.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/pas-de-son.png"))); // NOI18N
         PasDuSON.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PasDuSONActionPerformed(evt);
             }
         });
         getContentPane().add(PasDuSON, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 10, -1, -1));
-
+        PasDuSON.setVisible(true);
         Fond.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/5008c241263635.579f73a622fe3.gif"))); // NOI18N
 
         getContentPane().add(Fond, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0));
-
+        playSound("src/Music/otherside.wav");
         pack();
     }// </editor-fold>                        
 
     private void LancerActionPerformed(java.awt.event.ActionEvent evt) {
-
+        stopSound();
         int nb = (int) Spinner.getValue();
         String Nom1 = TEXTNOM1.getText();
         String Nom2 = TEXTNOM2.getText();
@@ -321,15 +328,42 @@ public class Accueil extends javax.swing.JFrame {
         this.dispose();
     }                                      
 
-    private void PasDuSONActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        // TODO add your handling code here:
-        //stopSound("path/to/your/sound.wav");
-    }                                        
+    private Clip clip;  // Declare Clip as a class member
 
-    private void DuSONActionPerformed(java.awt.event.ActionEvent evt) {                                      
-        // TODO add your handling code here:
-        //playSound("");
-    }                                    
+private void PasDuSONActionPerformed(java.awt.event.ActionEvent evt) {                                        
+    // Stop the music
+    stopSound();
+    DuSON.setVisible(true);
+    PasDuSON.setVisible(false);
+}                                        
+
+private void DuSONActionPerformed(java.awt.event.ActionEvent evt) {                                      
+    // Play the music
+    playSound("src/Music/otherside.wav");  // Replace with the actual path to your music file
+    PasDuSON.setVisible(true);
+    DuSON.setVisible(false);
+}
+
+// Method to play the sound
+private void playSound(String filePath) {
+    try {
+        File file = new File(filePath);
+        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
+        clip = AudioSystem.getClip();
+        clip.open(audioInputStream);
+        clip.start();
+    } catch (IOException | LineUnavailableException | UnsupportedAudioFileException e) {
+        e.printStackTrace();
+    }
+}
+
+// Method to stop the sound
+private void stopSound() {
+    if (clip != null && clip.isRunning()) {
+        clip.stop();
+        clip.close();
+    }
+}                                      
 
     /**
      * @param args the command line arguments

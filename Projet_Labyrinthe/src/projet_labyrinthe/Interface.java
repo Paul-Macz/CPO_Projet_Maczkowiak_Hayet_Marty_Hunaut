@@ -13,7 +13,14 @@ import java.awt.LayoutManager;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -34,38 +41,17 @@ public class Interface extends javax.swing.JFrame {
 
     String action = "";
     Partie Session;
-    Case caseselectionnee;
-    CaseGraphique casegraphselectionnee;
-    CaseGraphique boutonselectionne;
-
-    CaseGraphique Top1 = new CaseGraphique(new Case("placeHolder"));
-    CaseGraphique Top2 = new CaseGraphique(new Case("placeHolder"));
-    CaseGraphique Top3 = new CaseGraphique(new Case("placeHolder"));
-    CaseGraphique Bottom1 = new CaseGraphique(new Case("placeHolder"));
-    CaseGraphique Bottom2 = new CaseGraphique(new Case("placeHolder"));
-    CaseGraphique Bottom3 = new CaseGraphique(new Case("placeHolder"));
-    CaseGraphique Left1 = new CaseGraphique(new Case("placeHolder"));
-    CaseGraphique Left2 = new CaseGraphique(new Case("placeHolder"));
-    CaseGraphique Left3 = new CaseGraphique(new Case("placeHolder"));
-    CaseGraphique Right1 = new CaseGraphique(new Case("placeHolder"));
-    CaseGraphique Right2 = new CaseGraphique(new Case("placeHolder"));
-    CaseGraphique Right3 = new CaseGraphique(new Case("placeHolder"));
-    CaseGraphique[] Actions = new CaseGraphique[12];
-    CarteGraphique ObjetaRamasser;
-    CaseGraphique ProchaineCase;
-    Chrono Chrono_Players;
-    Chrono_Partie Chrono_Jeu, Chrono_Tour;
 
     boolean deplacement = false, placement = false;
 
     /**
      * Creates new form FenetreDeJeu
      *
-     * @param nb    Nombre de Joueur
-     * @param NOM1  Nom du joueur1
-     * @param NOM2  Nom du joueur2
-     * @param NOM3  Nom du joueur3
-     * @param NOM4  Nom du joueur4
+     * @param nb Nombre de Joueur
+     * @param NOM1 Nom du joueur1
+     * @param NOM2 Nom du joueur2
+     * @param NOM3 Nom du joueur3
+     * @param NOM4 Nom du joueur4
      */
     public Interface(int nb, String NOM1, String NOM2, String NOM3, String NOM4) {
         initComponents();
@@ -92,7 +78,6 @@ public class Interface extends javax.swing.JFrame {
             Session.creerJoueur(3, NOM4);
             Session.InitialiserPartie();
         }
-
 
         Initialisation();
     }
@@ -438,6 +423,8 @@ public class Interface extends javax.swing.JFrame {
 
         //Création du panneau d'information
         PlacePane_Info();
+        DuSON.setVisible(false);
+        playSound("src/Music/otherside.wav");
     }
 
     /**
@@ -598,7 +585,66 @@ public class Interface extends javax.swing.JFrame {
         Rotate.setFont(new Font("Arial Unicode MS", Font.BOLD, 24));
         Rotate.setForeground(Color.white);
         btn_Help.setBounds((ScreenDim.width) * 7 / 20, (ScreenDim.height) / 30, (ScreenDim.height) * 3 / 40, (ScreenDim.height) * 3 / 40);
+                
+        
+        DuSON = new javax.swing.JButton();
+        PasDuSON = new javax.swing.JButton();
+        DuSON.setBackground(new java.awt.Color(51, 0, 102));
+        DuSON.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/du-son.png"))); // NOI18N
+        DuSON.setVisible(false);
+        DuSON.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DuSONActionPerformed(evt);
+            }
+        });
+        getContentPane().add(DuSON, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 10, 60, 50));
+        DuSON.setBounds((ScreenDim.width) * 42 / 100, (ScreenDim.height) / 100, 60,50);
+        PasDuSON.setBackground(new java.awt.Color(51, 0, 102));
+        PasDuSON.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/pas-de-son.png"))); // NOI18N
+        PasDuSON.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PasDuSONActionPerformed(evt);
+            }
+        });
+        getContentPane().add(PasDuSON, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 10, 50, 50));
+        PasDuSON.setBounds(((ScreenDim.width) * 42 / 100)+60, (ScreenDim.height) / 100, 60,50);
+        PasDuSON.setVisible(true);
 
+    }
+
+    private void PasDuSONActionPerformed(java.awt.event.ActionEvent evt) {
+        // Stop the music
+        stopSound();
+        DuSON.setVisible(true);
+        PasDuSON.setVisible(false);
+    }
+
+    private void DuSONActionPerformed(java.awt.event.ActionEvent evt) {
+        // Play the music
+        playSound("src/Music/otherside.wav");  // Replace with the actual path to your music file
+        PasDuSON.setVisible(true);
+        DuSON.setVisible(false);
+    }
+
+// Method to play the sound
+    private void playSound(String filePath) {
+        try {
+            File file = new File(filePath);
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
+            clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        } catch (IOException | LineUnavailableException | UnsupportedAudioFileException e) {
+            e.printStackTrace();
+        }
+    }
+
+// Method to stop the sound
+    private void stopSound() {
+        if (clip != null && clip.isRunning()) {
+            clip.stop();
+            clip.close();
+        }
     }
 
     /**
@@ -1060,4 +1106,27 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_txtObjetJ3;
     private javax.swing.JLabel lbl_txtObjetJ4;
     // End of variables declaration//GEN-END:variables
+    private javax.swing.JButton DuSON;
+    private javax.swing.JButton PasDuSON;
+    Case caseselectionnee;
+    CaseGraphique casegraphselectionnee;
+    CaseGraphique boutonselectionne;
+    private Clip clip;  // Declare Clip as a class member
+    CaseGraphique Top1 = new CaseGraphique(new Case("placeHolder"));
+    CaseGraphique Top2 = new CaseGraphique(new Case("placeHolder"));
+    CaseGraphique Top3 = new CaseGraphique(new Case("placeHolder"));
+    CaseGraphique Bottom1 = new CaseGraphique(new Case("placeHolder"));
+    CaseGraphique Bottom2 = new CaseGraphique(new Case("placeHolder"));
+    CaseGraphique Bottom3 = new CaseGraphique(new Case("placeHolder"));
+    CaseGraphique Left1 = new CaseGraphique(new Case("placeHolder"));
+    CaseGraphique Left2 = new CaseGraphique(new Case("placeHolder"));
+    CaseGraphique Left3 = new CaseGraphique(new Case("placeHolder"));
+    CaseGraphique Right1 = new CaseGraphique(new Case("placeHolder"));
+    CaseGraphique Right2 = new CaseGraphique(new Case("placeHolder"));
+    CaseGraphique Right3 = new CaseGraphique(new Case("placeHolder"));
+    CaseGraphique[] Actions = new CaseGraphique[12];
+    CarteGraphique ObjetaRamasser;
+    CaseGraphique ProchaineCase;
+    Chrono Chrono_Players;
+    Chrono_Partie Chrono_Jeu, Chrono_Tour;
 }
