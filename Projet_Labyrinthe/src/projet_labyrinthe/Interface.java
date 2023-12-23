@@ -4,6 +4,8 @@
  */
 package projet_labyrinthe;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -120,6 +122,32 @@ public class Interface extends javax.swing.JFrame {
     private void initComponents() {
 
         jFrame_End = new javax.swing.JFrame();
+        Pane_Winner = new javax.swing.JPanel();
+        lbl_winner = new javax.swing.JLabel();
+        lbl_Win = new javax.swing.JLabel();
+        Pane_Ranking = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        lbl_forth = new javax.swing.JLabel();
+        lbl_First1 = new javax.swing.JLabel();
+        lbl_deuxieme = new javax.swing.JLabel();
+        lbl_third = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
+        lbl_nom = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        lbl_Win1 = new javax.swing.JLabel();
+        lbl_Win2 = new javax.swing.JLabel();
+        lbl_Win3 = new javax.swing.JLabel();
+        lbl_Win4 = new javax.swing.JLabel();
+        lbl_Win4_objet = new javax.swing.JLabel();
+        lbl_Win1_objet = new javax.swing.JLabel();
+        lbl_Win2_objet = new javax.swing.JLabel();
+        lbl_Win3_objet = new javax.swing.JLabel();
+        lbl_time = new javax.swing.JLabel();
         jFrame_Rules = new javax.swing.JFrame();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -173,6 +201,111 @@ public class Interface extends javax.swing.JFrame {
         Validate = new javax.swing.JButton();
         Rotate = new javax.swing.JButton();
         btn_Help = new javax.swing.JButton();
+
+        jFrame_End.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Pane_Winner.setBackground(new java.awt.Color(0, 0, 102));
+        Pane_Winner.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lbl_winner.setFont(new java.awt.Font("OCR A Extended", 1, 36)); // NOI18N
+        lbl_winner.setForeground(new java.awt.Color(255, 204, 102));
+        lbl_winner.setText("jLabel10");
+        Pane_Winner.add(lbl_winner, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
+
+        lbl_Win.setFont(new java.awt.Font("OCR A Extended", 1, 36)); // NOI18N
+        lbl_Win.setForeground(new java.awt.Color(255, 204, 102));
+        lbl_Win.setText("VAINQUEUR:");
+        Pane_Winner.add(lbl_Win, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 240, -1));
+
+        jFrame_End.getContentPane().add(Pane_Winner, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 290, 120));
+
+        Pane_Ranking.setBackground(new java.awt.Color(102, 102, 102));
+        Pane_Ranking.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel10.setFont(new java.awt.Font("OCR A Extended", 1, 24)); // NOI18N
+        jLabel10.setText("CLASSEMENT");
+        Pane_Ranking.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, -1, -1));
+
+        lbl_forth.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
+        lbl_forth.setText("Quatrième");
+        Pane_Ranking.add(lbl_forth, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
+
+        lbl_First1.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
+        lbl_First1.setText("Premier");
+        Pane_Ranking.add(lbl_First1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+
+        lbl_deuxieme.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
+        lbl_deuxieme.setText("Deuxième");
+        Pane_Ranking.add(lbl_deuxieme, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+
+        lbl_third.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
+        lbl_third.setText("Troisième");
+        Pane_Ranking.add(lbl_third, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+
+        jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
+        Pane_Ranking.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 550, 10));
+
+        jSeparator3.setForeground(new java.awt.Color(51, 51, 51));
+        Pane_Ranking.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 550, 10));
+
+        jSeparator4.setForeground(new java.awt.Color(51, 51, 51));
+        Pane_Ranking.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 550, 10));
+
+        jSeparator5.setForeground(new java.awt.Color(51, 51, 51));
+        Pane_Ranking.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 550, 10));
+
+        jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
+        Pane_Ranking.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 550, 10));
+
+        lbl_nom.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
+        lbl_nom.setText("NOM");
+        Pane_Ranking.add(lbl_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
+
+        jLabel15.setFont(new java.awt.Font("OCR A Extended", 1, 16)); // NOI18N
+        jLabel15.setText("<html>NOMBRE D'OBJETS RAMASSES");
+        Pane_Ranking.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 180, 50));
+
+        jLabel16.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
+        jLabel16.setText("TEMPS");
+        Pane_Ranking.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, -1, -1));
+
+        lbl_Win1.setFont(new java.awt.Font("OCR A Extended", 1, 12)); // NOI18N
+        lbl_Win1.setText("jLabel17");
+        Pane_Ranking.add(lbl_Win1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, -1, -1));
+
+        lbl_Win2.setFont(new java.awt.Font("OCR A Extended", 1, 12)); // NOI18N
+        lbl_Win2.setText("jLabel17");
+        Pane_Ranking.add(lbl_Win2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, -1, -1));
+
+        lbl_Win3.setFont(new java.awt.Font("OCR A Extended", 1, 12)); // NOI18N
+        lbl_Win3.setText("jLabel17");
+        Pane_Ranking.add(lbl_Win3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, -1, -1));
+
+        lbl_Win4.setFont(new java.awt.Font("OCR A Extended", 1, 12)); // NOI18N
+        lbl_Win4.setText("jLabel18");
+        Pane_Ranking.add(lbl_Win4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, -1, -1));
+
+        lbl_Win4_objet.setFont(new java.awt.Font("OCR A Extended", 1, 12)); // NOI18N
+        lbl_Win4_objet.setText("jLabel17");
+        Pane_Ranking.add(lbl_Win4_objet, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, -1, -1));
+
+        lbl_Win1_objet.setFont(new java.awt.Font("OCR A Extended", 1, 12)); // NOI18N
+        lbl_Win1_objet.setText("jLabel17");
+        Pane_Ranking.add(lbl_Win1_objet, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
+
+        lbl_Win2_objet.setFont(new java.awt.Font("OCR A Extended", 1, 12)); // NOI18N
+        lbl_Win2_objet.setText("jLabel17");
+        Pane_Ranking.add(lbl_Win2_objet, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, -1, -1));
+
+        lbl_Win3_objet.setFont(new java.awt.Font("OCR A Extended", 1, 12)); // NOI18N
+        lbl_Win3_objet.setText("jLabel17");
+        Pane_Ranking.add(lbl_Win3_objet, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, -1, -1));
+
+        jFrame_End.getContentPane().add(Pane_Ranking, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 550, 290));
+
+        lbl_time.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
+        lbl_time.setText("TEMPS DE LA PARTIE");
+        jFrame_End.getContentPane().add(lbl_time, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
 
         jFrame_Rules.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -438,6 +571,7 @@ public class Interface extends javax.swing.JFrame {
         setSize(ScreenDim.width, ScreenDim.height);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLayout(null);
+        jFrame_End.setVisible(false);
 
         //Creation de la grille
         PlaceGrid();
@@ -609,8 +743,7 @@ public class Interface extends javax.swing.JFrame {
         Rotate.setFont(new Font("Arial Unicode MS", Font.BOLD, 24));
         Rotate.setForeground(Color.white);
         btn_Help.setBounds((ScreenDim.width) * 7 / 20, (ScreenDim.height) / 30, (ScreenDim.height) * 3 / 40, (ScreenDim.height) * 3 / 40);
-                
-        
+
         DuSON = new javax.swing.JButton();
         PasDuSON = new javax.swing.JButton();
         DuSON.setBackground(new java.awt.Color(51, 0, 102));
@@ -622,7 +755,7 @@ public class Interface extends javax.swing.JFrame {
             }
         });
         getContentPane().add(DuSON, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 10, 60, 50));
-        DuSON.setBounds((ScreenDim.width) * 42 / 100, (ScreenDim.height) / 100, 60,50);
+        DuSON.setBounds((ScreenDim.width) * 42 / 100, (ScreenDim.height) / 100, 60, 50);
         PasDuSON.setBackground(new java.awt.Color(51, 0, 102));
         PasDuSON.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/pas-de-son.png"))); // NOI18N
         PasDuSON.addActionListener(new java.awt.event.ActionListener() {
@@ -631,7 +764,7 @@ public class Interface extends javax.swing.JFrame {
             }
         });
         getContentPane().add(PasDuSON, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 10, 50, 50));
-        PasDuSON.setBounds(((ScreenDim.width) * 42 / 100)+60, (ScreenDim.height) / 100, 60,50);
+        PasDuSON.setBounds(((ScreenDim.width) * 42 / 100) + 60, (ScreenDim.height) / 100, 60, 50);
         PasDuSON.setVisible(true);
 
     }
@@ -942,7 +1075,7 @@ public class Interface extends javax.swing.JFrame {
         jFrame_Rules.setVisible(true);
         jFrame_Info.pack();
         jFrame_Rules.pack();
-        
+
     }//GEN-LAST:event_btn_HelpActionPerformed
 
     private void RotateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RotateActionPerformed
@@ -1050,13 +1183,151 @@ public class Interface extends javax.swing.JFrame {
     /**
      * Termine la partie, quand un joueur a gagné
      *
-     * @param joueurGagnant Le joueur qui a gangé
+     * @param joueurGagnant Le joueur qui a gagné
      */
     public void partieTerminee(Player joueurGagnant) {
         placement = false;
         deplacement = false;
         System.out.println("Bravo");
+        Chrono_Jeu.Stop();
+        Chrono_Players.stop(Session.joueurCourant);
+        getContentPane().setVisible(false);
+        lbl_winner.setText(joueurGagnant.nom);
+        jFrame_End.add(Chrono_Jeu.Chrono_Partie, new AbsoluteConstraints(lbl_time.getX()+200, lbl_time.getY(), Chrono_Jeu.Chrono_Partie.getWidth(), Chrono_Jeu.Chrono_Partie.getHeight()));
+        
+        Player[] copiedArray = Arrays.copyOf(Session.listeJoueurs, Session.listeJoueurs.length);
+        sortByIndexCarteRetournee(Session.listeJoueurs);
 
+        lbl_Win1.setText(Session.listeJoueurs[0].nom);
+        lbl_Win1_objet.setText(Session.listeJoueurs[0].indexCarteRetournee + "");
+
+        jSeparator3.setVisible(false);
+        lbl_deuxieme.setVisible(false);
+        lbl_Win2.setVisible(false);
+        lbl_Win2_objet.setVisible(false);
+        jSeparator4.setVisible(false);
+        lbl_third.setVisible(false);
+        lbl_Win3.setVisible(false);
+        lbl_Win3_objet.setVisible(false);
+        jSeparator5.setVisible(false);
+        lbl_forth.setVisible(false);
+        lbl_Win4.setVisible(false);
+        lbl_Win4_objet.setVisible(false);
+        Pane_Ranking.setVisible(false);
+        int index = -1;
+        for (int i = 0; i < Session.listeJoueurs.length; i++) {
+            if (Session.listeJoueurs[i] == copiedArray[0]) {
+                index = i;
+            }
+        }
+        switch (index) {
+            case 0:
+                Pane_Ranking.add(Chrono_Players.Chrono_J1, new AbsoluteConstraints(jLabel16.getX(), jLabel16.getY()+50, Chrono_Players.Chrono_J1.getWidth(), Chrono_Players.Chrono_J1.getHeight()));
+                break;
+            case 1:
+                Pane_Ranking.add(Chrono_Players.Chrono_J2, new AbsoluteConstraints(jLabel16.getX(), jLabel16.getY()+50, Chrono_Players.Chrono_J1.getWidth(), Chrono_Players.Chrono_J1.getHeight()));
+                break;
+            case 2:
+                Pane_Ranking.add(Chrono_Players.Chrono_J3, new AbsoluteConstraints(jLabel16.getX(), jLabel16.getY()+50, Chrono_Players.Chrono_J1.getWidth(), Chrono_Players.Chrono_J1.getHeight()));
+                break;
+            case 3:
+                Pane_Ranking.add(Chrono_Players.Chrono_J4, new AbsoluteConstraints(jLabel16.getX(), jLabel16.getY()+50, Chrono_Players.Chrono_J1.getWidth(), Chrono_Players.Chrono_J1.getHeight()));
+                break;
+        }
+
+        if (Session.listeJoueurs.length > 1) {
+            Pane_Ranking.setVisible(true);
+            jSeparator3.setVisible(true);
+            lbl_deuxieme.setVisible(true);
+            lbl_Win2.setText(Session.listeJoueurs[1].nom);
+            lbl_deuxieme.setVisible(true);
+            lbl_Win2.setVisible(true);
+            lbl_Win2_objet.setVisible(true);
+            lbl_Win2_objet.setText(Session.listeJoueurs[1].indexCarteRetournee + "");
+
+            for (int i = 0; i < Session.listeJoueurs.length; i++) {
+                if (Session.listeJoueurs[i] == copiedArray[1]) {
+                    index = i;
+                }
+            }
+            switch (index) {
+                case 0:
+                    Pane_Ranking.add(Chrono_Players.Chrono_J1, new AbsoluteConstraints(jLabel16.getX(), jLabel16.getY()+100, Chrono_Players.Chrono_J1.getWidth(), Chrono_Players.Chrono_J1.getHeight()));
+                    break;
+                case 1:
+                    Pane_Ranking.add(Chrono_Players.Chrono_J2, new AbsoluteConstraints(jLabel16.getX(), jLabel16.getY()+100, Chrono_Players.Chrono_J1.getWidth(), Chrono_Players.Chrono_J1.getHeight()));
+                    break;
+                case 2:
+                    Pane_Ranking.add(Chrono_Players.Chrono_J3, new AbsoluteConstraints(jLabel16.getX(), jLabel16.getY()+100, Chrono_Players.Chrono_J1.getWidth(), Chrono_Players.Chrono_J1.getHeight()));
+                    break;
+                case 3:
+                    Pane_Ranking.add(Chrono_Players.Chrono_J4, new AbsoluteConstraints(jLabel16.getX(), jLabel16.getY()+100, Chrono_Players.Chrono_J1.getWidth(), Chrono_Players.Chrono_J1.getHeight()));
+                    break;
+            }
+
+            if (Session.listeJoueurs.length > 2) {
+                jSeparator4.setVisible(true);
+                lbl_third.setVisible(true);
+                lbl_Win3.setText(Session.listeJoueurs[2].nom);
+                lbl_Win3.setVisible(true);
+                lbl_Win3_objet.setVisible(true);
+                lbl_Win3_objet.setText(Session.listeJoueurs[2].indexCarteRetournee + "");
+
+                for (int i = 0; i < Session.listeJoueurs.length; i++) {
+                    if (Session.listeJoueurs[i] == copiedArray[2]) {
+                        index = i;
+                    }
+                }
+                switch (index) {
+                    case 0:
+                        Pane_Ranking.add(Chrono_Players.Chrono_J1, new AbsoluteConstraints(jLabel16.getX(), jLabel16.getY()+150, Chrono_Players.Chrono_J1.getWidth(), Chrono_Players.Chrono_J1.getHeight()));
+                        break;
+                    case 1:
+                        Pane_Ranking.add(Chrono_Players.Chrono_J2, new AbsoluteConstraints(jLabel16.getX(), jLabel16.getY()+150, Chrono_Players.Chrono_J1.getWidth(), Chrono_Players.Chrono_J1.getHeight()));
+                        break;
+                    case 2:
+                        Pane_Ranking.add(Chrono_Players.Chrono_J3, new AbsoluteConstraints(jLabel16.getX(), jLabel16.getY()+150, Chrono_Players.Chrono_J1.getWidth(), Chrono_Players.Chrono_J1.getHeight()));
+                        break;
+                    case 3:
+                        Pane_Ranking.add(Chrono_Players.Chrono_J4, new AbsoluteConstraints(jLabel16.getX(), jLabel16.getY()+150, Chrono_Players.Chrono_J1.getWidth(), Chrono_Players.Chrono_J1.getHeight()));
+                        break;
+                }
+
+                if (Session.listeJoueurs.length == 4) {
+                    jSeparator5.setVisible(true);
+                    lbl_forth.setVisible(true);
+                    lbl_Win1.setText(Session.listeJoueurs[3].nom);
+                    lbl_Win4.setVisible(true);
+                    lbl_Win4_objet.setVisible(true);
+                    lbl_Win4_objet.setText(Session.listeJoueurs[3].indexCarteRetournee + "");
+
+                    for (int i = 0; i < Session.listeJoueurs.length; i++) {
+                        if (Session.listeJoueurs[i] == copiedArray[3]) {
+                            index = i;
+                        }
+                    }
+                    switch (index) {
+                        case 0:
+                            Pane_Ranking.add(Chrono_Players.Chrono_J1, new AbsoluteConstraints(jLabel16.getX(), jLabel16.getY()+200, Chrono_Players.Chrono_J1.getWidth(), Chrono_Players.Chrono_J1.getHeight()));
+                            break;
+                        case 1:
+                            Pane_Ranking.add(Chrono_Players.Chrono_J2, new AbsoluteConstraints(jLabel16.getX(), jLabel16.getY()+200, Chrono_Players.Chrono_J1.getWidth(), Chrono_Players.Chrono_J1.getHeight()));
+                            break;
+                        case 2:
+                            Pane_Ranking.add(Chrono_Players.Chrono_J3, new AbsoluteConstraints(jLabel16.getX(), jLabel16.getY()+200, Chrono_Players.Chrono_J1.getWidth(), Chrono_Players.Chrono_J1.getHeight()));
+                            break;
+                        case 3:
+                            Pane_Ranking.add(Chrono_Players.Chrono_J4, new AbsoluteConstraints(jLabel16.getX(), jLabel16.getY()+200, Chrono_Players.Chrono_J1.getWidth(), Chrono_Players.Chrono_J1.getHeight()));
+                            break;
+                    }
+                }
+            }
+        }
+        jFrame_End.setVisible(true);
+    }
+
+    static void sortByIndexCarteRetournee(Player[] array) {
+        Arrays.sort(array, Comparator.comparingInt(Player::getIndexCarteRetournee).reversed());
     }
 
 //    /**
@@ -1102,6 +1373,8 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JPanel Pane_J2;
     private javax.swing.JPanel Pane_J3;
     private javax.swing.JPanel Pane_J4;
+    private javax.swing.JPanel Pane_Ranking;
+    private javax.swing.JPanel Pane_Winner;
     private javax.swing.JButton Rotate;
     private javax.swing.JButton Validate;
     private javax.swing.JButton btn_Help;
@@ -1112,10 +1385,13 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JFrame jFrame_Info;
     private javax.swing.JFrame jFrame_Rules;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1124,8 +1400,14 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JLabel lbl_ChronoJeu;
     private javax.swing.JLabel lbl_ChronoTour;
+    private javax.swing.JLabel lbl_First1;
     private javax.swing.JLabel lbl_J1;
     private javax.swing.JLabel lbl_J2;
     private javax.swing.JLabel lbl_J3;
@@ -1136,12 +1418,26 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_Objet_J2;
     private javax.swing.JLabel lbl_Objet_J3;
     private javax.swing.JLabel lbl_Objet_J4;
+    private javax.swing.JLabel lbl_Win;
+    private javax.swing.JLabel lbl_Win1;
+    private javax.swing.JLabel lbl_Win1_objet;
+    private javax.swing.JLabel lbl_Win2;
+    private javax.swing.JLabel lbl_Win2_objet;
+    private javax.swing.JLabel lbl_Win3;
+    private javax.swing.JLabel lbl_Win3_objet;
+    private javax.swing.JLabel lbl_Win4;
+    private javax.swing.JLabel lbl_Win4_objet;
+    private javax.swing.JLabel lbl_deuxieme;
+    private javax.swing.JLabel lbl_forth;
     private javax.swing.JLabel lbl_nextCard;
     private javax.swing.JLabel lbl_nextCase;
+    private javax.swing.JLabel lbl_nom;
     private javax.swing.JLabel lbl_nomJ1;
     private javax.swing.JLabel lbl_nomJ2;
     private javax.swing.JLabel lbl_nomJ3;
     private javax.swing.JLabel lbl_nomJ4;
+    private javax.swing.JLabel lbl_third;
+    private javax.swing.JLabel lbl_time;
     private javax.swing.JLabel lbl_txtChronoJ1;
     private javax.swing.JLabel lbl_txtChronoJ2;
     private javax.swing.JLabel lbl_txtChronoJ3;
@@ -1150,6 +1446,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_txtObjetJ2;
     private javax.swing.JLabel lbl_txtObjetJ3;
     private javax.swing.JLabel lbl_txtObjetJ4;
+    private javax.swing.JLabel lbl_winner;
     // End of variables declaration//GEN-END:variables
     private javax.swing.JButton DuSON;
     private javax.swing.JButton PasDuSON;

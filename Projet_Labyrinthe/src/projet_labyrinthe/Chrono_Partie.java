@@ -133,7 +133,11 @@ public class Chrono_Partie {
      */
     public void Start() {                                         
             t.start();
-    }                                        
+    }       
+    
+    public void Stop(){
+        t.stop();
+    }
     
     /**
      * Reinitialise le chrono

@@ -37,7 +37,10 @@ public class Player {
         couleur = couleurAttribuee;
         marqueur.couleur = couleurAttribuee;
     }
-
+    
+    public int getIndexCarteRetournee() {
+            return indexCarteRetournee;
+        }
     /**
      * Fixe la position du pion 
      * @param position
