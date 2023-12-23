@@ -119,7 +119,7 @@ public class Accueil extends javax.swing.JFrame {
         Lancer = new javax.swing.JToggleButton();
         Spinner = new javax.swing.JSpinner();
         jScrollPane1 = new javax.swing.JScrollPane();
-        Text1 = new javax.swing.JTextPane();
+        Text1 = new javax.swing.JLabel();
         Lab1 = new javax.swing.JLabel();
         Lab3 = new javax.swing.JLabel();
         TEXTNOM2 = new javax.swing.JTextField();
@@ -159,7 +159,7 @@ public class Accueil extends javax.swing.JFrame {
         Text1.setBackground(new java.awt.Color(0, 0, 102));
         Text1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         Text1.setText("Nombre de Joueurs");
-        Text1.setForeground(Color.white);
+        Text1.setForeground(new java.awt.Color(0, 0, 102));
         jScrollPane1.setViewportView(Text1);
 
         Lab1.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
@@ -416,7 +416,7 @@ private void stopSound() {
     private javax.swing.JTextField TEXTNOM2;
     private javax.swing.JTextField TEXTNOM3;
     private javax.swing.JTextField TEXTNOM4;
-    private javax.swing.JTextPane Text1;
+    private javax.swing.JLabel Text1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

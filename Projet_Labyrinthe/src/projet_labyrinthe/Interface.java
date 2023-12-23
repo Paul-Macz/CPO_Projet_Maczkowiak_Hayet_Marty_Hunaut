@@ -146,6 +146,7 @@ public class Interface extends javax.swing.JFrame {
         lbl_Win2_objet = new javax.swing.JLabel();
         lbl_Win3_objet = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
         jFrame_Rules = new javax.swing.JFrame();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -211,14 +212,14 @@ public class Interface extends javax.swing.JFrame {
         lbl_winner.setFont(new java.awt.Font("OCR A Extended", 1, 36)); // NOI18N
         lbl_winner.setForeground(new java.awt.Color(255, 204, 102));
         lbl_winner.setText("jLabel10");
-        Pane_Winner.add(lbl_winner, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
+        Pane_Winner.add(lbl_winner, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, -1, -1));
 
         lbl_Win.setFont(new java.awt.Font("OCR A Extended", 1, 36)); // NOI18N
         lbl_Win.setForeground(new java.awt.Color(255, 204, 102));
         lbl_Win.setText("VAINQUEUR:");
-        Pane_Winner.add(lbl_Win, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 240, -1));
+        Pane_Winner.add(lbl_Win, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 240, -1));
 
-        jFrame_End.getContentPane().add(Pane_Winner, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 290, 120));
+        jFrame_End.getContentPane().add(Pane_Winner, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 480, 120));
 
         Pane_Ranking.setBackground(new java.awt.Color(102, 102, 102));
         Pane_Ranking.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -298,7 +299,10 @@ public class Interface extends javax.swing.JFrame {
         jLabel15.setText("<html>NOMBRE D'OBJETS RAMASSES");
         Pane_Ranking.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 180, 50));
 
-        jFrame_End.getContentPane().add(Pane_Ranking, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 410, 290));
+        jFrame_End.getContentPane().add(Pane_Ranking, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 410, 290));
+
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Jeux Pixel.gif"))); // NOI18N
+        jFrame_End.getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1220, 770));
 
         jFrame_Rules.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1094,7 +1098,6 @@ public class Interface extends javax.swing.JFrame {
         jFrame_Rules.setVisible(true);
         jFrame_Info.pack();
         jFrame_Rules.pack();
-
     }//GEN-LAST:event_btn_HelpActionPerformed
 
     private void RotateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RotateActionPerformed
@@ -1375,7 +1378,8 @@ public class Interface extends javax.swing.JFrame {
                 }
             }
         }
-        jFrame_End.pack();
+        jFrame_End.setSize(ScreenDim.width, ScreenDim.height);
+        jFrame_End.setExtendedState(JFrame.MAXIMIZED_BOTH);
         jFrame_End.setVisible(true);
     }
 
@@ -1447,6 +1451,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
