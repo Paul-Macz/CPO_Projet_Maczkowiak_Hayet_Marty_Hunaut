@@ -129,6 +129,7 @@ public class Interface extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
         jFrame_Info = new javax.swing.JFrame();
         jLabel2 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -176,7 +177,7 @@ public class Interface extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 102, 255));
-        jLabel1.setText("Règle du jeu :");
+        jLabel1.setText("Règles du jeu :");
         jFrame_Rules.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -205,10 +206,13 @@ public class Interface extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel9.setText("<html>- Maintenant à vous de jouer en effectuant ces mêmes taches et en respectant les règles afin d'être le premier à réunir les 6 objets et gagner la partie.");
-        jFrame_Rules.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 970, 40));
+        jFrame_Rules.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 970, 30));
 
         jButton2.setText("jButton2");
         jFrame_Rules.getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 300, 70));
+
+        jLabel10.setText("jLabel10");
+        jFrame_Rules.getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 380));
 
         jFrame_Info.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1067,6 +1071,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JFrame jFrame_Info;
     private javax.swing.JFrame jFrame_Rules;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
