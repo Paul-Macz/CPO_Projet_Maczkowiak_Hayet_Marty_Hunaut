@@ -134,7 +134,23 @@ public class Interface extends javax.swing.JFrame {
     private void initComponents() {
 
         jFrame_End = new javax.swing.JFrame();
+        jFrame_Rules = new javax.swing.JFrame();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jFrame_Info = new javax.swing.JFrame();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         Labyrinth = new javax.swing.JPanel();
         Pane_Info = new javax.swing.JPanel();
         lbl_NomJoueur = new javax.swing.JLabel();
@@ -170,6 +186,70 @@ public class Interface extends javax.swing.JFrame {
         Validate = new javax.swing.JButton();
         Rotate = new javax.swing.JButton();
         btn_Help = new javax.swing.JButton();
+
+        jFrame_Rules.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 102, 255));
+        jLabel1.setText("Règle du jeu :");
+        jFrame_Rules.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, -1));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setText("<html>- BONNE CHANCE A TOUS ET QUE LE MEILLEUR GAGNE!!!!!");
+        jFrame_Rules.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 970, 40));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setText("<html>- Le jeu est un tour par tour. Le tour d'un joueur est alors affecter par la couler de l'écran à votre gauche.  \nA présent il est temps de commencer.");
+        jFrame_Rules.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 970, 40));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setText("<html>- Le but du jeu et  de tous les joueurs sur le plateau est alors d'arriver à atteindre les objets qui leur sont attitrer par les cartes  au fur et à mesure . Le premier a avoir parcourue le chemin et réunit les 6 objets lui étant attitrer est le grand vainqueur.Comment alors se déroule une partie?");
+        jFrame_Rules.getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 970, 40));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel6.setText("<html>- Donc, tout d'abord, à chaque tour, vous recevez une carte chemin que vous pouvez placer à votre guise sur les différents chemins bleus du plateau. Ces cartes sont ensuite placées sur le chemin de votre choix. À vous de leur donner une orientation grâce à la case rotation en orange en bas à gauche du plateau. Maintenant, il vous suffit de valider votre choix avec la case de validation en verte, juste à côté de la case rotation. Le plateau est alors modifié, sortant la carte qui est au bout du chemin choisi. Leur placement est une histoire de stratégie, pouvant tout autant vous servir que desservir vos adversaires. À vous de voir.");
+        jFrame_Rules.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 970, 90));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel7.setText("<html>- Après avoir mis votre carte chemin sur le plateau, à vous de vous déplacer. Vous ne pouvez vous déplacer que de case en case et uniquement d'une case par tour. Donc, choisissez le chemin le plus optimisé pour arriver à votre objectif le plus vite.");
+        jFrame_Rules.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 970, 40));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel8.setText("<html>- C'est ensuite donc au tour des autres joueurs d'éffectuer leur tour et ainsi de suite. Maintenant après avoir traverser le labyrinthe est d'être arrivée devant votre objet, pour le ramasser il vous suffit donc de vous déplacer sur la case et le tour est joué.");
+        jFrame_Rules.getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 970, 40));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel9.setText("<html>- Maintenant à vous de jouer en effectuant ces même taches est règles afin d'être le premier à réunir les 6 objets et gagnez la partie.");
+        jFrame_Rules.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 970, 40));
+
+        jButton2.setText("jButton2");
+        jFrame_Rules.getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 300, 70));
+
+        jFrame_Info.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 102, 255));
+        jLabel2.setText("Information complémentaire :");
+        jFrame_Info.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, -1));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel11.setText("<html>- L'objet qui est rammasser pour chaque joueur est situé sur la page de gauche sur la carte objet à ramasser. Les objets à rammasser sont aléatoires pour chaque joueur. les objets sont attribuer une seul et unique fois à un seul des joueurs donc deux joueur ne peuvent pas avoir le même objet.");
+        jFrame_Info.getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 970, 40));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel12.setText("<html>- La page de gauche change de couleur selon le joueur qui joue. Cette page actualise aussi les donné affecté à chauqe joueur l'objet à ramasser ou encore la carte chemin qu'il peut placer.");
+        jFrame_Info.getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 970, 40));
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel13.setText("<html>-Lorsque vous vous déplacer de case en case cela est uniquement posi=sible si vous continué sur le chemin que les carte vous trace. Si vous être nface d'un mur vous serai bloquer de tous déplacement dans cette direction. Vos déplacement sont limité à des déplacement haut, bas, gauche, droite, vous ne pouvez pas vou s déplacer diagonalement.");
+        jFrame_Info.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 970, 90));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel14.setText("<html>- Vous pouvez tout à fait être bloqué mais pas de panique pour poursuivre le tour il vous suffit de cliquer sur la case ou vous êtes si vous ne puvez pas vous déplacer.Ensuite si vous etes situé sur le bout d'un des chemins de d'insertion de carte est que vous êtes alors éjecter du plateau ne vous inquiétez pas votre joueur  va alors ce retrouver de l'autre côtée de ce même chemin.");
+        jFrame_Info.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 970, 70));
+
+        jButton1.setText("jButton1");
+        jFrame_Info.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, 180, 40));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -935,8 +1015,24 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton Rotate;
     private javax.swing.JButton Validate;
     private javax.swing.JButton btn_Help;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JFrame jFrame_End;
     private javax.swing.JFrame jFrame_Info;
+    private javax.swing.JFrame jFrame_Rules;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbl_ChronoJeu;
     private javax.swing.JLabel lbl_ChronoTour;
     private javax.swing.JLabel lbl_J1;
