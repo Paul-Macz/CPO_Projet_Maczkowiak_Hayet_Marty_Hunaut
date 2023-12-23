@@ -10,6 +10,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
+import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -128,14 +129,15 @@ public class Interface extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btn_openInfoSup = new javax.swing.JButton();
+        btn_closeRules = new javax.swing.JButton();
         jFrame_Info = new javax.swing.JFrame();
         jLabel2 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btn_closeInfoSup = new javax.swing.JButton();
         Labyrinth = new javax.swing.JPanel();
         Pane_Info = new javax.swing.JPanel();
         lbl_NomJoueur = new javax.swing.JLabel();
@@ -174,67 +176,89 @@ public class Interface extends javax.swing.JFrame {
 
         jFrame_Rules.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Georgia", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 102, 255));
         jLabel1.setText("Règle du jeu :");
         jFrame_Rules.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel3.setText("<html>- BONNE CHANCE A TOUS ET QUE LE MEILLEUR GAGNE!!!!!");
-        jFrame_Rules.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 970, 40));
+        jLabel3.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        jLabel3.setText("<html>- BONNE CHANCE A VOUS ET QUE LE MEILLEUR GAGNE !!");
+        jFrame_Rules.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 970, 40));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("<html>- Le jeu est un tour par tour. Le tour d'un joueur est alors affecter par la couler de l'écran à votre gauche.  \nA présent il est temps de commencer.");
+        jLabel4.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel4.setText("<html>- Le jeu est un tour par tour. Le tour d'un joueur est alors affecté par la couleur de l'écran à votre gauche.  A présent il est temps de commencer.");
         jFrame_Rules.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 970, 40));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("<html>- Le but du jeu et  de tous les joueurs sur le plateau est alors d'arriver à atteindre les objets qui leur sont attitrer par les cartes  au fur et à mesure . Le premier a avoir parcourue le chemin et réunit les 6 objets lui étant attitrer est le grand vainqueur.Comment alors se déroule une partie?");
-        jFrame_Rules.getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 970, 40));
+        jLabel5.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel5.setText("<html>- Le but du jeu et de tous les joueurs sur le plateau est alors d'essayer d'atteindre les objets qui leur sont attribués par les cartes au fur et à mesure . Le premier à avoir parcouru le chemin et réunit les 6 objets qui lui sont attribués est le grand vainqueur. Comment se déroule la partie ?");
+        jFrame_Rules.getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 970, 60));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setText("<html>- Donc, tout d'abord, à chaque tour, vous recevez une carte chemin que vous pouvez placer à votre guise sur les différents chemins bleus du plateau. Ces cartes sont ensuite placées sur le chemin de votre choix. À vous de leur donner une orientation grâce à la case rotation en orange en bas à gauche du plateau. Maintenant, il vous suffit de valider votre choix avec la case de validation en verte, juste à côté de la case rotation. Le plateau est alors modifié, sortant la carte qui est au bout du chemin choisi. Leur placement est une histoire de stratégie, pouvant tout autant vous servir que desservir vos adversaires. À vous de voir.");
-        jFrame_Rules.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 970, 90));
+        jLabel6.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel6.setText("<html>- Tout d'abord, à chaque tour, vous recevez une carte chemin que vous pouvez placer à votre guise sur les différents chemins bleus du plateau. Ces cartes sont ensuite placées sur le chemin de votre choix. À vous de leur donner une orientation grâce à la case rotation en orange en bas à gauche du plateau. Maintenant, il vous suffit de valider votre choix avec la case de validation verte, juste à côté de la case rotation. Le plateau est alors modifié, sortant la carte qui est au bout du chemin choisi. Leur placement est une histoire de stratégie, pouvant tout autant vous servir que desservir vos adversaires. À vous de voir.");
+        jFrame_Rules.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 970, 100));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel7.setText("<html>- Après avoir mis votre carte chemin sur le plateau, à vous de vous déplacer. Vous ne pouvez vous déplacer que de case en case et uniquement d'une case par tour. Donc, choisissez le chemin le plus optimisé pour arriver à votre objectif le plus vite.");
-        jFrame_Rules.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 970, 40));
+        jLabel7.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel7.setText("<html>- Après avoir mis votre carte chemin sur le plateau, à vous de vous déplacer. Vous ne pouvez vous déplacer que de case en case et uniquement d'une case par tour. Donc, choisissez le chemin optimal pour que vous puissiez arriver à votre objectif le plus rapidement possible ! Le temps compte !");
+        jFrame_Rules.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 970, 60));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel8.setText("<html>- C'est ensuite donc au tour des autres joueurs d'éffectuer leur tour et ainsi de suite. Maintenant après avoir traverser le labyrinthe est d'être arrivée devant votre objet, pour le ramasser il vous suffit donc de vous déplacer sur la case et le tour est joué.");
-        jFrame_Rules.getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 970, 40));
+        jLabel8.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel8.setText("<html>- C'est ensuite donc au tour des autres joueurs d'effectuer leur tour et ainsi de suite. Maintenant après avoir traversé le labyrinthe est être arrivé devant votre objet, pour le ramasser il vous suffit donc de vous déplacer sur la case et le tour est joué.");
+        jFrame_Rules.getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 970, 40));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel9.setText("<html>- Maintenant à vous de jouer en effectuant ces même taches est règles afin d'être le premier à réunir les 6 objets et gagnez la partie.");
-        jFrame_Rules.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 970, 40));
+        jLabel9.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel9.setText("<html>- Maintenant à vous de jouer en effectuant ces mêmes taches et en respectant les règles afin d'être le premier à réunir les 6 objets et gagner la partie.");
+        jFrame_Rules.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 970, 40));
 
-        jButton2.setText("jButton2");
-        jFrame_Rules.getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 300, 70));
+        btn_openInfoSup.setBackground(new java.awt.Color(204, 204, 0));
+        btn_openInfoSup.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
+        btn_openInfoSup.setText("Informations Supplémentaires");
+        btn_openInfoSup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_openInfoSupActionPerformed(evt);
+            }
+        });
+        jFrame_Rules.getContentPane().add(btn_openInfoSup, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 390, 370, 60));
+
+        btn_closeRules.setBackground(new java.awt.Color(153, 0, 0));
+        btn_closeRules.setFont(new java.awt.Font("Lucida Console", 1, 36)); // NOI18N
+        btn_closeRules.setText("Fermer");
+        btn_closeRules.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_closeRulesActionPerformed(evt);
+            }
+        });
+        jFrame_Rules.getContentPane().add(btn_closeRules, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 200, 70));
 
         jFrame_Info.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Georgia", 3, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 102, 255));
         jLabel2.setText("Information complémentaire :");
         jFrame_Info.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, -1));
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel11.setText("<html>- L'objet qui est rammasser pour chaque joueur est situé sur la page de gauche sur la carte objet à ramasser. Les objets à rammasser sont aléatoires pour chaque joueur. les objets sont attribuer une seul et unique fois à un seul des joueurs donc deux joueur ne peuvent pas avoir le même objet.");
-        jFrame_Info.getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 970, 40));
+        jLabel11.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel11.setText("<html>- L'objet qui est ramassé pour chaque joueur est situé sur la page de gauche sur la carte objet à ramasser. Les objets à ramasser sont aléatoires pour chaque joueur. Les objets sont attribués une seule et unique fois à un seul des joueurs donc deux joueurs ne peuvent pas avoir le même objet.");
+        jFrame_Info.getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 970, 50));
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel12.setText("<html>- La page de gauche change de couleur selon le joueur qui joue. Cette page actualise aussi les donné affecté à chauqe joueur l'objet à ramasser ou encore la carte chemin qu'il peut placer.");
+        jLabel12.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel12.setText("<html>- La page de gauche change de couleur selon le joueur qui joue. Cette page actualise aussi les données affectées à chaque joueur l'objet à ramasser ou encore la carte chemin qu'il peut placer.");
         jFrame_Info.getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 970, 40));
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel13.setText("<html>-Lorsque vous vous déplacer de case en case cela est uniquement posi=sible si vous continué sur le chemin que les carte vous trace. Si vous être nface d'un mur vous serai bloquer de tous déplacement dans cette direction. Vos déplacement sont limité à des déplacement haut, bas, gauche, droite, vous ne pouvez pas vou s déplacer diagonalement.");
+        jLabel13.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel13.setText("<html>-Lorsque vous vous déplacer de case en case cela est uniquement possible si vous continuez sur le chemin que les cartes vous tracent. Si vous êtes en face d'un mur vous serez bloqué de tous déplacement dans cette direction. Vos déplacements sont limités à des déplacements haut, bas, gauche, droite, vous ne pouvez pas vous déplacer diagonalement.");
         jFrame_Info.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 970, 90));
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel14.setText("<html>- Vous pouvez tout à fait être bloqué mais pas de panique pour poursuivre le tour il vous suffit de cliquer sur la case ou vous êtes si vous ne puvez pas vous déplacer.Ensuite si vous etes situé sur le bout d'un des chemins de d'insertion de carte est que vous êtes alors éjecter du plateau ne vous inquiétez pas votre joueur  va alors ce retrouver de l'autre côtée de ce même chemin.");
-        jFrame_Info.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 970, 70));
+        jLabel14.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel14.setText("<html>- Vous pouvez tout à fait être bloqué mais pas de panique pour poursuivre le tour il vous suffit de cliquer sur la case ou vous êtes si vous ne pouvez pas vous déplacer. Ensuite si vous êtes situé sur le bout d'un des chemins d'insertion de carte et que vous êtes alors éjecter du plateau ne vous inquiétez pas votre joueur va alors se retrouver de l'autre côté de ce même chemin.");
+        jFrame_Info.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 970, 70));
 
-        jButton1.setText("jButton1");
-        jFrame_Info.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, 180, 40));
+        btn_closeInfoSup.setText("Fermer");
+        btn_closeInfoSup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_closeInfoSupActionPerformed(evt);
+            }
+        });
+        jFrame_Info.getContentPane().add(btn_closeInfoSup, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, 180, 40));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -915,6 +939,10 @@ public class Interface extends javax.swing.JFrame {
 
     private void btn_HelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_HelpActionPerformed
         // TODO add your handling code here:
+        jFrame_Rules.setVisible(true);
+        jFrame_Info.pack();
+        jFrame_Rules.pack();
+        
     }//GEN-LAST:event_btn_HelpActionPerformed
 
     private void RotateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RotateActionPerformed
@@ -998,6 +1026,22 @@ public class Interface extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ValidateActionPerformed
 
+    private void btn_closeInfoSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_closeInfoSupActionPerformed
+        // TODO add your handling code here:
+        jFrame_Info.setVisible(false);
+    }//GEN-LAST:event_btn_closeInfoSupActionPerformed
+
+    private void btn_closeRulesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_closeRulesActionPerformed
+        // TODO add your handling code here:
+        jFrame_Rules.setVisible(false);
+        jFrame_Info.setVisible(false);
+    }//GEN-LAST:event_btn_closeRulesActionPerformed
+
+    private void btn_openInfoSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_openInfoSupActionPerformed
+        // TODO add your handling code here:
+        jFrame_Info.setVisible(true);
+    }//GEN-LAST:event_btn_openInfoSupActionPerformed
+
     public void CasePlacee() {
         placement = false;
         deplacement = true;
@@ -1061,8 +1105,9 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton Rotate;
     private javax.swing.JButton Validate;
     private javax.swing.JButton btn_Help;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btn_closeInfoSup;
+    private javax.swing.JButton btn_closeRules;
+    private javax.swing.JButton btn_openInfoSup;
     private javax.swing.JFrame jFrame_End;
     private javax.swing.JFrame jFrame_Info;
     private javax.swing.JFrame jFrame_Rules;
