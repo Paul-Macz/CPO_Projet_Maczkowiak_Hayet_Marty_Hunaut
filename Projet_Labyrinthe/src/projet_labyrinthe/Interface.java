@@ -178,7 +178,7 @@ public class Interface extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Georgia", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 102, 255));
-        jLabel1.setText("Règle du jeu :");
+        jLabel1.setText("Règles du jeu :");
         jFrame_Rules.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, -1));
 
         jLabel3.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
@@ -229,11 +229,14 @@ public class Interface extends javax.swing.JFrame {
         });
         jFrame_Rules.getContentPane().add(btn_closeRules, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 200, 70));
 
+        jLabel10.setText("jLabel10");
+        jFrame_Rules.getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 380));
+
         jFrame_Info.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Georgia", 3, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 102, 255));
-        jLabel2.setText("Information complémentaire :");
+        jLabel2.setText("Informations complémentaires :");
         jFrame_Info.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, -1));
 
         jLabel11.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
@@ -1112,6 +1115,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JFrame jFrame_Info;
     private javax.swing.JFrame jFrame_Rules;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
